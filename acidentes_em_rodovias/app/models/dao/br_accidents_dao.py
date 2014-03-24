@@ -47,7 +47,7 @@ class BRAccidentsDAO(GenericoDAO):
             GROUP BY bre.ano, bre.br
             ORDER BY bre.br, bre.ano;"""
 
-        general_accidents_year = self.executa_query(general_accidents_year)
+        general_accidents_year = self.executa_query(general_accidents_year_sql)
 
         br_accidents_year = []
         last_br = ''

@@ -7,19 +7,6 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-
-from django.utils.datastructures import MultiValueDictKeyError
-from django.template import RequestContext
-from django.http import HttpResponse
-from django.shortcuts import render_to_response
-
-from exception.validation_exceptions import *
-from exception.internal_exceptions import *
-
-from models.dao.br_acidentes_dao import *
-
-from datetime import datetime
-
 import MySQLdb
 import logging
 import sys
@@ -33,6 +20,18 @@ current_dir = os.path.dirname(os.path.abspath(
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
+from django.utils.datastructures import MultiValueDictKeyError
+from django.template import RequestContext
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+
+from exception.validation_exceptions import *
+from exception.internal_exceptions import *
+
+from models.dao.br_accidents_dao import *
+
+from datetime import datetime
+
 # Config logging messages
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -42,8 +41,8 @@ def accidents_br(request):
     try:
         date = datetime.now()
         br_dao = BRAccidentsDAO()
-        general_accidents = br_dao.general_accidents()()
-        accidents_year = br_dao.general_accidents_year()()
+        general_accidents = br_dao.general_accidents()
+        accidents_year = br_dao.general_accidents_year()
 
     except (MySQLdb.Error, ResultadoConsultaNuloError), e:
         logger.error(str(e))
