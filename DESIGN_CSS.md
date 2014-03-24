@@ -47,7 +47,8 @@ Indent always.
 </code></pre>
 
 ####Nomenclature and Declarations
-#####Methods and Functions
+#####Class, Methods and Functions
+Should use this model.
 <pre><code>
 .some-class {
   color: red;
@@ -55,5 +56,34 @@ Indent always.
 
 .another-class {
   color: blue;
+}
+</code></pre>
+
+#####Shorthands
+They should be similar from class.
+<pre><code>
+.text {
+  font: 1em/1.1em bold italic small-caps Verdana, Arial, Helvetica, sans-serif;}
+</code></pre>
+
+ Or like this to multi-lines:
+
+ <pre><code>
+.text {
+  font-size: 10em;
+  line-height: 1.1em;
+  font-weight: bold;
+  font-style: italic;
+  font-variant: small-caps;
+  font-family: Verdana, Arial, Helvetica, sans-serif;}
+</code></pre>
+
+#####Variables
+If it has, they should be like this:
+<pre><code>
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
 }
 </code></pre>
