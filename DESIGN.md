@@ -1,9 +1,9 @@
-#Documento de Estilo e Design
+#Document of style and design
 
-Este documento define os padrões de estilo e design que deverão ser seguidos neste projeto. As especificações serão divididas em três partes: Python, CSS e JavaScript.
+This document defines the patterns of style and design adopted and is divided into three parts: Python, CSS and JavaScript.
 
 ##Python
-####Cabeçalho
+####Head
 <pre><code># -*- coding: utf-8 -*-
 #
 # Universidade de Brasilia - FGA
@@ -14,21 +14,21 @@ Este documento define os padrões de estilo e design que deverão ser seguidos n
 #
 </code></pre>
 
-####Comentários
-Os comentários devem ser escritos no idioma da linguagem.
+####Comments
+The comments will be described into language of programming language.
 <pre><code># This is a simple comment.
 
 # This comment occupies
 # more than one line.
 </code></pre>
 
-####Identação
-Sempre utilizar 4 espaços para identar.
+####Indentation
+Always use 4 spaces to indent.
 <pre><code>if __name__ == '__main__':
     print 'Hello, world'
 </code></pre>
 
-Identar sempre.
+Always indent.
 <pre><code>if x > 5:
     if x == 7:
         print x
@@ -36,15 +36,15 @@ Identar sempre.
         print x + 1
 </code></pre>
 
-####Nomenclaturas e Declarações
-#####Métodos e Funções
-Nome do método/função no idioma da linguagem, com inicial minúscula e, se possuir mais de uma palavra, separar com um '_'. Argumentos separados com um espaço após a vírgula, como no exemplo abaixo.
+####Nomenclatures and Declarations
+#####Méthods and Functions
+Name of method/function into language of programming language, with initial into lowercase and, if it have more than one word, break with '_'. Arguments separated with one space after comma, following example.
 <pre><code>def function_sum(num1, num2):
     # ...
 </code></pre>
 
 #####Classes
-Nome da classe no idioma da linguagem, inicial maiúscula e, se possuir mais de uma palavra, as suas letras iniciais devem ser maiúsculas também. Cada classe deve conter um comentário com uma breve descrição.
+Class name will be into language of programming language, initial uppercase and, if it have more than one word, break with letter into uppercase in the beginning of the other word. Each class have to have the comment with a short description.
 
 <pre><code>class ClassOne():
 
@@ -54,14 +54,14 @@ Nome da classe no idioma da linguagem, inicial maiúscula e, se possuir mais de 
         # ...
 </code></pre>
 
-#####Variáveis
-Variáveis com nome significativo, no idioma da linguagem, com inicial minúscla e, se possuir mais de uma palavra, separar com um '_'. Deve existir um espaço entre a variável e o sinal de atribuição/comparação, bem como entre o sinal de atribuição/comparação e o valor a ser atribuído/comparado.
+#####Variables
+Variables will be with meaning name, into language of programming language, with initial into uppercase and, if it have more than one word, break with '_'. One space will be among the variable and the attribution/comparison signal, as well as among attribution/comparison and value to be attributed/compared.
 
 <pre><code>cars_list = []
 car.model = '208'</code></pre>
 
-#####Tuplas, Listas e Dicionários
-Tuplas, Listas e Dicionários devem ser descritos da seguinte forma:
+#####Tuples, Lists e Dictionaries
+Tuples, lists and dictionaries will be described into following pattern:
 
 <pre><code>tuple = (
     var_x,
@@ -71,10 +71,10 @@ Tuplas, Listas e Dicionários devem ser descritos da seguinte forma:
 </code></pre>
 
 ####Imports
-Os imports devem seguir a seguinte ordem:
+The imports will be follow pattern:
 
-1. Imports de classes específicas de um pacote (`from os import path`), ordenados e separados por pacote.
-2. Import de pacotes inteiros (`import os`).
+1. Imports of the especific classes from the package (`from os import path`), ordered and separated each package.
+2. Import from entire package (`import os`).
 
 <pre><code>from django.template import RequestContext
 from django.http import HttpResponse
