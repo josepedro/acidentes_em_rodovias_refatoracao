@@ -13,15 +13,15 @@ class BRAccidents():
     """Accidents in general of Brazilian highways"""
 
     def __init__(self):
-        self.number_occurrenses = ''
+        self.number_occurrences = ''
         self.br = ''
 
 
-class BRAcidentesAno(object):
+class BRAccidentsYear():
 
-    """ Acidentes em geral das rodovias separados por ano"""
+    """Accidents in general of Brazilian highways separated by year"""
 
     def __init__(self):
-        self.quantidade_ocorrencias_list = []
+        self.number_occurrences_list = []
         self.br = ''
-        self.ano_list = []
+        self.year_list = []
