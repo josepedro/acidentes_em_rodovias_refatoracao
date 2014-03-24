@@ -8,12 +8,12 @@
 #
 
 
-class BRAcidentes(object):
+class BRAccidents():
 
-    """ Acidentes em geral das rodovias"""
+    """Accidents in general of Brazilian highways"""
 
     def __init__(self):
-        self.quantidade_ocorrencias = ''
+        self.number_occurrenses = ''
         self.br = ''
 
 
