@@ -47,7 +47,9 @@ Nome do método/função no idioma da linguagem, com inicial minúscula e, se po
 Nome da classe no idioma da linguagem, inicial maiúscula e, se possuir mais de uma palavra, as suas letras iniciais devem ser maiúsculas também. Cada classe deve conter um comentário com uma breve descrição.
 
 <pre><code>class ClassOne():
+
     """This class is only a example."""
+
     def method_x():
         # ...
 </code></pre>
