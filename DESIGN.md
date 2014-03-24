@@ -58,7 +58,7 @@ Variáveis com nome significativo, no idioma da linguagem, com inicial minúscla
 <pre><code>cars_list = []
 car.model = '208'</code></pre>
 
-####Tuplas, Listas e Dicionários
+#####Tuplas, Listas e Dicionários
 Tuplas, Listas e Dicionários devem ser descritos da seguinte forma:
 
 <pre><code>tuple = (
@@ -66,4 +66,19 @@ Tuplas, Listas e Dicionários devem ser descritos da seguinte forma:
     var_y,
     var_z,
 )
+</code></pre>
+
+####Imports
+Os imports devem seguir a seguinte ordem:
+
+1. Imports de classes específicas de um pacote (`from os import path`), ordenados e separados por pacote.
+2. Import de pacotes inteiros (`import os`).
+
+<pre><code>from django.template import RequestContext
+from django.http import HttpResponse
+
+from exception.validation_exceptions import *
+from exception.internal_exceptions import *
+
+import MySQLdb
 </code></pre>
