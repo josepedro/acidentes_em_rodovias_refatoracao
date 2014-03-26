@@ -1,49 +1,54 @@
 # -*- coding: utf-8 -*-
-"""@package Envolvidos Acidentes DAO
-Data Access Object (DAO) para causa de acidentes nas BRs.
+#
+# Universidade de Brasilia - FGA
+# Técnicas de Programação, 1/2014
+#
+# Acidentes em Rodovias, 2013-2014
+# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+#
 
-Este modulo contem declação da classe que acessa os
-dados no banco e os exporta para a controller
-"""
+import sys
+import os
+import inspect
 
-from generico_dao import GenericoDAO
-import sys, os, inspect
+# Adding upper directories to the Python Path
 current_path = os.path.dirname(os.path.abspath('..'))
 sys.path.append(current_path)
 current_path = os.path.dirname(os.path.abspath('.'))
 sys.path.append(current_path)
 
+from generico_dao import GenericoDAO
+
 from models.envolvidos_acidentes import *
+
 from util.estatisticas_util import *
 
+
 class EnvolvidosAcidentesDAO(GenericoDAO):
-	def envolvidos_acidentes(self):
-		""" Envolvidos em Acidentes 
 
-			Efetua uma query buscando por envolvidos em geral
-			@return lista de objetos para as respostas da query
-		"""
-		query = """SELECT `quantidade_envolvidos`, `quantidade_acidentes`, `ano`
-				FROM `estatisticas_envolvido`;"""
+    def envolvidos_acidentes(self):
+        query = """SELECT
+                    `quantidade_envolvidos`, `quantidade_acidentes`, `ano`
+                FROM `estatisticas_envolvido`;"""
 
-		return self.transforma_dicionario_em_objetos(self.executa_query(query), "EnvolvidosAcidente", "envolvidos_acidentes")
+        return self.transforma_dicionario_em_objetos(
+            self.executa_query(query),
+            "EnvolvidosAcidente",
+            "envolvidos_acidentes"
+        )
 
-	def media_desvio_envolvidos(self):
-		""" Media e desvio dos envolvidos em acidentes 
+    def media_desvio_envolvidos(self):
+        lista_envolvidos = self.envolvidos_acidentes()
 
-			Retorna duas tuplas contendo os desvios e media dos envolvidos.
-			@return lista de objetos para as respostas da query
-		"""
-		lista_envolvidos = self.envolvidos_acidentes()
+        lista_medias = []
+        for envolvido in lista_envolvidos:
+            envolvidos = float(envolvido.quantidade_envolvidos)
+            acidentes = float(envolvido.quantidade_acidentes)
+            media = envolvidos / acidentes
+            lista_medias.append(media)
 
-		lista_medias = []
-		for envolvido in lista_envolvidos:
-			envolvidos = float(envolvido.quantidade_envolvidos)
-			acidentes = float(envolvido.quantidade_acidentes)
-			media = envolvidos/acidentes
-			lista_medias.append(media)
+        desvio = desvio_padrao(
+            lista_medias
+        )
 
-		desvio = desvio_padrao(lista_medias)
-
-		return lista_medias, desvio
-
+        return lista_medias, desvio
