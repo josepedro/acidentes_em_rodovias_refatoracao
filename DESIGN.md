@@ -1,3 +1,5 @@
+<pre><code>
+</code></pre>
 #Document of style and design
 
 This document defines the patterns of style and design adopted and is divided into three parts: Python, CSS and JavaScript.
@@ -203,8 +205,8 @@ more than one line.*/
 The unit of indentation is one tab of four spaces.
 
 <pre><code>
-if (time < 20) {
-    x = "Good day";
+if (time == 20) {
+    x ;
     }
 else {
     x = "Good evening";
@@ -217,8 +219,8 @@ Place the breaks after an operator, specially a comma.
 The next line should be indented with 1 tab.
 
 <pre><code>
-if(time < 20) {
-    x = "This is a long sentence. It should have maximum 80 characters long.
+if(time == 20) {
+    x = "This is a long sentence. It should have maximum 120 characters long.
         Because of that, we had to break the line."
     }
 </code></pre>
@@ -251,7 +253,7 @@ function outer(c, d) {
     var e = c * d;
 
     function inner(a, b) {
-        return (e * a) + b;
+    	return (e * a) + b;
     }
 
     return inner(0, 1);
@@ -260,6 +262,7 @@ function outer(c, d) {
 
 If a function literal is anonymous, there should be one space between the word function and the ( (left parenthesis). If the space is
 omited, then it can appear that the function's name is function, which is an incorrect reading.
+
 <pre><code>
 div.onclick = function (e) {
     return false;
@@ -271,4 +274,27 @@ that = {
     },
     datum: 0
 };
+</code></pre>
+
+#####Whitespace
+Blank lines improve readability by setting off sections of code that are logically related.
+Blank spaces should be used in the following circumstances:
+
+-A keyword followed by ( (left parenthesis) should be separated by a space.
+
+<pre><code>
+while (true) {
+    document.write('Hello World!');
+}
+</code></pre>
+
+-A blank space should not be used between a function value and its ( (left parenthesis). This helps to distinguish between keywords and
+function invocations.
+
+-Whitespace should follow every , (comma).
+
+<pre><code>
+function inner(a, b) {
+    return (e * a) + b;
+    }
 </code></pre>
