@@ -17,7 +17,7 @@ sys.path.append(current_path)
 current_path = os.path.dirname(os.path.abspath('.'))
 sys.path.append(current_path)
 
-from generico_dao import GenericoDAO
+from .generico_dao import GenericoDAO
 
 from models.uf_acidentes import *
 
@@ -95,7 +95,9 @@ class UFAcidentesDAO(GenericoDAO):
 
         uf_acidentes_ano_list = []
         ultima_uf = ''
-        ufs_mais_acidentes = [i.uf for i in self.acidentes_uf_geral()[:10]]
+        ufs_mais_acidentes = []
+        for i in self.acidentes_uf_geral()[:10]:
+            ufs_mais_acidentes.append(i.uf)
 
         for (uf, uf_sigla, quantidade_ocorrencias, ano) in zip(
             resultado_query['uf'].values(),
