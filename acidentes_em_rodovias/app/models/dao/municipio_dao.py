@@ -1,16 +1,33 @@
 # -*- coding: utf-8 -*-
+#
+# Universidade de Brasilia - FGA
+# Técnicas de Programação, 1/2014
+#
+# Acidentes em Rodovias, 2013-2014
+# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+#
+
 from generico_dao import GenericoDAO
 
-class MunicipioDAO(GenericoDAO):
-	def lista_municipios(self, uf, limite=0):
-		if(limite != 0):
-			limite = 'LIMIT %s' % limite
-		else:
-			limite = ''
 
-		query = """SELECT DISTINCT tmucodigo, tmudenominacao, tmuuf
-				FROM municipio tmu
-				INNER JOIN ocorrencia oco ON oco.ocomunicipio = tmu.tmucodigo
-		 		WHERE tmu.tmuuf = '%s' ORDER BY tmudenominacao %s; """ % (uf, limite)
-			
-		return self.transforma_dicionario_em_objetos(self.executa_query(query), "Municipio", "municipio")
+class MunicipioDAO(GenericoDAO):
+
+    """Municipio DAO"""
+
+    def lista_municipios(self, uf, limite=0):
+        if(limite != 0):
+            limite = 'LIMIT %s' % limite
+        else:
+            limite = ''
+
+        query = """SELECT DISTINCT tmucodigo, tmudenominacao, tmuuf
+                FROM municipio tmu
+                INNER JOIN ocorrencia oco ON oco.ocomunicipio = tmu.tmucodigo
+                WHERE tmu.tmuuf = '%s'
+                ORDER BY tmudenominacao %s; """ % (uf, limite)
+
+        return self.transforma_dicionario_em_objetos(
+            self.executa_query(query),
+            "Municipio",
+            "municipio"
+        )
