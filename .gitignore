@@ -8,6 +8,7 @@ myconfiguration.py
 local_settings.py
 myconfiguration.py
 .coverage
+.DS_Store
 # Paths
 dist/*
 build/*
