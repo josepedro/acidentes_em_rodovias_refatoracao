@@ -7,6 +7,13 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package UF
+Declaração das classes para UF dos estados.
+
+Este modulo contem declação da classe de modelo
+para as UF de os estados.
+"""
+
 
 class Uf:
 
