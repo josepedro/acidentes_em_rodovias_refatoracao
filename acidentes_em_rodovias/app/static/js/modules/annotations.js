@@ -1,3 +1,10 @@
+/*
+ * Universidade de Brasilia - FGA
+ * Técnicas de Programação, 1/2014
+ * Acidentes em Rodovias, 2013-2014
+ * GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+*/
+
 (function(i,C){function m(a){return typeof a==="number"}function n(a){return a!==D&&a!==null}var D,p,r,s=i.Chart,t=i.extend,z=i.each;r=["path","rect","circle"];p={top:0,left:0,center:0.5,middle:0.5,bottom:1,right:1};var u=C.inArray,A=i.merge,B=function(){this.init.apply(this,arguments)};B.prototype={init:function(a,d){var c=d.shape&&d.shape.type;this.chart=a;var b,f;f={xAxis:0,yAxis:0,title:{style:{},text:"",x:0,y:0},shape:{params:{stroke:"#000000",fill:"transparent",strokeWidth:2}}};b={circle:{params:{x:0,
 y:0}}};if(b[c])f.shape=A(f.shape,b[c]);this.options=A({},f,d)},render:function(a){var d=this.chart,c=this.chart.renderer,b=this.group,f=this.title,e=this.shape,h=this.options,i=h.title,l=h.shape;if(!b)b=this.group=c.g();if(!e&&l&&u(l.type,r)!==-1)e=this.shape=c[h.shape.type](l.params),e.add(b);if(!f&&i)f=this.title=c.label(i),f.add(b);b.add(d.annotations.group);this.linkObjects();a!==!1&&this.redraw()},redraw:function(){var a=this.options,d=this.chart,c=this.group,b=this.title,f=this.shape,e=this.linkedObject,
 h=d.xAxis[a.xAxis],v=d.yAxis[a.yAxis],l=a.width,w=a.height,x=p[a.anchorY],y=p[a.anchorX],j,o,g,q;if(e)j=e instanceof i.Point?"point":e instanceof i.Series?"series":null,j==="point"?(a.xValue=e.x,a.yValue=e.y,o=e.series):j==="series"&&(o=e),c.visibility!==o.group.visibility&&c.attr({visibility:o.group.visibility});e=n(a.xValue)?h.toPixels(a.xValue+h.minPointOffset)-h.minPixelPadding:a.x;j=n(a.yValue)?v.toPixels(a.yValue):a.y;if(!isNaN(e)&&!isNaN(j)&&m(e)&&m(j)){b&&(b.attr(a.title),b.css(a.title.style));

@@ -1,3 +1,10 @@
+/*
+ * Universidade de Brasilia - FGA
+ * Técnicas de Programação, 1/2014
+ * Acidentes em Rodovias, 2013-2014
+ * GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+*/
+
 /*!
  *  GMAP3 Plugin for JQuery
  *  Version   : 5.1.1
@@ -35,6 +42,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
+
 ;(function ($, undef) {
 
   /***************************************************************************/

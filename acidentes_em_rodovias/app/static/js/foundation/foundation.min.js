@@ -1,3 +1,10 @@
+/*
+ * Universidade de Brasilia - FGA
+ * Técnicas de Programação, 1/2014
+ * Acidentes em Rodovias, 2013-2014
+ * GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+*/
+
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-inlinesvg-svg-svgclippaths-touch-shiv-mq-cssclasses-teststyles-prefixes-ie8compat-load
  */

@@ -1,4 +1,11 @@
 /*
+ * Universidade de Brasilia - FGA
+ * Técnicas de Programação, 1/2014
+ * Acidentes em Rodovias, 2013-2014
+ * GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+*/
+
+/*
  Data plugin for Highcharts
 
  (c) 2012-2013 Torstein Hønsi

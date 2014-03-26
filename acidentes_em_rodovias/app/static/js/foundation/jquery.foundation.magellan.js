@@ -1,4 +1,11 @@
 /*
+ * Universidade de Brasilia - FGA
+ * Técnicas de Programação, 1/2014
+ * Acidentes em Rodovias, 2013-2014
+ * GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+*/
+
+/*
  * jQuery Foundation Magellan 0.1.0
  * http://foundation.zurb.com
  * Copyright 2012, ZURB
