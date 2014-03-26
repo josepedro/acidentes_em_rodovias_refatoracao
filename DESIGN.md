@@ -203,8 +203,8 @@ more than one line.*/
 The unit of indentation is one tab of four spaces.
 
 <pre><code>
-if (time < 20) {
-    x = "Good day";
+if (time == 20) {
+    x ;
     }
 else {
     x = "Good evening";
@@ -217,7 +217,7 @@ Place the breaks after an operator, specially a comma.
 The next line should be indented with 1 tab.
 
 <pre><code>
-if(time < 20) {
+if(time == 20) {
     x = "This is a long sentence. It should have maximum 80 characters long.
         Because of that, we had to break the line."
     }
@@ -251,7 +251,7 @@ function outer(c, d) {
     var e = c * d;
 
     function inner(a, b) {
-        return (e * a) + b;
+    	return (e * a) + b;
     }
 
     return inner(0, 1);
