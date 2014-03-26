@@ -7,6 +7,13 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package Modelo de acidentes
+Declaração das classes para causas ou tipos de acidentes.
+
+Este modulo contem declação das classes de modelo
+para acidentes contendo o tipo ou causa
+"""
+
 
 class Acidentes:
 
