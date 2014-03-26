@@ -7,6 +7,12 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package Municipios
+Declaração das classes para pessoas.
+
+Este modulo contem as classe para descrição de pessoas
+"""
+
 
 class PessoasAcidentes:
 
