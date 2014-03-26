@@ -23,9 +23,9 @@ The comments should be written in English.
  * more than one line.
  */
 
-/* ==========================================================================
+/* =========================================================================
    Comment for a new section
-   ========================================================================== */
+   ========================================================================= */
 </code></pre>
 
 ####Indent
@@ -45,6 +45,8 @@ Indent always.
     display: inherit !important; 
 }
 </code></pre>
+
+Avoid having lines longer than 120 characters.
 
 ####Nomenclature and Declarations
 #####Class, Methods and Functions
