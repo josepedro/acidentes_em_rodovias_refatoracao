@@ -7,6 +7,12 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package UF dos acidentes
+Declaração das classes para os acitendes e suas UF.
+
+Este modulo contem as classe para modelo dos Acidentes com suas UF
+"""
+
 
 class UFAcidentes():
 
