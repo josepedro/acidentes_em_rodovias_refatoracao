@@ -7,6 +7,13 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package Envolvidos em acidentes
+Declaração das classes para envovlidos em acidentes.
+
+Este modulo contem declação das classes de modelo
+para modelos nos acidentes
+"""
+
 
 class EnvolvidosAcidente:
 

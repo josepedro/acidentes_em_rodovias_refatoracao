@@ -7,6 +7,13 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package Causas Acidentes DAO
+Data Access Object (DAO) para causa de acidentes nas BRs.
+
+Este modulo contem declação da classe que acessa os
+dados no banco e  os exporta para a controller
+"""
+
 import sys
 import os
 import inspect
@@ -17,7 +24,7 @@ sys.path.append(current_path)
 current_path = os.path.dirname(os.path.abspath('.'))
 sys.path.append(current_path)
 
-from generico_dao import GenericoDAO
+from .generico_dao import GenericoDAO
 
 from models.causas_acidentes import *
 
@@ -96,7 +103,7 @@ class CausasAcidentesDAO(GenericoDAO):
                 (5001, 10000),
                 (10001, 30000),
                 (30001, 50000),
-                (50001, sys.maxint)
+                (50001, sys.maxsize)
             ]
             for (inferior, superior) in limites:
                 if (medias_list[i] >= inferior and medias_list[i] <= superior):

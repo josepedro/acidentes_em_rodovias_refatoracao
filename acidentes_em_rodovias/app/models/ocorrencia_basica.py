@@ -7,6 +7,13 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package Municipios
+Declaração das classes para ocorrencias.
+
+Este modulo contem declação da classe de modelo
+para Ocorrencias basicas
+"""
+
 
 class OcorrenciaBasica:
 

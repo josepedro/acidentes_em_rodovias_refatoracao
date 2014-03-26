@@ -1,10 +1,16 @@
+/*
+ * Universidade de Brasilia - FGA
+ * Técnicas de Programação, 1/2014
+ * Acidentes em Rodovias, 2013-2014
+ * GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+ */
 /* 
  * The MIT License
  *
  * Copyright (c) 2012 James Allardice
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
- * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
  * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -14,7 +20,6 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 // Defines the global Placeholders object along with various utility methods
 (function (global) {
 
@@ -82,15 +87,15 @@
     "use strict";
 
     var validTypes = [
-            "text",
-            "search",
-            "url",
-            "tel",
-            "email",
-            "password",
-            "number",
-            "textarea"
-        ],
+        "text",
+        "search",
+        "url",
+        "tel",
+        "email",
+        "password",
+        "number",
+        "textarea"
+    ],
 
         // The list of keycodes that are not allowed when the polyfill is configured to hide-on-input
         badKeys = [
@@ -254,6 +259,7 @@
             }
         };
     }
+
     function makeKeyupHandler(elem) {
         return function () {
             var type;
@@ -279,6 +285,7 @@
             }
         };
     }
+
     function makeClickHandler(elem) {
         return function () {
             if (elem === document.activeElement && elem.value === elem.getAttribute(ATTR_CURRENT_VAL) && elem.getAttribute(ATTR_ACTIVE) === "true") {

@@ -7,6 +7,13 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package Envolvidos Acidentes DAO
+Data Access Object (DAO) para causa de acidentes nas BRs.
+
+Este modulo contem declação da classe que acessa os
+dados no banco e os exporta para a controller
+"""
+
 import sys
 import os
 import inspect
@@ -83,7 +90,7 @@ class GenericoDAO:
 
         try:
             chaves = dados.keys()
-        except AttributeError, e:
+        except AttributeError as e:
             raise ResultadoConsultaNuloError(
                 "A biblioteca pandas não está instalada," +
                 "ou nenhum dado foi passado a esse método"
