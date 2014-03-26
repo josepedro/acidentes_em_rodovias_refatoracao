@@ -3,25 +3,25 @@
  * Técnicas de Programação, 1/2014
  * Acidentes em Rodovias, 2013-2014
  * GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-*/
+ */
+;
+(function ($, window, undefined) {
+    'use strict';
 
-;(function ($, window, undefined) {
-  'use strict';
-  
-  $.fn.foundationAlerts = function (options) {
-    var settings = $.extend({
-      callback: $.noop
-    }, options);
-    
-    $(document).on("click", ".alert-box a.close", function (e) {
-      e.preventDefault();
-      $(this).closest(".alert-box").fadeOut(function () {
-        $(this).remove();
-        // Do something else after the alert closes
-        settings.callback();
-      });
-    });
-    
-  };
+    $.fn.foundationAlerts = function (options) {
+        var settings = $.extend({
+            callback: $.noop
+        }, options);
+
+        $(document).on("click", ".alert-box a.close", function (e) {
+            e.preventDefault();
+            $(this).closest(".alert-box").fadeOut(function () {
+                $(this).remove();
+                // Do something else after the alert closes
+                settings.callback();
+            });
+        });
+
+    };
 
 })(jQuery, this);
