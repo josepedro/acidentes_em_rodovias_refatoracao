@@ -3,7 +3,7 @@
 This document defines the patterns of style and design adopted and is divided into three parts: Python, CSS and JavaScript.
 
 ##Python
-####Head
+####Header
 <pre><code># -*- coding: utf-8 -*-
 #
 # Universidade de Brasilia - FGA
@@ -35,6 +35,9 @@ Always indent.
     else:
         print x + 1
 </code></pre>
+
+####Line Length
+Avoid lines longer than 80 characters. When a statement won't fill in a single line, it may be necessary to break it.
 
 ####Nomenclatures and Declarations
 #####Méthods and Functions
@@ -87,7 +90,7 @@ import MySQLdb
 
 
 ##CSS
-####Headline
+####Header
 <pre><code>
 /**
  * Universidade de Brasilia - FGA
@@ -132,7 +135,8 @@ Indent always.
 }
 </code></pre>
 
-Avoid having lines longer than 120 characters.
+####Line Length
+Avoid lines longer than 120 characters. When a statement won't fill in a single line, it may be necessary to break it.
 
 ####Nomenclature and Declarations
 #####Class, Methods and Functions
@@ -179,7 +183,7 @@ hr {
 
 ##JavaScript
 
-###Headline
+###Header
 <pre><code># Universidade de Brasilia - FGA
 # Técnicas de Programação, 1/2014
 #
@@ -197,7 +201,7 @@ more than one line.*/
 </code></pre>
 
 ####Identation
-The unit of indentation is four spaces. Use of tabs should be avoided because there still is not a standard for the placement of tabstops.
+The unit of indentation is one tab of four spaces.
 
 <pre><code>
 if (time < 20) {
@@ -209,9 +213,9 @@ else {
 </code></pre>
 
 ####Line Length
-Avoid lines longer than 80 characters. When a statement won't fill in a single line, it may be necessary to break it.
+Avoid lines longer than 120 characters. When a statement won't fill in a single line, it may be necessary to break it.
 Place the breaks after an operator, specially a comma.
-The next line should be indented with 8 spaces.
+The next line should be indented with 1 tab.
 
 <pre><code>
 if(time < 20) {
