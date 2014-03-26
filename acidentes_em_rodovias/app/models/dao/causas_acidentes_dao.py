@@ -26,6 +26,8 @@ from util.estatisticas_util import *
 
 class CausasAcidentesDAO(GenericoDAO):
 
+    """Causas de Acidentes DAO"""
+
     def causas_acidentes(self):
         query = """SELECT causa,
                     SUM(quantidade_ocorrencias) AS quantidade_ocorrencias

@@ -26,6 +26,8 @@ from util.estatisticas_util import *
 
 class EnvolvidosAcidentesDAO(GenericoDAO):
 
+    """Envolvidos em Acidentes DAO"""
+
     def envolvidos_acidentes(self):
         query = """SELECT
                     `quantidade_envolvidos`, `quantidade_acidentes`, `ano`
