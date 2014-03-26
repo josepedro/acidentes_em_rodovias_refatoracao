@@ -44,8 +44,8 @@
                                 },
                                 xAxis: {
                                     categories: [
-                                        {% for br in br_acidentes_geral %}
-                                            'BR {{br.br}}', ' ',
+                                        {% for br in general_accidents %}
+                                            'BR {{br.br}}',
                                         {% endfor %}                                        
                                     ]
                                 },
@@ -74,8 +74,8 @@
                                     name: 'Quantidade de Ocorrências',
                                     data: 
                                         [
-                                        {% for quantidade in br_acidentes_geral %}
-                                            {{quantidade.quantidade_ocorrencias}},
+                                        {% for accident in general_accidents %}
+                                            {{accident.number_occurrences}},
                                         {% endfor %}
                                         ] 
                                 }, 
