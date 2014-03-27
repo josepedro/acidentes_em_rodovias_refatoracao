@@ -1,5 +1,3 @@
-<pre><code>
-</code></pre>
 #Document of style and design
 
 This document defines the patterns of style and design adopted and is divided into three parts: Python, CSS and JavaScript.
