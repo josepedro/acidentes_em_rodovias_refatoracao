@@ -1,5 +1,3 @@
-<pre><code>
-</code></pre>
 #Document of style and design
 
 This document defines the patterns of style and design adopted and is divided into three parts: Python, CSS and JavaScript.
@@ -297,4 +295,41 @@ function invocations.
 function inner(a, b) {
     return (e * a) + b;
     }
+</code></pre>
+
+##HTML
+####Header
+<pre><code>
+<!--
+<meta charset="utf-8">
+Universidade de Brasilia - FGA
+Técnicas de Programação, 1/2014
+Acidentes em Rodovias, 2013-2014
+GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+-->
+</code></pre>
+
+####Identation
+For identation, use 2 spaces at a time.
+
+Don't mix tabs and spaces for identation.
+
+<pre><code>
+<ul>
+  <li>Fantastic
+  <li>Great
+</ul>
+.example {
+  color: blue;
+}
+</code></pre>
+
+####Comments
+The comments are to be written in English, according to the programming language.
+
+<pre><code>
+<!--This is a sinlge line comment-->
+<!--This is a comment
+That occupies more
+than one line.-->
 </code></pre>
