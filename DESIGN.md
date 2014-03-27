@@ -327,8 +327,8 @@ Don't mix tabs and spaces for identation.
 ####Comments
 The comments are to be written in English, according to the programming language.
 
-<pre><code>
-<!--This is a sinlge line comment-->
+<pre><code><!--This is a sinlge line comment-->
+
 <!--This is a comment
 That occupies more
 than one line.-->
