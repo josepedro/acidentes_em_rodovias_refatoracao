@@ -1,3 +1,5 @@
+<pre><code>
+</code></pre>
 #Document of style and design
 
 This document defines the patterns of style and design adopted and is divided into three parts: Python, CSS and JavaScript.
@@ -333,3 +335,73 @@ The comments are to be written in English, according to the programming language
 That occupies more
 than one line.-->
 </code></pre>
+
+####HTML Validity
+Use valid HTML code unless that is not possible due to otherwise unattainable performance goals regarding file size.
+Using valid HTML is a measurable baseline quality attribute that contributes to learning about technical requirements and constraints, and 
+that ensures proper HTML usage.
+
+<pre><code>
+<!-- Not recommended -->
+<title>Test</title>
+<article>This is only a test.
+
+<!-- Recommended -->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test</title>
+<article>This is only a test.</article>
+</code></pre>
+
+####Formatting
+Use a new line for every block, list, or table element, and indent every such child element.
+Indent them if they are child elements of a block, list, or table element.
+If you run into issues around whitespace between list items it’s acceptable to put all li elements in one line. A linter is encouraged to 
+throw a warning instead of an error.
+
+<pre><code>
+<blockquote>
+  <p><em>Space</em>, the final frontier.</p>
+</blockquote>
+<ul>
+  <li>Moe
+  <li>Larry
+  <li>Curly
+</ul>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Income
+      <th scope="col">Taxes
+  <tbody>
+    <tr>
+      <td>$ 5.00
+      <td>$ 4.50
+</table>
+</code></pre>
+
+####Quotation
+When quoting attributes values, use double quotation marks.
+Use double ("") rather than single quotation marks ('') around attribute values.
+
+<pre><code>
+<!-- Not recommended -->
+<a class='maia-button maia-button-secondary'>Sign in</a>
+<!-- Recommended -->
+<a class="maia-button maia-button-secondary">Sign in</a>
+</code></pre>
+
+####Semantics
+Use HTML according to its purpose.
+Use elements (sometimes incorrectly called “tags”) for what they have been created for. For example, use heading elements for headings, p 
+elements for paragraphs, a elements for anchors, etc.
+
+Using HTML according to its purpose is important for accessibility, reuse, and code efficiency reasons.
+
+<pre><code>
+<!-- Not recommended -->
+<div onclick="goToRecommendations();">All recommendations</div>
+<!-- Recommended -->
+<a href="recommendations/">All recommendations</a>
+</code></pre>
+
