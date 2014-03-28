@@ -300,8 +300,8 @@ function inner(a, b) {
 ##HTML
 ####Header
 <pre><code>
-<!--
-<meta charset="utf-8">
+&lt;!--
+&lt;meta charset="utf-8">
 Universidade de Brasilia - FGA
 Técnicas de Programação, 1/2014
 Acidentes em Rodovias, 2013-2014
@@ -315,10 +315,10 @@ For identation, use 2 spaces at a time.
 Don't mix tabs and spaces for identation.
 
 <pre><code>
-<ul>
-  <li>Fantastic
-  <li>Great
-</ul>
+&lt;ul>
+  &lt;li>Fantastic
+  &lt;li>Great
+&lt;/ul>
 .example {
   color: blue;
 }
@@ -327,9 +327,9 @@ Don't mix tabs and spaces for identation.
 ####Comments
 The comments are to be written in English, according to the programming language.
 
-<pre><code><!--This is a sinlge line comment-->
+<pre><code>&lt;!--This is a sinlge line comment-->
 
-<!--This is a comment
+&lt;!--This is a comment
 That occupies more
 than one line.-->
 </code></pre>
@@ -340,15 +340,15 @@ Using valid HTML is a measurable baseline quality attribute that contributes to 
 that ensures proper HTML usage.
 
 <pre><code>
-<!-- Not recommended -->
-<title>Test</title>
-<article>This is only a test.
+&lt;!-- Not recommended -->
+&lt;title>Test&lt;/title>
+&lt;article>This is only a test.
 
-<!-- Recommended -->
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>Test</title>
-<article>This is only a test.</article>
+&lt;!-- Recommended -->
+&lt;!DOCTYPE html>
+&lt;meta charset="utf-8">
+&lt;title>Test&lt;/title>
+&lt;article>This is only a test.&lt;/article>
 </code></pre>
 
 ####Formatting
@@ -358,24 +358,24 @@ If you run into issues around whitespace between list items it’s acceptable to
 throw a warning instead of an error.
 
 <pre><code>
-<blockquote>
-  <p><em>Space</em>, the final frontier.</p>
-</blockquote>
-<ul>
-  <li>Moe
-  <li>Larry
-  <li>Curly
-</ul>
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Income
-      <th scope="col">Taxes
-  <tbody>
-    <tr>
-      <td>$ 5.00
-      <td>$ 4.50
-</table>
+&lt;blockquote>
+  &lt;p&lt;em>Space&lt;/em>, the final frontier.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+  &lt;li>Moe
+  &lt;li>Larry
+  &lt;li>Curly
+&lt;/ul>
+&lt;table>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="col">Income
+      &lt;th scope="col">Taxes
+  &lt;tbody>
+    &lt;tr>
+      &lt;td>$ 5.00
+      &lt;td>$ 4.50
+&lt;/table>
 </code></pre>
 
 ####Quotation
@@ -383,10 +383,10 @@ When quoting attributes values, use double quotation marks.
 Use double ("") rather than single quotation marks ('') around attribute values.
 
 <pre><code>
-<!-- Not recommended -->
-<a class='maia-button maia-button-secondary'>Sign in</a>
-<!-- Recommended -->
-<a class="maia-button maia-button-secondary">Sign in</a>
+&lt;!-- Not recommended -->
+&lt;a class='maia-button maia-button-secondary'>Sign in&lt;/a>
+&lt;!-- Recommended -->
+&lt;a class="maia-button maia-button-secondary">Sign in&lt;/a>
 </code></pre>
 
 ####Semantics
@@ -397,10 +397,10 @@ elements for paragraphs, a elements for anchors, etc.
 Using HTML according to its purpose is important for accessibility, reuse, and code efficiency reasons.
 
 <pre><code>
-<!-- Not recommended -->
-<div onclick="goToRecommendations();">All recommendations</div>
-<!-- Recommended -->
-<a href="recommendations/">All recommendations</a>
+&lt;!-- Not recommended -->
+&lt;div onclick="goToRecommendations();">All recommendations&lt;/div>
+&lt;!-- Recommended -->
+&lt;a href="recommendations/">All recommendations&lt;/a>
 </code></pre>
 
 ####'type' Attributes.
@@ -412,15 +412,15 @@ Specifying type attributes in these contexts is not necessary as HTML5 implies t
 safely done even for older browsers.
 
 <pre><code>
-<!-- Not recommended -->
-<link rel="stylesheet" href="//www.google.com/css/maia.css"
+&lt;!-- Not recommended -->
+&lt;link rel="stylesheet" href="//www.google.com/css/maia.css"
   type="text/css">
-<!-- Recommended -->
-<link rel="stylesheet" href="//www.google.com/css/maia.css">
-<!-- Not recommended -->
-<script src="//www.google.com/js/gweb/analytics/autotrack.js"
-  type="text/javascript"></script>
-<!-- Recommended -->
-<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+&lt;!-- Recommended -->
+&lt;link rel="stylesheet" href="//www.google.com/css/maia.css">
+&lt;!-- Not recommended -->
+&lt;script src="//www.google.com/js/gweb/analytics/autotrack.js"
+  type="text/javascript">&lt;/script>
+&lt;!-- Recommended -->
+&lt;script src="//www.google.com/js/gweb/analytics/autotrack.js">&lt;/script>
 </code></pre>
 
