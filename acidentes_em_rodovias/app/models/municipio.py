@@ -7,6 +7,13 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package Municipios
+Declaração das classes para municipios.
+
+Este modulo contem declação da classe de modelo
+para municipios
+"""
+
 
 class Municipio():
 

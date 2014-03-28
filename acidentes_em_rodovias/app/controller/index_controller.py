@@ -1,14 +1,32 @@
-# -*- coding: utf-8 -*- 
-import sys, os, inspect
-current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-parent_dir = os.path.dirname(current_dir)
-sys.path.append(parent_dir)
+# -*- coding: utf-8 -*-
+#
+# Universidade de Brasilia - FGA
+# Técnicas de Programação, 1/2014
+#
+# Acidentes em Rodovias, 2013-2014
+# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+#
 
+import sys
+import os
+import inspect
 import MySQLdb
+import logging
+
 from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
+# Adding upper directories to the Python Path
+current_path = os.path.dirname(os.path.abspath('..'))
+sys.path.append(current_path)
+current_path = os.path.dirname(os.path.abspath('.'))
+sys.path.append(current_path)
+
+
 def index(request):
-	return render_to_response("index.html", context_instance=RequestContext(request))	
+    return render_to_response(
+        "index.html",
+        context_instance=RequestContext(request)
+    )

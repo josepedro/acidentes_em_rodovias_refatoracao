@@ -203,8 +203,8 @@ more than one line.*/
 The unit of indentation is one tab of four spaces.
 
 <pre><code>
-if (time < 20) {
-    x = "Good day";
+if (time == 20) {
+    x ;
     }
 else {
     x = "Good evening";
@@ -217,8 +217,8 @@ Place the breaks after an operator, specially a comma.
 The next line should be indented with 1 tab.
 
 <pre><code>
-if(time < 20) {
-    x = "This is a long sentence. It should have maximum 80 characters long.
+if(time == 20) {
+    x = "This is a long sentence. It should have maximum 120 characters long.
         Because of that, we had to break the line."
     }
 </code></pre>
@@ -251,7 +251,7 @@ function outer(c, d) {
     var e = c * d;
 
     function inner(a, b) {
-        return (e * a) + b;
+    	return (e * a) + b;
     }
 
     return inner(0, 1);
@@ -260,6 +260,7 @@ function outer(c, d) {
 
 If a function literal is anonymous, there should be one space between the word function and the ( (left parenthesis). If the space is
 omited, then it can appear that the function's name is function, which is an incorrect reading.
+
 <pre><code>
 div.onclick = function (e) {
     return false;
@@ -272,3 +273,154 @@ that = {
     datum: 0
 };
 </code></pre>
+
+#####Whitespace
+Blank lines improve readability by setting off sections of code that are logically related.
+Blank spaces should be used in the following circumstances:
+
+-A keyword followed by ( (left parenthesis) should be separated by a space.
+
+<pre><code>
+while (true) {
+    document.write('Hello World!');
+}
+</code></pre>
+
+-A blank space should not be used between a function value and its ( (left parenthesis). This helps to distinguish between keywords and
+function invocations.
+
+-Whitespace should follow every , (comma).
+
+<pre><code>
+function inner(a, b) {
+    return (e * a) + b;
+    }
+</code></pre>
+
+##HTML
+####Header
+<pre><code>
+<!--
+<meta charset="utf-8">
+Universidade de Brasilia - FGA
+Técnicas de Programação, 1/2014
+Acidentes em Rodovias, 2013-2014
+GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+-->
+</code></pre>
+
+####Identation
+For identation, use 2 spaces at a time.
+
+Don't mix tabs and spaces for identation.
+
+<pre><code>
+<ul>
+  <li>Fantastic
+  <li>Great
+</ul>
+.example {
+  color: blue;
+}
+</code></pre>
+
+####Comments
+The comments are to be written in English, according to the programming language.
+
+<pre><code><!--This is a sinlge line comment-->
+
+<!--This is a comment
+That occupies more
+than one line.-->
+</code></pre>
+
+####HTML Validity
+Use valid HTML code unless that is not possible due to otherwise unattainable performance goals regarding file size.
+Using valid HTML is a measurable baseline quality attribute that contributes to learning about technical requirements and constraints, and 
+that ensures proper HTML usage.
+
+<pre><code>
+<!-- Not recommended -->
+<title>Test</title>
+<article>This is only a test.
+
+<!-- Recommended -->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test</title>
+<article>This is only a test.</article>
+</code></pre>
+
+####Formatting
+Use a new line for every block, list, or table element, and indent every such child element.
+Indent them if they are child elements of a block, list, or table element.
+If you run into issues around whitespace between list items it’s acceptable to put all li elements in one line. A linter is encouraged to 
+throw a warning instead of an error.
+
+<pre><code>
+<blockquote>
+  <p><em>Space</em>, the final frontier.</p>
+</blockquote>
+<ul>
+  <li>Moe
+  <li>Larry
+  <li>Curly
+</ul>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Income
+      <th scope="col">Taxes
+  <tbody>
+    <tr>
+      <td>$ 5.00
+      <td>$ 4.50
+</table>
+</code></pre>
+
+####Quotation
+When quoting attributes values, use double quotation marks.
+Use double ("") rather than single quotation marks ('') around attribute values.
+
+<pre><code>
+<!-- Not recommended -->
+<a class='maia-button maia-button-secondary'>Sign in</a>
+<!-- Recommended -->
+<a class="maia-button maia-button-secondary">Sign in</a>
+</code></pre>
+
+####Semantics
+Use HTML according to its purpose.
+Use elements (sometimes incorrectly called “tags”) for what they have been created for. For example, use heading elements for headings, p 
+elements for paragraphs, a elements for anchors, etc.
+
+Using HTML according to its purpose is important for accessibility, reuse, and code efficiency reasons.
+
+<pre><code>
+<!-- Not recommended -->
+<div onclick="goToRecommendations();">All recommendations</div>
+<!-- Recommended -->
+<a href="recommendations/">All recommendations</a>
+</code></pre>
+
+####'type' Attributes.
+
+Omit type attributes for style sheets and scripts.
+Do not use type attributes for style sheets (unless not using CSS) and scripts (unless not using JavaScript).
+
+Specifying type attributes in these contexts is not necessary as HTML5 implies text/css and text/javascript as defaults. This can be 
+safely done even for older browsers.
+
+<pre><code>
+<!-- Not recommended -->
+<link rel="stylesheet" href="//www.google.com/css/maia.css"
+  type="text/css">
+<!-- Recommended -->
+<link rel="stylesheet" href="//www.google.com/css/maia.css">
+<!-- Not recommended -->
+<script src="//www.google.com/js/gweb/analytics/autotrack.js"
+  type="text/javascript"></script>
+<!-- Recommended -->
+<script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+</code></pre>
+

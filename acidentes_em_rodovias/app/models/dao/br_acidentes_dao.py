@@ -7,6 +7,14 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package BR Acidentes DAO
+Data Access Object (DAO) para acidentes nas BRs.
+
+Este modulo contem declação da classe que acessa os
+dados no banco e  os exporta para a controller
+"""
+
+
 import sys
 import os
 import inspect
@@ -17,7 +25,7 @@ sys.path.append(current_path)
 current_path = os.path.dirname(os.path.abspath('.'))
 sys.path.append(current_path)
 
-from generico_dao import GenericoDAO
+from .generico_dao import GenericoDAO
 
 from models.br_acidentes import *
 
