@@ -5,6 +5,7 @@ myconfiguration.py
 *.pot
 *.pyo
 *.log
+*.zip
 local_settings.py
 myconfiguration.py
 .coverage
