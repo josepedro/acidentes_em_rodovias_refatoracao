@@ -1,11 +1,13 @@
-# -*- coding: utf-8 -*-
-#
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-#
+#!/usr/bin/env python
+# coding: utf-8
+
+"""Acidentes em Rodovias
+
+ Universidade de Brasilia - FGA
+ Técnicas de Programação, 1/2014
+
+Parser responsable to return to HTML inquiry about statistics.
+"""
 
 import sys
 import os
@@ -43,7 +45,7 @@ def acidentes_br(request):
         br_acidentes_geral = br_dao.acidentes_br_geral()
         acidentes_ano = br_dao.acidentes_br_ano()
 
-    except (MySQLdb.Error, ResultadoConsultaNuloError), e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
