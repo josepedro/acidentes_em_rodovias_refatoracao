@@ -6,7 +6,7 @@
  Universidade de Brasilia - FGA
  Técnicas de Programação, 1/2014
 
-Parser responsable to return to HTML inquiry about kinds of accident.
+Parser responsable to return to HTML inquiry about kinds of accidents.
 """
 
 import sys
@@ -28,10 +28,7 @@ from models.dao.tipos_acidentes_dao import *
 from datetime import datetime
 
 # Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
+from app import *
 
 # Logging config
 logging.basicConfig()
@@ -39,6 +36,8 @@ logger = logging.getLogger(__name__)
 
 
 def tipos_acidentes(request):
+    """ Return the render with the kinds of accidents. """
+
     try:
         tipos_dao = TiposAcidentesDAO()
         tipos_acidentes_list = tipos_dao.tipos_acidentes()
