@@ -11,8 +11,6 @@ This package has some useful methods to calculate some statistics or
 validate some returns.
 """
 
-from os import environ as _environ
-
 __copyright__ = "Copyright 2007, The Cogent Project"
 __license__ = "GPL"
 __date__ = '2013-2014'
