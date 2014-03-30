@@ -41,6 +41,8 @@ logger = logging.getLogger(__name__)
 
 
 def consulta_por_regiao(request):
+    """ Return the render from page with query by region. """
+
     try:
         uf_dao = UfDAO()
         uf_list = uf_dao.lista_ufs()
@@ -61,6 +63,8 @@ def consulta_por_regiao(request):
 
 
 def consulta_municipios_na_regiao(request):
+    """ Return the render from page with query by municipalities in region. """
+
     try:
         uf_id = request.GET['uf_id']
     except MultiValueDictKeyError as e:
@@ -103,6 +107,9 @@ def consulta_municipios_na_regiao(request):
 
 
 def consulta_ocorrencias_por_municipio(request):
+    """ Return the render from page with query
+    by occurrences in the region. """
+
     try:
         municipio_id = int(request.GET['municipio_id'])
     except (ValueError, MultiValueDictKeyError) as e:
