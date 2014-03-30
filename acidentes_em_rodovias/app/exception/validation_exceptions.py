@@ -14,7 +14,7 @@ from exceptions import Exception
 
 class DataInvalidaError(Exception):
 
-    """docstring for InvalidDateError"""
+    """ Exception to occurs when a date is not well formatted """
 
     def __init__(self, message):
         """ Initialize module """
@@ -28,7 +28,8 @@ class DataInvalidaError(Exception):
 
 class ParametroInseguroClienteError(Exception):
 
-    """docstring for ParametroInseguroClienteError"""
+    """ Exception to occurs when an odd character is inserted by
+    user or by Data Bank """
 
     def __init__(self, message):
         """ Initialize module """

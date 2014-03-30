@@ -14,7 +14,7 @@ from exceptions import Exception
 
 class ResultadoConsultaNuloError(Exception):
 
-    """docstring for ResultadoConsultaNuloError"""
+    """ Exception to occurs when a inquiry returns null """
 
     def __init__(self, message):
         """ Initialize module """
