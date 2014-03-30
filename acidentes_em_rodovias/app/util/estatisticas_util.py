@@ -1,13 +1,14 @@
-# -*- coding: utf-8 -*-
-#
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-#
+#!/usr/bin/env python
+# coding: utf-8
 
-import pandas
+"""Acidentes em Rodovias
+
+ Universidade de Brasilia - FGA
+ Técnicas de Programação, 1/2014
+
+Calc some statistics methods.
+"""
+
 import os
 
 prev_path = os.path.dirname(os.path.abspath(__file__))
@@ -23,6 +24,7 @@ for linha in arquivo_csv:
 
 def distribuicao_normal(x, media, desvio):
     """ Calc Normal distribution (Gaussian) """
+
     z = (x - media) / float(abs(desvio))
     z = abs(int(z * 100) / 100.0)
     eixo_vertical = int(z * 10)
@@ -37,6 +39,7 @@ def distribuicao_normal(x, media, desvio):
 
 def desvio_padrao(lista):
     """ Calc standard deviation """
+
     media_total = 0
     for i in range(0, len(lista)):
         media_total = media_total + lista[i]
@@ -50,6 +53,7 @@ def desvio_padrao(lista):
 
 def media_sexo(homens, mulheres):
     """ Calc mean about men and women """
+
     total = int(homens[0].quantidade) + int(mulheres[0].quantidade)
     for homem in homens:
         homem.quantidade = float(homem.quantidade) / float(total) * 100
