@@ -1,11 +1,14 @@
-# -*- coding: utf-8 -*-
-#
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-#
+#!/usr/bin/env python
+# coding: utf-8
+
+"""Acidentes em Rodovias
+
+ Universidade de Brasilia - FGA
+ Técnicas de Programação, 1/2014
+
+Parser responsable to return to HTML inquiry about statistics
+involved in the accident.
+"""
 
 import sys
 import os
@@ -66,7 +69,7 @@ def acidentes_sexo(request):
         mulheres_geral = pessoas_dao.acidentes_por_sexo_geral('F')
         homens_geral, mulheres_geral = media_sexo(homens_geral, mulheres_geral)
 
-    except (MySQLdb.Error, ResultadoConsultaNuloError), e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
