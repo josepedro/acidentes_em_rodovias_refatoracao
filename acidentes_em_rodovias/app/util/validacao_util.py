@@ -25,7 +25,7 @@ from exception.internal_exceptions import *
 def valida_data(data):
     """ Validate date """
 
-    if (search('^[0-3]\d/[01]\d/\d{4}$', data) is None
+    if (search('^[0-3]\rd/[01]\rd/\rd{4}$', data) is None
             or int(data[0:2]) >= 32
             or int(data[3:5]) >= 13):
         raise DataInvalidaError("Data invalida inserida: " + data)
@@ -34,10 +34,10 @@ def valida_data(data):
 def valida_caracteres(palavra):
     """ Validate a sequence of characters """
 
-    if search('^[\w\s]+$', str(palavra) is None):
+    if search('^[\rw\rs]+$', str(palavra) is None):
         raise ParametroInseguroClienteError(
             "Parametro invalido inserido: " +
             palavra)
-    if(palavra is None):
+    if palavra is None:
         raise ParametroInseguroClienteError(
             "Parametro invalido inserido: enviado NONE")
