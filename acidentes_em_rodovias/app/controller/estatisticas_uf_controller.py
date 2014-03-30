@@ -29,10 +29,7 @@ from models.dao.uf_acidentes_dao import *
 from datetime import datetime
 
 # Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
+from app import *
 
 # Logging config
 logging.basicConfig()
@@ -40,6 +37,8 @@ logger = logging.getLogger(__name__)
 
 
 def acidentes_uf(request):
+    """ Return the render with the accidents by states. """
+
     try:
         data = datetime.now()
         uf_dao = UFAcidentesDAO()
