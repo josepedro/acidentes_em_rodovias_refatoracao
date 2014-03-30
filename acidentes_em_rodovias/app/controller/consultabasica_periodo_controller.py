@@ -39,6 +39,8 @@ logger = logging.getLogger(__name__)
 
 
 def consulta_por_periodo(request):
+    """ Return the render of page with inquiry in time. """
+
     return render_to_response(
         "periodo.html",
         context_instance=RequestContext(request)
@@ -46,6 +48,8 @@ def consulta_por_periodo(request):
 
 
 def consulta_ocorrencias_por_periodo(request):
+    """ Return the render of page with occurrences inquiry in time. """
+
     try:
         data_inicio = str(request.GET['data_inicio'])
         data_fim = str(request.GET['data_fim'])
