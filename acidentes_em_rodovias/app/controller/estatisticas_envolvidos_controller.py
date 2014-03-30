@@ -55,6 +55,8 @@ def ocorrencias_e_envolvidos(request):
 
 
 def acidentes_sexo(request):
+    """ Return the render with the statistics from
+    involved in the accident by gender. """
     try:
         pessoas_dao = PessoasAcidentesDAO()
         homens_ano = pessoas_dao.acidentes_por_sexo_e_ano('M')
