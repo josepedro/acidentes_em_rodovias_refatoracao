@@ -50,7 +50,7 @@ Avoid lines longer than 80 characters. When a statement won't fill in a single l
 #####Méthods and Functions
 Name of method/function into language of programming language, with initial into lowercase and, if it have more than one word, break with '_'. Arguments separated with one space after comma, following example.
 <pre><code>def function_sum(num1, num2):
-    # ...
+    """ ... """
 </code></pre>
 
 #####Classes
