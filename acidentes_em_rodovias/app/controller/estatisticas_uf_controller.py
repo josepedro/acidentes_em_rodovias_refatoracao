@@ -1,11 +1,14 @@
-# -*- coding: utf-8 -*-
-#
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-#
+#!/usr/bin/env python
+# coding: utf-8
+
+"""Acidentes em Rodovias
+
+ Universidade de Brasilia - FGA
+ Técnicas de Programação, 1/2014
+
+Parser responsable to return to HTML the the abbreviation (UF)
+of the states from Brazil.
+"""
 
 import sys
 import os
@@ -43,7 +46,7 @@ def acidentes_uf(request):
         uf_acidentes_geral = uf_dao.acidentes_uf_geral()
         uf_acidentes_ano = uf_dao.acidentes_uf_ano()
 
-    except (MySQLdb.Error, ResultadoConsultaNuloError), e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
