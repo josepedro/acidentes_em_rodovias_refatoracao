@@ -16,24 +16,15 @@ import inspect
 import MySQLdb
 import logging
 
+# Adding upper directories to the Python Path
+from app import *
+
 from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
-from exception.validation_exceptions import *
-from exception.internal_exceptions import *
-
-from models.dao.envolvidos_acidentes_dao import *
-from models.dao.pessoas_acidentes_dao import *
-
 from datetime import datetime
-
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
 
 # Logging config
 logging.basicConfig()
@@ -41,6 +32,9 @@ logger = logging.getLogger(__name__)
 
 
 def ocorrencias_e_envolvidos(request):
+    """ Return the render with the statistics from
+    involved in the accident. """
+
     envolvidosDAO = EnvolvidosAcidentesDAO()
     lista_envolvidos = envolvidosDAO.envolvidos_acidentes()
     medias, desvio = envolvidosDAO.media_desvio_envolvidos()
