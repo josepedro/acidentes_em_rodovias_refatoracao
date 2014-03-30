@@ -21,13 +21,12 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
 # Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
+from app import *
 
 
 def index(request):
+    """ Return the render from the index page. """
+
     return render_to_response(
         "index.html",
         context_instance=RequestContext(request)
