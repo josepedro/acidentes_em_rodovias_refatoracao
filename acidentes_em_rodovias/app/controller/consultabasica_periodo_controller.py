@@ -6,7 +6,7 @@
  Universidade de Brasilia - FGA
  Técnicas de Programação, 1/2014
 
-Parser responsable to return to HTML inquiry in time/period
+Parser responsable to return to HTML inquiry in time/period.
 """
 
 import sys

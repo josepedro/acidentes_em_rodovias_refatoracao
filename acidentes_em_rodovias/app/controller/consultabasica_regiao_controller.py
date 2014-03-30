@@ -1,11 +1,13 @@
-# -*- coding: utf-8 -*-
-#
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-#
+#!/usr/bin/env python
+# coding: utf-8
+
+"""Acidentes em Rodovias
+
+ Universidade de Brasilia - FGA
+ Técnicas de Programação, 1/2014
+
+Parser responsable to return to HTML inquiry about region.
+"""
 
 import sys
 import os
@@ -42,7 +44,7 @@ def consulta_por_regiao(request):
     try:
         uf_dao = UfDAO()
         uf_list = uf_dao.lista_ufs()
-    except (MySQLdb.Error, ResultadoConsultaNuloError), e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
@@ -61,7 +63,7 @@ def consulta_por_regiao(request):
 def consulta_municipios_na_regiao(request):
     try:
         uf_id = request.GET['uf_id']
-    except MultiValueDictKeyError, e:
+    except MultiValueDictKeyError as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
@@ -72,7 +74,7 @@ def consulta_municipios_na_regiao(request):
 
     try:
         valida_caracteres(uf_id)
-    except ParametroInseguroClienteError, e:
+    except ParametroInseguroClienteError as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
@@ -84,7 +86,7 @@ def consulta_municipios_na_regiao(request):
     try:
         municipio_dao = MunicipioDAO()
         municipio_list = municipio_dao.lista_municipios(uf_id)
-    except (MySQLdb.Error, ResultadoConsultaNuloError), e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
@@ -103,7 +105,7 @@ def consulta_municipios_na_regiao(request):
 def consulta_ocorrencias_por_municipio(request):
     try:
         municipio_id = int(request.GET['municipio_id'])
-    except (ValueError, MultiValueDictKeyError), e:
+    except (ValueError, MultiValueDictKeyError) as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
@@ -118,7 +120,7 @@ def consulta_ocorrencias_por_municipio(request):
             municipio_id,
             1000
         )
-    except (MySQLdb.Error, ResultadoConsultaNuloError), e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
