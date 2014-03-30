@@ -42,6 +42,7 @@ logger = logging.getLogger(__name__)
 def causas_acidentes(request):
     """ Return the render of the page with statistics of
 causes of accidents.. """
+
     try:
         causas_dao = CausasAcidentesDAO()
         causas_list = causas_dao.causas_acidentes()

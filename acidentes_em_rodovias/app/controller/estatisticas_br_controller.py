@@ -39,6 +39,8 @@ logger = logging.getLogger(__name__)
 
 
 def acidentes_br(request):
+    """ Return the render from statistics. """
+
     try:
         data = datetime.now()
         br_dao = BRAcidentesDAO()
