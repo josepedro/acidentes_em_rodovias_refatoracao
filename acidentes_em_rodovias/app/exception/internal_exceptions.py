@@ -1,18 +1,14 @@
-# -*- coding: utf-8 -*-
-#
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-#
+#!/usr/bin/env python
+# coding: utf-8
 
-"""@package internal exceptions
-Exceções de validações internas.
+"""Acidentes em Rodovias - internal exceptions
 
-Este modulo contem classes de controle de exceção
-para validações internas
+ Universidade de Brasilia - FGA
+ Técnicas de Programação, 1/2014
+
+This module contains control classes of exception for internal validations
 """
+
 from exceptions import Exception
 
 
