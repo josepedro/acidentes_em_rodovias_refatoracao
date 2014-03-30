@@ -4,13 +4,22 @@ This document defines the patterns of style and design adopted and is divided in
 
 ##Python
 ####Header
-<pre><code># -*- coding: utf-8 -*-
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
+The packages should have this code style
+<pre><code>##!/usr/bin/env python
+# coding: utf-8
+
+"""Acidentes em Rodovias
+
+Universidade de Brasilia - FGA
+Técnicas de Programação, 1/2014
+
+A description which can be long and explain the complete
+functionality of this module even with indented code examples.
+Class/Function however should not be documented here.
+"""
 </code></pre>
+
+Only the main file from the package, which is the __init__.py inside the app folder, should have the informations about date, version and authors.
 
 ####Comments
 The comments will be described into language of programming language.
