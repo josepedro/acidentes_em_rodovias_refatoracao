@@ -1,11 +1,13 @@
-# -*- coding: utf-8 -*-
-#
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-#
+#!/usr/bin/env python
+# coding: utf-8
+
+"""Acidentes em Rodovias
+
+ Universidade de Brasilia - FGA
+ Técnicas de Programação, 1/2014
+
+Parser responsable to return to HTML inquiry in time/period
+"""
 
 import sys
 import os
@@ -47,7 +49,7 @@ def consulta_ocorrencias_por_periodo(request):
     try:
         data_inicio = str(request.GET['data_inicio'])
         data_fim = str(request.GET['data_fim'])
-    except (MultiValueDictKeyError), e:
+    except (MultiValueDictKeyError) as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
@@ -59,7 +61,7 @@ def consulta_ocorrencias_por_periodo(request):
     try:
         valida_data(data_inicio)
         valida_data(data_fim)
-    except DataInvalidaError, e:
+    except DataInvalidaError as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
@@ -72,7 +74,7 @@ def consulta_ocorrencias_por_periodo(request):
         ocorrencia_dao = OcorrenciaBasicaDAO()
         ocorrencia_list = ocorrencia_dao.lista_ocorrencias_por_periodo(
             data_inicio, data_fim, 1000)
-    except (MySQLdb.Error, ResultadoConsultaNuloError), e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
