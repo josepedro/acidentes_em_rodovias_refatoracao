@@ -1,11 +1,13 @@
-# -*- coding: utf-8 -*-
-#
-# Universidade de Brasilia - FGA
-# Técnicas de Programação, 1/2014
-#
-# Acidentes em Rodovias, 2013-2014
-# GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
-#
+#!/usr/bin/env python
+# coding: utf-8
+
+"""Acidentes em Rodovias
+
+ Universidade de Brasilia - FGA
+ Técnicas de Programação, 1/2014
+
+Parser responsable to return to HTML inquiry about kinds of accident.
+"""
 
 import sys
 import os
@@ -48,7 +50,7 @@ def tipos_acidentes(request):
         for acidente in probabilidade_list:
             tipos_list.append(acidente.tipo)
 
-    except (MySQLdb.Error, ResultadoConsultaNuloError), e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
