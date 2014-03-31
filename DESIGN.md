@@ -5,7 +5,7 @@ This document defines the patterns of style and design adopted and is divided in
 ##Python
 ####Header
 The packages should have this code style
-<pre><code>##!/usr/bin/env python
+<pre><code>#!/usr/bin/env python
 # coding: utf-8
 
 """Acidentes em Rodovias
