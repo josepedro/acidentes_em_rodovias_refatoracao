@@ -31,7 +31,7 @@ from datetime import datetime
 # Adding upper directories to the Python Path
 from app import *
 
-# Logging config
+""" Logging config """
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 

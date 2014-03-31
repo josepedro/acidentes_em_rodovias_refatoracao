@@ -13,6 +13,7 @@ The packages should have this code style
 Universidade de Brasilia - FGA
 Técnicas de Programação, 1/2014
 
+@file NameOfFile.py
 A description which can be long and explain the complete
 functionality of this module even with indented code examples.
 Class/Function however should not be documented here.
@@ -27,6 +28,18 @@ The comments will be described into language of programming language.
 
 # This comment occupies
 # more than one line.
+</code></pre>
+
+Comments that will be used as Docstring, and will help the documentation of the code, should be like this:
+
+<pre><code>""" This is a simple docstring comment for this dictionary."""
+dict={}
+
+""" 
+This list will be used to store
+whatever needs.
+"""
+list=[]
 </code></pre>
 
 ####Indentation
@@ -50,7 +63,12 @@ Avoid lines longer than 80 characters. When a statement won't fill in a single l
 #####Méthods and Functions
 Name of method/function into language of programming language, with initial into lowercase and, if it have more than one word, break with '_'. Arguments separated with one space after comma, following example.
 <pre><code>def function_sum(num1, num2):
-    """ ... """
+    """ Make the algebric sum from num1 and num2
+
+    @param num1 What this does.
+    @param num2 What that does.
+    @return Returns the sum from num1 and num2 \f$ return = num_1 + num_2 \f$
+    """
 </code></pre>
 
 #####Classes
