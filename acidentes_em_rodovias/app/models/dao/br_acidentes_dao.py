@@ -19,15 +19,9 @@ import sys
 import os
 import inspect
 
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
-
 from .generico_dao import GenericoDAO
 
-from models.br_acidentes import *
+from app.models.br_acidentes import *
 
 
 class BRAcidentesDAO(GenericoDAO):

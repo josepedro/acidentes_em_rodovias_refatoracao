@@ -7,9 +7,9 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-from generico_dao import GenericoDAO
+from .generico_dao import GenericoDAO
 
-from models.ocorrencia_basica import *
+from app.models.ocorrencia_basica import *
 
 
 class OcorrenciaBasicaDAO(GenericoDAO):

@@ -7,7 +7,7 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-from generico_dao import GenericoDAO
+from .generico_dao import GenericoDAO
 
 
 class UfDAO(GenericoDAO):

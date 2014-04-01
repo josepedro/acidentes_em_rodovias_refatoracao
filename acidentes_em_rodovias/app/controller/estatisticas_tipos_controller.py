@@ -20,10 +20,10 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
-from exception.validation_exceptions import *
-from exception.internal_exceptions import *
+from app.exception.validation_exceptions import *
+from app.exception.internal_exceptions import *
 
-from models.dao.tipos_acidentes_dao import *
+from app.models.dao.tipos_acidentes_dao import *
 
 from datetime import datetime
 

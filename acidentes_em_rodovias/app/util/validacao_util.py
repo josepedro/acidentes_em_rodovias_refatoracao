@@ -13,17 +13,10 @@ Calc some statistics methods.
 import sys
 import os
 import inspect
-""" Variable to store the corrent path. """
-_current_dir = os.path.dirname(
-    os.path.abspath(inspect.getfile(inspect.currentframe())))
-
-""" Variable to store the parent path. """
-_parent_dir = os.path.dirname(_current_dir)
-sys.path.append(_parent_dir)
 
 from re import search
-from exception.validation_exceptions import *
-from exception.internal_exceptions import *
+from app.exception.validation_exceptions import *
+from app.exception.internal_exceptions import *
 
 
 def valida_data(data):
@@ -33,7 +26,7 @@ def valida_data(data):
     @param data Date to be validate.
     """
 
-    if (search('^[0-3]\rd/[01]\rd/\rd{4}$', data) is None
+    if (search('^[0-3]\d/[01]\d/\d{4}$', data) is None
             or int(data[0:2]) >= 32
             or int(data[3:5]) >= 13):
         raise DataInvalidaError("Data invalida inserida: " + data)
@@ -47,7 +40,7 @@ def valida_caracteres(palavra):
     are valid.
     """
 
-    if search('^[\rw\rs]+$', str(palavra) is None):
+    if (search('^[\w\s]+$', str(palavra)) is None):
         raise ParametroInseguroClienteError(
             "Parametro invalido inserido: " +
             palavra)

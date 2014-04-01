@@ -11,15 +11,9 @@ import sys
 import os
 import inspect
 
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
-
 from .generico_dao import GenericoDAO
 
-from models.uf_acidentes import *
+from app.models.uf_acidentes import *
 
 coordenadas_capitais = {
     'AC': (-9.976536213, -67.82207776),

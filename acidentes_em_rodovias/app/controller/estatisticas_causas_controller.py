@@ -21,18 +21,12 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
-from exception.validation_exceptions import *
-from exception.internal_exceptions import *
+from app.exception.validation_exceptions import *
+from app.exception.internal_exceptions import *
 
-from models.dao.causas_acidentes_dao import *
+from app.models.dao.causas_acidentes_dao import *
 
 from datetime import datetime
-
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
 
 # Logging config
 logging.basicConfig()

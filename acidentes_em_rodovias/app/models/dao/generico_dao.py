@@ -18,20 +18,14 @@ import sys
 import os
 import inspect
 
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
-
-import myconfiguration
+import app.myconfiguration as myconfiguration
 import MySQLdb
 import importlib
 import logging
 
 import pandas.io.sql as psql
 
-from exception.internal_exceptions import *
+from app.exception.internal_exceptions import *
 
 # Logging config
 logging.basicConfig()
@@ -81,7 +75,7 @@ class GenericoDAO:
             return dados
 
     def transforma_dicionario_em_objetos(self, dados, classe, modulo):
-        modulo_classe = importlib.import_module("models." + modulo)
+        modulo_classe = importlib.import_module("app.models." + modulo)
         class_ = getattr(
             modulo_classe,
             classe

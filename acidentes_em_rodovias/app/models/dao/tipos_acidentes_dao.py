@@ -11,17 +11,11 @@ import sys
 import os
 import inspect
 
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
+from .generico_dao import GenericoDAO
 
-from generico_dao import GenericoDAO
+from app.models.causas_acidentes import *
 
-from models.causas_acidentes import *
-
-from util.estatisticas_util import *
+from app.util.estatisticas_util import *
 
 
 class TiposAcidentesDAO(GenericoDAO):
@@ -96,7 +90,7 @@ class TiposAcidentesDAO(GenericoDAO):
                 (1001, 5000),
                 (5001, 10000),
                 (10001, 50000),
-                (50001, sys.maxint)
+                (50001, sys.maxsize)
             ]
             for (inferior, superior) in limites:
                 if (medias_list[i] >= inferior and medias_list[i] <= superior):
