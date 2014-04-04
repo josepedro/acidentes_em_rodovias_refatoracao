@@ -25,3 +25,18 @@
 |Variable | lista_objetos | A list of the objects that will be returned |
 |Variable | chaves | Receives the keys of the query dictionary |
 |Variable | instancia | Instance of a determined object |
+
+####envolvidos\_acidentes\_dao.py
+
+|Type     |Name        |Description        |
+|:---------:|:------------|:-------------------|
+|Class | EnvolvidosAcidentesDAO | Obtain data on those involved in accidents |
+|Method | envolvidos\_acidentes | Returns the amount involved and the number of accidents per year |
+|Variable | query | In method envolvidos\_acidentes, queries the amount involved and the number of accidents per year |
+|Method | media\_desvio\_envolvidos | Returns the media involved by accident and its standard deviation |
+|Variable | lista\_envolvidos | List of involved by accident per year |
+|Variable | lista\_medias | List of averages involved by accident |
+|Variable | envolvidos | Number of involved |
+|Variable | acidentes | Number of accidents |
+|Variable | media | Average of involved by accident |
+|Variable | desvio | Standard deviation |
