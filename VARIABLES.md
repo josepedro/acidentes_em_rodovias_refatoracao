@@ -30,13 +30,13 @@
 
 |Type     |Name        |Description        |
 |:---------:|:------------|:-------------------|
-|Class | EnvolvidosAcidentesDAO | Obtain data on those involved in accidents |
+|Class | EnvolvidosAcidentesDAO | Obtains data on those involved in accidents |
 |Method | envolvidos\_acidentes | Returns the amount involved and the number of accidents per year |
 |Variable | query | In method envolvidos\_acidentes, queries the amount involved and the number of accidents per year |
-|Method | media\_desvio\_envolvidos | Returns the media involved by accident and its standard deviation |
-|Variable | lista\_envolvidos | List of involved by accident per year |
-|Variable | lista\_medias | List of averages involved by accident |
+|Method | media\_desvio\_envolvidos | Returns the average involved in accidents and it's standard deviation |
+|Variable | lista\_envolvidos | List of involved in accidents per year |
+|Variable | lista\_medias | List of averages involved in accidents |
 |Variable | envolvidos | Number of involved |
 |Variable | acidentes | Number of accidents |
-|Variable | media | Average of involved by accident |
+|Variable | media | Average of involved in accidents |
 |Variable | desvio | Standard deviation |
