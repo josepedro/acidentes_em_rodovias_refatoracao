@@ -4,20 +4,30 @@
 
 ####generico_dao.py
 
+#####__Class__ GenericoDAO: Creates Database connection, executes queries and transform queries results in objects
+
 |Type     |Name        |Description        |
 |:---------:|:------------|:-------------------|
-|Class    |GenericoDAO | Creates Database connection, executes queries and transform queries results in objects |
 |Method   |\_\_init\_\_ | Class constructor |
 |Variable | usuario | Database's username |
 |Variable | database | Database's schema name|
 |Variable | senha | Database's password |
 |Variable | host | Database's host |
 |Variable | conexao | Receives a connection with the Database |
+
+|Type     |Name        |Description        |
+|:---------:|:------------|:-------------------|
 |Method   | get_conexao | Starts and returns a connection with the Database |
+
+|Type     |Name        |Description        |
+|:---------:|:------------|:-------------------|
 |Method   | executa_query | Executes a SQL query |
 |Parameter| query | A SQL instruction |
 |Parameter| get\_data\_frame | Determines the format of the query results. Sets False as default |
 |Variable | dados | Receives the query result |
+
+|Type     |Name        |Description        |
+|:---------:|:------------|:-------------------|
 |Method | transforma\_dicionario\_em\_objetos| Transforms the query results in a model object |
 |Parameter| classe | Determines the Class of the model object |
 |Parameter| modulo | Indicates the name of the module that the class is |
@@ -28,11 +38,16 @@
 
 ####envolvidos\_acidentes\_dao.py
 
+
+#####__Class__ EnvolvidosAcidentesDAO Obtains data on those involved in accidents
+
 |Type     |Name        |Description        |
 |:---------:|:------------|:-------------------|
-|Class | EnvolvidosAcidentesDAO | Obtains data on those involved in accidents |
 |Method | envolvidos\_acidentes | Returns the amount involved and the number of accidents per year |
 |Variable | query | In method envolvidos\_acidentes, queries the amount involved and the number of accidents per year |
+
+|Type     |Name        |Description        |
+|:---------:|:------------|:-------------------|
 |Method | media\_desvio\_envolvidos | Returns the average involved in accidents and it's standard deviation |
 |Variable | lista\_envolvidos | List of involved in accidents per year |
 |Variable | lista\_medias | List of averages involved in accidents |
@@ -44,6 +59,7 @@
 ####municipio_dao.py
 
 #####__Class__ MunicipioDAO: Obtains the list of brazilian municipalities
+
 |Type     |Name        |Description        |
 |:---------:|:------------|:-------------------|
 | Method | lista\_municipios | Returns the list of brazilian municipalities of a state |
