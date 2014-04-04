@@ -40,3 +40,14 @@
 |Variable | acidentes | Number of accidents |
 |Variable | media | Average of involved by accident |
 |Variable | desvio | Standard deviation |
+
+####municipio_dao.py
+
+#####__Class__ MunicipioDAO: Obtains the list of brazilian municipalities
+|Type     |Name        |Description        |
+|:---------:|:------------|:-------------------|
+| Method | lista\_municipios | Returns the list of brazilian municipalities of a state |
+| Parameter | uf | Abreviation of the state's name |
+| Parameter | limite | Limits the query |
+| Variable | query | Queries the municipalities of a state |
+
