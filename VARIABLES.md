@@ -4,7 +4,9 @@
 
 ####generico_dao.py
 
-#####__Class__ GenericoDAO: Creates Database connection, executes queries and transform queries results in objects
+#####__Class__ GenericoDAO
+
+* Creates Database connection, executes queries and transform queries results in objects
 
 |Type     |Name        |Description        |
 |:---------:|:------------|:-------------------|
@@ -39,7 +41,9 @@
 ####envolvidos\_acidentes\_dao.py
 
 
-#####__Class__ EnvolvidosAcidentesDAO Obtains data on those involved in accidents
+#####__Class__ EnvolvidosAcidentesDAO
+
+* Obtains data on those involved in accidents
 
 |Type     |Name        |Description        |
 |:---------:|:------------|:-------------------|
@@ -58,7 +62,9 @@
 
 ####municipio_dao.py
 
-#####__Class__ MunicipioDAO: Obtains the list of brazilian municipalities
+#####__Class__ MunicipioDAO
+
+* Obtains the list of brazilian municipalities
 
 |Type     |Name        |Description        |
 |:---------:|:------------|:-------------------|
