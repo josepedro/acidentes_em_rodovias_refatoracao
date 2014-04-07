@@ -19,7 +19,16 @@ Execute os seguintes passos em um terminal para instalação e uso da aplicaçã
 
 	5) Pronto! Acesse a sua aplicação em um browser no endereço 'http://localhost:8080/acidentes_rodovias/'
 
-	6) Para rodar o doxygen, primeiro instale o pydoxy, disponibilizado em 'https://github.com/Feneric/doxypypy'
+	6) Para rodar apenas o Pylint, basta chamado com o nome da aplicação, no caso, o pacote app:
+		$ pylint app
+
+	7) Para rodar o doxygen, primeiro instale o pydoxy, disponibilizado em 'https://github.com/Feneric/doxypypy'
 		Em seguida execute o arquivo Doxyfile na raiz do projeto da seguinte forma:
 			$ doxygen Doxyfile
 		Na pasta Documents/html, basta abrir o arquivo index.html.
+		É possível apenas rodar a aplicação docfiles.sh na raiz do projeto para rodar em sequência:
+			- Doxygen
+			- Pylint
+			- Pyreverse (gerador de gráficos UML)
+
+
