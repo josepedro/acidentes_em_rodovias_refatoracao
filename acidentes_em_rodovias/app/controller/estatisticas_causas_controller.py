@@ -30,20 +30,29 @@ from datetime import datetime
 
 # Logging config
 logging.basicConfig()
+## logger object
 logger = logging.getLogger(__name__)
 
 
 def causas_acidentes(request):
-    """ Return the render of the page with statistics of
-causes of accidents.. """
+    """ Return the render of the page with statistics of causes of accidents.
+    @param request context request from view
+    @return HTML page with statistics of causes of accidents.
+    """
 
     try:
+        ## DAO object of causes
         causas_dao = CausasAcidentesDAO()
+        ## List of causes
         causas_list = causas_dao.causas_acidentes()
+        ## List of years by causes
         causas_ano_list = causas_dao.causas_acidentes_ano()
+        ## List of statistics by causes
         probabilidade_causas_list = causas_dao.probabilidade_causas_acidentes()
+        ## List of means
         media_desvio_list = causas_dao.media_desvio_causas_acidentes()
 
+        # clean the list causes
         causas_list = []
         for acidente in probabilidade_causas_list:
             causas_list.append(acidente.causa)

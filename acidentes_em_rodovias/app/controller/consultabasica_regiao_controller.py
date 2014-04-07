@@ -31,14 +31,20 @@ from app.util.validacao_util import *
 
 # Logging config
 logging.basicConfig()
+## logger object
 logger = logging.getLogger(__name__)
 
 
 def consulta_por_regiao(request):
-    """ Return the render from page with query by region. """
+    """ Return the render from page with query by region.
+    @param request context request from view
+    @return HTML page with query by region.
+    """
 
     try:
+        ## object DAO from UF
         uf_dao = UfDAO()
+        ## list of UFs
         uf_list = uf_dao.lista_ufs()
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
@@ -57,9 +63,13 @@ def consulta_por_regiao(request):
 
 
 def consulta_municipios_na_regiao(request):
-    """ Return the render from page with query by municipalities in region. """
+    """ Return the render from page with query by municipalities in region.
+    @param request context request from view
+    @return HTML page with query by municipalities in region.
+    """
 
     try:
+        ## Id from UF requested
         uf_id = request.GET['uf_id']
     except MultiValueDictKeyError as e:
         logger.error(str(e))
@@ -82,7 +92,9 @@ def consulta_municipios_na_regiao(request):
         )
 
     try:
+        ## object DAO from municipalities
         municipio_dao = MunicipioDAO()
+        ## list of municipalities
         municipio_list = municipio_dao.lista_municipios(uf_id)
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
@@ -101,10 +113,13 @@ def consulta_municipios_na_regiao(request):
 
 
 def consulta_ocorrencias_por_municipio(request):
-    """ Return the render from page with query
-    by occurrences in the region. """
+    """ Return the render from page with query by occurrences in the region.
+    @param request context request from view
+    @return HTML page with query by occurrences in the region.
+    """
 
     try:
+        ## Municipalitie Id
         municipio_id = int(request.GET['municipio_id'])
     except (ValueError, MultiValueDictKeyError) as e:
         logger.error(str(e))
@@ -116,7 +131,9 @@ def consulta_ocorrencias_por_municipio(request):
         )
 
     try:
+        ## Occurrences DAO
         ocorrencia_dao = OcorrenciaBasicaDAO()
+        ## List of occurrences
         ocorrencia_list = ocorrencia_dao.lista_ocorrencias_por_regiao(
             municipio_id,
             1000
