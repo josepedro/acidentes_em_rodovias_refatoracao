@@ -7,7 +7,7 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-from .generico_dao import *
+from app.models.dao.generico_dao import *
 
 
 class PessoasAcidentesDAO(GenericoDAO):

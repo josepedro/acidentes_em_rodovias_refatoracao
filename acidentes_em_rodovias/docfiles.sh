@@ -10,11 +10,11 @@ echo 'Done'
 #echo 'Done'
 
 echo -n 'Running Pylint ... '
-pylint app --output-format=html > ../../Documents/pylint.html
-pylint app > ../../Documents/pylint.log
+#pylint app --output-format=html > ../../Documents/pylint.html
+#pylint app > ../../Documents/pylint.log
 echo 'Done'
 
 echo -n 'Generating graphs ... '
-pyreverse -o png app -p Acidentes_Rodovias -f ALL > pyreverse.log
-mv *.png ../../Documents/
+#pyreverse -o png app -p Acidentes_Rodovias -f ALL > pyreverse.log
+#mv *.png ../../Documents/
 echo 'Done'

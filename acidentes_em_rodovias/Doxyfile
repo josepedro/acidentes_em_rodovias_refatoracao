@@ -439,7 +439,7 @@ SHOW_INCLUDE_FILES     = YES
 # will list include files with double quotes in the documentation 
 # rather than with sharp brackets.
 
-FORCE_LOCAL_INCLUDES   = NO
+FORCE_LOCAL_INCLUDES   = YES
 
 # If the INLINE_INFO tag is set to YES (the default) then a tag [inline] 
 # is inserted in the documentation for inline members.
@@ -458,7 +458,7 @@ SORT_MEMBER_DOCS       = YES
 # by member name. If set to NO (the default) the members will appear in 
 # declaration order.
 
-SORT_BRIEF_DOCS        = NO
+SORT_BRIEF_DOCS        = YES
 
 # If the SORT_MEMBERS_CTORS_1ST tag is set to YES then doxygen 
 # will sort the (brief and detailed) documentation of class members so that 
@@ -752,7 +752,7 @@ FILTER_PATTERNS        =
 # INPUT_FILTER) will be used to filter the input files when producing source 
 # files to browse (i.e. when SOURCE_BROWSER is set to YES).
 
-FILTER_SOURCE_FILES    = YES
+FILTER_SOURCE_FILES    = NO
 
 # The FILTER_SOURCE_PATTERNS tag can be used to specify source filters per file 
 # pattern. A pattern will override the setting for FILTER_PATTERN (if any) 
