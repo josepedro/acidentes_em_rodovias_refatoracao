@@ -1,3 +1,39 @@
+##English
+(Tested in Linux based on Debian)
+
+Perform the following steps in a terminal to install and use the application:
+	1) Install the dependencies:
+		$ sudo apt-get install python2.7 python-pip git doxygen pylint
+		$ sudo pip install mysql-python Django django-nose pylint coverage mock pandas selenium
+	Ignore if some of the packages were already installed.
+
+	2) Clone the project and enter into its directory:
+		$ git clone https://github.com/matheus-fonseca/acidentes-em-rodovias.git
+		$ cd acidentes-em-rodovias/
+
+	3) If you want the most current development version is at the ' devel' branch, if you wanted the latest stable version check out the 'master' branch. Example:
+		$ git checkout master
+
+	4) Run the development server :
+		$ cd acidentes_em_rodovias/
+		$ python manage.py runserver 8080
+
+	5) Ready! Log in to your application in a browser at address 'http://localhost:8080/acidentes_rodovias/'
+
+	6) To run only the Pylint just called with the name of the application, in case the app bundle:
+		$ pylint app
+
+	7) To run doxygen, first install pydoxy, available in 'https://github.com/Feneric/doxypypy'
+	Then run the Doxyfile file in the root of the project as follows :
+		$ doxygen Doxyfile
+	In the folder ../../Documents/html, simply open the index.html file.
+	You can just execute the script docfiles.sh in the project root to run in sequence:
+		- Doxygen
+		- Pylint
+		- Pyreverse (UML graphs generator)
+
+
+##Portuguese
 (Testado em ambientes Linux baseados em Debian)
 
 Execute os seguintes passos em um terminal para instalação e uso da aplicação:
@@ -30,5 +66,3 @@ Execute os seguintes passos em um terminal para instalação e uso da aplicaçã
 			- Doxygen
 			- Pylint
 			- Pyreverse (gerador de gráficos UML)
-
-
