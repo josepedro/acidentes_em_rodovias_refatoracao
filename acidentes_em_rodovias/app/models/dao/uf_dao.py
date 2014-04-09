@@ -7,14 +7,34 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
+"""@package UF DAO
+Data Access Object (DAO) for Brazilian states.
+
+This module contains the class declaration that accesses
+data of Brazilian states in the database and exports them
+to the controller
+"""
+
 from .generico_dao import GenericoDAO
 
 
 class UfDAO(GenericoDAO):
 
-    """UF DAO"""
+    """Queries Brazilian states
+    """
 
     def lista_ufs(self, limite=0):
+        """ Queries Brazilian states
+
+            @brief Local variable:
+
+                query - 
+                    SQL instruction to query brazilian states
+
+            @param limit   Limits the query result. Default 0.
+            @return List of Brazilian states
+        """
+        
         if(limite != 0):
             limite = 'LIMIT %s' % limite
         else:
