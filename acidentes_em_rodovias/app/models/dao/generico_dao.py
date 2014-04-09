@@ -10,8 +10,8 @@
 """@package Envolvidos Acidentes DAO
 Data Access Object (DAO) para causa de acidentes nas BRs.
 
-Este modulo contem declação da classe que acessa os
-dados no banco e os exporta para a controller
+This module contains the class declaration that accesses
+data in the database and exports them to the controller
 """
 
 import sys
@@ -29,7 +29,7 @@ from app.exception.internal_exceptions import *
 
 # Logging config
 logging.basicConfig()
-## Logger object
+""" Logger object """
 logger = logging.getLogger(__name__)
 
 
@@ -81,6 +81,7 @@ class GenericoDAO:
             @return Query with the result
         """
 
+        ## \internal dados blabla
         dados = None
 
         if (get_data_frame is False):
