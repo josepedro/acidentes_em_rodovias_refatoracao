@@ -29,7 +29,8 @@ from app.util.estatisticas_util import *
 class CausasAcidentesDAO(GenericoDAO):
 
     """Queries causes of accidents, causes of accidents per year,
-    probability and standard deviation of the causes"""
+    probability and standard deviation of the causes
+    """
 
     def causas_acidentes(self):
         """ Queries causes of the accidents

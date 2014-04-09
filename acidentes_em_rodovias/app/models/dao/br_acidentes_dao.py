@@ -27,7 +27,8 @@ from app.models.br_acidentes import *
 
 class BRAcidentesDAO(GenericoDAO):
 
-    """Queries' accidents from highway and accidents by highway per year"""
+    """Queries' accidents from highway and accidents by highway per year
+    """
 
     def acidentes_br_geral(self):
         """ Queries accidents from highways

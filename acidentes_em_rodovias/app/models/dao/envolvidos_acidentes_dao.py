@@ -28,7 +28,8 @@ from util.estatisticas_util import *
 
 class EnvolvidosAcidentesDAO(GenericoDAO):
 
-    """Queries the number of involved and the number of accidents per year"""
+    """Queries the number of involved and the number of accidents per year
+    """
 
     def envolvidos_acidentes(self):
         """ Queries the number of involved in accidents
