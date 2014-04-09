@@ -44,15 +44,15 @@ class GenericoDAO:
         Set the values to get a valid connection
         """
 
-        ## Database's username
+        # Database's username
         self.usuario = myconfiguration.DB_USER
-        ## Database's schema name
+        # Database's schema name
         self.database = myconfiguration.DB
-        ## Database's password
+        # Database's password
         self.senha = myconfiguration.DB_PASS
-        ## Database's host
+        # Database's host
         self.host = myconfiguration.HOST
-        ## Receives a connection with the Database
+        # Receives a connection with the Database
         self.conexao = self.get_conexao()
 
     def get_conexao(self):
@@ -73,7 +73,8 @@ class GenericoDAO:
 
             @brief Local variable:
 
-                dados - Receives the query result
+                dados - 
+                    Receives the query result
 
             @param query A SQL instruction
             @param get_data_frame   Determines the format of the query results.
@@ -81,7 +82,6 @@ class GenericoDAO:
             @return Query with the result
         """
 
-        ## \internal dados blabla
         dados = None
 
         if (get_data_frame is False):
