@@ -8,10 +8,11 @@
 #
 
 """@package Causas Acidentes DAO
-Data Access Object (DAO) para causa de acidentes nas BRs.
+Data Access Object (DAO) for cause of accidents in BRs
 
-Este modulo contem declação da classe que acessa os
-dados no banco e  os exporta para a controller
+This module contains the class declaration that
+accesses the database relating to causes of highway
+accidents in the bank and exports them to the controller.
 """
 
 import sys
@@ -27,9 +28,21 @@ from app.util.estatisticas_util import *
 
 class CausasAcidentesDAO(GenericoDAO):
 
-    """Causas de Acidentes DAO"""
+    """Queries causes of accidents, causes of accidents per year,
+    probability and standard deviation of the causes"""
 
     def causas_acidentes(self):
+        """ Queries causes of the accidents
+
+            @brief Local variable:
+
+                query -
+                    SQL instruction to query the number of accidents
+                by cause
+
+            @return A list of objects containing the causes of accidents
+        """
+
         query = """SELECT causa,
                     SUM(quantidade_ocorrencias) AS quantidade_ocorrencias
                 FROM estatisticas_causa
@@ -43,6 +56,30 @@ class CausasAcidentesDAO(GenericoDAO):
         )
 
     def causas_acidentes_ano(self):
+        """ Queries causes of the accidents by year
+
+            @brief Local variable:
+
+                query -
+                    SQL instruction to query the number of accidents
+                by cause separated by year
+
+                resultado_query -
+                    Saves the results from the query
+
+                causas_acidentes_ano_list -
+                    List of causes of accidents per year
+
+                ultimo_causa -
+                    Saves the last type cause
+
+                causas_acidentes_ano -
+                    Instance of AcidentesAno
+
+            @return A list of objects containing the causes of accidents
+            per year
+        """
+
         query = """SELECT causa, quantidade_ocorrencias, ano
                 FROM estatisticas_causa
                 ORDER BY causa, ano ; """
@@ -72,6 +109,33 @@ class CausasAcidentesDAO(GenericoDAO):
         return causas_acidentes_ano_list
 
     def probabilidade_causas_acidentes(self):
+        """ Calculates the probability of the causes of accidents
+
+            @brief Local variable:
+
+                query -
+                    SQL instruction to query the number of accidents
+                by cause separated by year
+
+                data_frame -
+                    Saves the results from the query in data frame
+                format
+
+                medias_list -
+                    List of avarages grouped by cause
+
+                desvios_padroes_list -
+                    List of standard deviations groupad by cause
+
+                probabilidade_causas_acidentes_list -
+                    List with the probabilities of the causes of accidents
+
+                prob_causa_acidentes -
+                    Instance of ProbabilidadeAcidentes
+
+            @return A list of objects containing the causes of accidents
+        """
+
         query = """SELECT causa, quantidade_ocorrencias, ano
                 FROM estatisticas_causa
                 ORDER BY causa, ano ; """

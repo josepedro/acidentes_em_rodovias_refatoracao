@@ -8,10 +8,11 @@
 #
 
 """@package Envolvidos Acidentes DAO
-Data Access Object (DAO) para causa de acidentes nas BRs.
+Data Access Object (DAO) for involved in accidents
 
-Este modulo contem declação da classe que acessa os
-dados no banco e os exporta para a controller
+This module contains the class declaration that
+accesses the database relating to involved in
+accidents in the bank and exports them to the controller.
 """
 
 import sys
@@ -27,9 +28,21 @@ from util.estatisticas_util import *
 
 class EnvolvidosAcidentesDAO(GenericoDAO):
 
-    """Envolvidos em Acidentes DAO"""
+    """Queries the number of involved and the number of accidents per year"""
 
     def envolvidos_acidentes(self):
+        """ Queries the number of involved in accidents
+
+            @brief Local variable:
+
+                query -
+                    SQL instruction to query the number of involved in
+                accidents
+
+            @return List of objects with the number of involved in
+            accidents
+        """
+
         query = """SELECT
                     `quantidade_envolvidos`, `quantidade_acidentes`, `ano`
                 FROM `estatisticas_envolvido`;"""
@@ -41,6 +54,32 @@ class EnvolvidosAcidentesDAO(GenericoDAO):
         )
 
     def media_desvio_envolvidos(self):
+        """ Queries the number of involved in accidents per year
+
+            @brief Local variable:
+
+                lista_envolvidos -
+                    List of involved in accidents per year
+
+                lista_medias -
+                    List of averages involved in accidents
+
+                envolvidos -
+                    Number of involved
+
+                acidentes -
+                    Number of accidents
+
+                media -
+                    Average of involved in accidents
+
+                desvio -
+                    Standard deviation
+
+            @return List of objects with the number of involved in
+            accidents
+        """
+
         lista_envolvidos = self.envolvidos_acidentes()
 
         lista_medias = []

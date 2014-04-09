@@ -8,7 +8,7 @@
 #
 
 """@package BR Acidentes DAO
-Data Access Object (DAO) for accidents in highway.
+Data Access Object (DAO) for accidents in highway
 
 This module contains the class declaration that
 accesses the database relating to highway accidents
