@@ -7,27 +7,35 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-"""@package Municipios
-Declaração das classes para pessoas.
+"""@package Model Persons accidents
+Declaration of classes to persons involved in accidents.
 
-Este modulo contem as classe para descrição de pessoas
+This module contains the declaration of model classes
+for persons involved in accidents.
 """
 
 
 class PessoasAcidentes:
 
-    """ Pessoas com ano """
+    """Model class for persons involved in accidents by year
+    """
 
     def __init__(self):
+        ## Field to insert year
         self.ano = ''
+        ## Field to insert person's gender
         self.sexo = ''
+        ## Field to insert how many occurrences
         self.quantidade = ''
 
 
 class PessoasAcidentesGeral:
 
-    """ Pessoas em geral """
+    """Model class for persons involved in accidents
+    """
 
     def _init__(self):
+        ## Field to insert person's gender
         self.sexo = ''
+        ## Field to insert how many occurrences
         self.quantidade = ''
