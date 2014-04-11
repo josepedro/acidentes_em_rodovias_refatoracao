@@ -31,10 +31,10 @@ class UfDAO(GenericoDAO):
                 query - 
                     SQL instruction to query brazilian states
 
-            @param limit   Limits the query result. Default 0.
+            @param limite   Limits the query result. Default 0.
             @return List of Brazilian states
         """
-        
+
         if(limite != 0):
             limite = 'LIMIT %s' % limite
         else:
