@@ -7,7 +7,7 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-"""@package Model accident
+"""@package Model Accident
 Declaration of classes for accidents.
 
 This module contains the declaration of model classes

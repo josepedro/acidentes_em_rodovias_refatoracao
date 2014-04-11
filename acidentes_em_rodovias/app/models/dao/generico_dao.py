@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 
 class GenericoDAO:
 
-    """Creates Database connection, executes queries and transform queries
+    """Creates Database connection, executes queries and transforms queries
     results in objects
     """
 
