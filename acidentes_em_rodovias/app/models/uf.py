@@ -17,8 +17,10 @@ para as UF de os estados.
 
 class Uf:
 
-    """ UF de estados """
+    """ States' UF """
 
     def __init__(self):
+        ## Abbreviation of the Federal City
         self.tufuf = ''
+        ## Denomination of the Federal City
         self.tufdenominacao = ''
