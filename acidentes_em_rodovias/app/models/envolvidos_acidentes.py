@@ -7,19 +7,23 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-"""@package Envolvidos em acidentes
-Declaração das classes para envovlidos em acidentes.
+"""@package Model Involved in Accidents
+Declaration of classes to involved in accidents.
 
-Este modulo contem declação das classes de modelo
-para modelos nos acidentes
+This module contains the declaration of model classes
+for involved in accidents.
 """
 
 
 class EnvolvidosAcidente:
 
-    """ Envolvidos em acidentes"""
+    """Model class for involved in accidents
+    """
 
     def __init__(self):
+        ## Field to insert how many involved
         self.quantidade_envolvidos = 0
+        ## Field to insert how many occurrences
         self.quantidade_acidentes = 0
+        ## Field to insert year
         self.ano = 0

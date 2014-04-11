@@ -7,28 +7,34 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-"""@package Modelo de acidentes
-Declaração das classes para acidentes.
+"""@package Model Accident
+Declaration of classes for accidents.
 
-Este modulo contem declação das classes de modelo
-para acidentes em BRs
+This module contains the declaration of model classes
+for accidents in BRs
 """
 
 
 class BRAcidentes():
 
-    """ Acidentes em geral das rodovias"""
+    """Model class for accidents by BR
+    """
 
     def __init__(self):
+        ## Field to insert how many occurrences
         self.quantidade_ocorrencias = ''
+        ## Field for insert highway's name
         self.br = ''
 
 
 class BRAcidentesAno():
 
-    """ Acidentes em geral das rodovias separados por ano"""
-
+    """Model class for accidents by BR and year
+    """
     def __init__(self):
+        ## Field to insert list with how many occurrences
         self.quantidade_ocorrencias_list = []
+        ## Field to insert highway's name
         self.br = ''
+        ## Field to insert list with years
         self.ano_list = []
