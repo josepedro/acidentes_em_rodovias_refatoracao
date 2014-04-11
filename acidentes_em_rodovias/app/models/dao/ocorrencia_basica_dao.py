@@ -25,8 +25,8 @@ class OcorrenciaBasicaDAO(GenericoDAO):
         Executes and lists query results by region
 
         @param municipio_id County's ID, returning the counties by each region selected.
-        @param limite limits the number of registers in the Database.
-        @return method that transforms the query results in a model object.
+        @param limite Limits the number of registers in the Database.
+        @return Method that transforms the query results in a model object.
         """
         if(limite != 0):
             limite = 'LIMIT %s' % limite
@@ -73,7 +73,8 @@ class OcorrenciaBasicaDAO(GenericoDAO):
 
         @param data_inicio Determines the initial date for the query search.
         @param data_fim Determines the final date for the query search.
-        @return method that transforms the query results in a model object.
+        @param limite Limits the number of registers in the Database.
+        @return Method that transforms the query results in a model object.
         """
         if(limite != 0):
             limite = 'LIMIT %s' % limite
