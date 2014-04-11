@@ -17,17 +17,28 @@ para Ocorrencias basicas
 
 class OcorrenciaBasica:
 
-    """ Ocorrencias Basicas """
+    """ Basic Occurrences """
 
     def __init__(self):
+        ## Occurrences' id table
         self.ocoid = ''
+        ## Occurrences' date table
         self.ocodataocorrencia = ''
+        ## Occurrences register's date table
         self.ocodataregistro = ''
+        ## Denomination table
         self.tmudenominacao = ''
+        ## UF table
         self.tmuuf = ''
+        ## Comunication type table
         self.tcodescricao = ''
+        ## Accident type table
         self.ttadescricao = ''
+        ## Accident cause table
         self.tcadescricao = ''
+        ## Local of hightway
         self.lbrbr = ''
+        ## Vehicle's brand table
         self.tmvdescricao = ''
+        ## Vehicle's table
         self.tvvdescricao = ''

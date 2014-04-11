@@ -7,29 +7,39 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-"""@package UF dos acidentes
-Declaração das classes para os acitendes e suas UF.
+"""@package Model UF Accidents
+Declaration of classes to accidents in Brazilian UF's
 
-Este modulo contem as classe para modelo dos Acidentes com suas UF
+This module contains the declaration of model classes
+for accidents in UF.
 """
 
 
 class UFAcidentes():
 
-    """ UF dos acidentes """
+    """Model class for involved in accidents
+    """
 
     def __init__(self):
+        ## Field to insert states' abreviation
         self.uf = ''
+        ## Field to insert how many occurrences
         self.quantidade_ocorrencias = ''
+        ## Field to insert states' latitude
         self.latitude = 0.0
+        ## Field to insert states' longitude
         self.longitude = 0.0
 
 
 class UFAcidentesAno():
 
-    """ UF dos acidentes separados por ano """
+    """Model class for involved in accidents by year
+    """
 
     def __init__(self):
+        ## Field to insert states' abreviation
         self.uf = ''
+        ## Field to insert list with how many occurrences
         self.quantidade_ocorrencias_list = []
+        ## Field to insert list with years
         self.ano_list = []

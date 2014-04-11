@@ -8,18 +8,21 @@
 #
 
 """@package Municipios
-Declaração das classes para municipios.
+Declaration of classes for county.
 
-Este modulo contem declação da classe de modelo
-para municipios
+This module contains the class declaration as a model
+for municipalities
 """
 
 
 class Municipio():
 
-    """  Classe de Municipios """
+    """  Class to County """
 
     def __init__(self):
+        ## county code table
         self.tmucodigo = ''
+        ## county designation table
         self.tmudenominacao = ''
+        ## county designation table
         self.tmuuf = ''
