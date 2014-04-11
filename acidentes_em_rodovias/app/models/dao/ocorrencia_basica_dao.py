@@ -24,6 +24,10 @@ class OcorrenciaBasicaDAO(GenericoDAO):
         """
         Executes and lists query results by region
 
+        @brief Local variable:
+            query -
+                SQL instruction to query the occurrences per region.
+
         @param municipio_id County's ID, returning the counties by each region selected.
         @param limite Limits the number of registers in the Database.
         @return Method that transforms the query results in a model object.
@@ -70,6 +74,10 @@ class OcorrenciaBasicaDAO(GenericoDAO):
     def lista_ocorrencias_por_periodo(self, data_inicio, data_fim, limite=0):
         """
         Executes and lists query results by period.
+
+        @brief Local variable:
+            query -
+                SQL instruction to query the occurrences per period.
 
         @param data_inicio Determines the initial date for the query search.
         @param data_fim Determines the final date for the query search.
