@@ -112,6 +112,7 @@ class TiposAcidentesDAO(GenericoDAO):
                 Receives the result of probability per each accident's type.
             probabilidade_tipo.tipo -
                 Receives a key to encode from iso-8859-1 to utf8
+        @return List of probability by type.
         """
         query = """SELECT tipo, quantidade_ocorrencias, ano
                 FROM estatisticas_tipo
