@@ -112,6 +112,13 @@ class TiposAcidentesDAO(GenericoDAO):
                 Receives the result of probability per each accident's type.
             probabilidade_tipo.tipo -
                 Receives a key to encode from iso-8859-1 to utf8
+            inferior -
+                Determines the lower limit for the operation
+            superior -
+                Determines the higher limit for the operation
+            distribuicao_normal-
+                Calculates the normal distribution of the probability
+
         @return List of probability by type.
         """
         query = """SELECT tipo, quantidade_ocorrencias, ano
@@ -192,6 +199,22 @@ class TiposAcidentesDAO(GenericoDAO):
         return probabilidade_tipo_list
 
     def media_desvio_tipos_acidentes(self):
+        """
+        Calculates the average of the accidents types
+        @brief Local variables:
+            query - 
+                SQL instruction to query the statistics per year.
+            data_frame - 
+                Receives the query result in a predetermined format.
+            medias_list- 
+                List of averages.
+            desvios_padroes_list -
+                List of standard deviations. 
+            media_desvio_tipos_acidentes_list -
+                Lists the average of the standard deviation for the different accidents type.
+
+        @return List of the standard deviation's averages.
+        """
         query = """SELECT tipo, quantidade_ocorrencias, ano
                 FROM estatisticas_tipo
                 ORDER BY tipo, ano ; """
