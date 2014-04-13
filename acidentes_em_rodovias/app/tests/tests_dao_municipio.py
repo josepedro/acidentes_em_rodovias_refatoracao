@@ -14,24 +14,29 @@ import inspect
 from django.test import SimpleTestCase
 from django.core.urlresolvers import reverse, resolve
 
-from models.dao import *
+from app.models.dao import *
 
 from _mysql_exceptions import OperationalError, ProgrammingError
 
 from exception.internal_exceptions import *
 
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
-
 
 class TestMunicipio(SimpleTestCase):
 
-    """docstring for TestMunicipio"""
+    """docstring for TestMunicipio
+    Class that tests the methods municipio_dao
+    """
 
     def setUp(self):
+        """
+        Configures the ambient for test.
+
+        @brief Local variables:
+            func - 
+                Gets the name of the test function and fixes it for the output.
+            out -
+                Writes the name of the test function that is being proccessed.
+        """
         self.municipio = municipio_dao.MunicipioDAO()
         func = str(self.id).split('=')[-1][:-2]
         func = func.split('test_')[-1]
@@ -42,15 +47,27 @@ class TestMunicipio(SimpleTestCase):
         self.shortDescription()
 
     def tearDown(self):
+        """
+        Informs that the test was executed.
+        """
         sys.stderr.write('Done\n')
 
     def shortDescription(self):
+        """
+        Gives a description of the class being tested.
+        """
         return "Teste da classe MunicipioDAO"
 
     def test_existing_municipio_dao_instance(self):
+        """
+        Tests if the returned county is not NULL
+        """
         self.assertIsNotNone(self.municipio)
 
     def test_list_municipio(self):
+        """
+        Tests if the list of counties does not return null, in general and in a determined limit.
+        """
         for i in self.municipio.lista_municipios("DF"):
             self.assertIsNotNone(i)
         for i in self.municipio.lista_municipios("DF", limite=3):
