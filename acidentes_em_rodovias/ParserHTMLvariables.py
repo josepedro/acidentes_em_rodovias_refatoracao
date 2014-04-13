@@ -109,8 +109,8 @@ if __name__ == '__main__':
 	fout.write("\n\n")
 
 	parser = AllIds()
-	f = open("app/views/resultado.html","r")
+	f = open("app/views/tipos_acidentes.html","r")
 	parser.feed(f.read())
-	fout.write("###resultado.html\n")
+	fout.write("###tipos_acidentes.html\n")
 	fout.write(parser.ids)
 	fout.write("\n\n")
