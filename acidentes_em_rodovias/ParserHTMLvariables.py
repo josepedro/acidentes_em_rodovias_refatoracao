@@ -93,3 +93,10 @@ if __name__ == '__main__':
 	fout.write("###periodo.html\n")
 	fout.write(parser.ids)
 	fout.write("\n\n")
+
+	parser = AllIds()
+	f = open("app/views/regiao.html","r")
+	parser.feed(f.read())
+	fout.write("###regiao.html\n")
+	fout.write(parser.ids)
+	fout.write("\n\n")
