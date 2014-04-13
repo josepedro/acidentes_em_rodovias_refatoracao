@@ -82,7 +82,7 @@ class TestDAO(SimpleTestCase):
     def test_get_conexao(self):
         """
         Tests the connection. 
-        Expects an error in case the method has at least on of it's parameters not set.
+        Expects an error in case the method has at least one of it's parameters not set.
         """
         self.dao.database = ' '
         self.dao.usuario = ' '
@@ -104,8 +104,8 @@ class TestDAO(SimpleTestCase):
     def test_transforma_objeto(self):
         """
         Tests the transformation of the query results to a model object.
-        If the query is correctl selected, tests it goes through the IF and ELSE of the FOR loop.
-        After it tests if the list isn't empty and end with the exception in case it fails to transform the query. 
+        If the query is correctly selected, tests that it goes through the IF and ELSE of the FOR loop.
+        After, it tests if the list isn't empty and raises an exception in case it fails to transform the query. 
         """
         # Quando tudo funciona bem
         query = """SELECT tufuf, tufdenominacao FROM uf
