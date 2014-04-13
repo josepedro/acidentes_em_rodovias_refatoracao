@@ -31,9 +31,22 @@ sys.path.append(current_path)
 
 class TestDAO(SimpleTestCase):
 
-    """docstring for TestDAO"""
+    """docstring for TestDAO
+        Class that tests the methods from generico_dao
+    """
 
     def setUp(self):  # configura ambiente para teste
+        """
+        Sets the class generico_dao for test, importing it and setting the outputs.
+
+        @brief Local variables:
+            x -
+                Receives the import from models.dao.generico_dao.
+            func - 
+                Gets the name of the test function and fixes it for the output.
+            out -
+                Writes the name of the test function that is being proccessed.
+        """
         x = __import__('models.dao.generico_dao')
         self.dao = x.dao.generico_dao.GenericoDAO()
         # help(x.dao.generico_dao)
