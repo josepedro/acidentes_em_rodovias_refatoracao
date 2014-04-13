@@ -84,9 +84,13 @@ class TestDAO(SimpleTestCase):
         Tests the connection. 
         Expects an error in case the method has at least one of it's parameters not set.
         """
+        ## Field to insert database
         self.dao.database = ' '
+        ## Field to insert user
         self.dao.usuario = ' '
+        ## Field to insert password
         self.dao.senha = ' '
+        ## Field to insert host
         self.dao.host = ' '
         # self.assertIsNone(self.dao.get_conexao())
         with self.assertRaises(OperationalError):
@@ -106,6 +110,12 @@ class TestDAO(SimpleTestCase):
         Tests the transformation of the query results to a model object.
         If the query is correctly selected, tests that it goes through the IF and ELSE of the FOR loop.
         After, it tests if the list isn't empty and raises an exception in case it fails to transform the query. 
+
+        @brief Local variable
+            query -
+                SQL instruction that queries the UFs and their names.
+            ufList -
+                Receives the query results after they become model objects.
         """
         # Quando tudo funciona bem
         query = """SELECT tufuf, tufdenominacao FROM uf
