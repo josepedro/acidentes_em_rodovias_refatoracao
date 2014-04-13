@@ -14,24 +14,29 @@ import inspect
 from django.test import SimpleTestCase
 from django.core.urlresolvers import reverse, resolve
 
-from models.dao import *
+from app.models.dao import *
 
 from _mysql_exceptions import OperationalError, ProgrammingError
 
 from exception.internal_exceptions import *
 
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
-
 
 class TestOcorrencia(SimpleTestCase):
 
-    """docstring for TestOcorrencia"""
+    """docstring for TestOcorrencia
+    Class that tests the methods from ocorrencia_basica_dao
+    """
 
     def setUp(self):
+        """
+        Configures the ambient for test.
+
+        @brief Local variables:
+            func - 
+                Gets the name of the test function and fixes it for the output.
+            out -
+                Writes the name of the test function that is being proccessed.
+        """
         self.ocorrencia = ocorrencia_basica_dao.OcorrenciaBasicaDAO()
         func = str(self.id).split('=')[-1][:-2]
         func = func.split('test_')[-1]
@@ -42,15 +47,28 @@ class TestOcorrencia(SimpleTestCase):
         self.shortDescription()
 
     def tearDown(self):
+        """
+        Informs that the test was executed.
+        """
         sys.stderr.write('Done\n')
 
     def shortDescription(self):
+        """
+        Gives a description of the class being tested.
+        """
         return "Teste da classe OcorrenciaBasica"
 
     def test_existing_ocorrencia_dao_instance(self):
+        """
+        Tests to see if the occurrence was correctly instantiated
+        """
         self.assertIsNotNone(self.ocorrencia)
 
     def test_ocorrencia_por_regiao(self):
+        """
+        Tests is the number of occurrences were instantiated, for a defined and an undefined limit.
+        Also verifies if the return for the occurrences are in the same state.
+        """
         # 97012 = Brasilia
         oco = self.ocorrencia.lista_ocorrencias_por_regiao(97012)
         self.assertIsNotNone(oco)
@@ -64,6 +82,10 @@ class TestOcorrencia(SimpleTestCase):
             self.assertEqual(i.tmuuf, 'DF')
 
     def test_ocorrencia_por_periodo(self):
+        """
+        Tests is the number of occurrences were instantiated in a determined period, for a defined and an undefined limit.
+        Also verifies if the return for the occurrences are in the same year.
+        """
         oco = self.ocorrencia.lista_ocorrencias_por_periodo(
             '06/01/06',
             '06/12/06'
