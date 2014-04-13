@@ -37,7 +37,7 @@ class TestDAO(SimpleTestCase):
 
     def setUp(self):  # configura ambiente para teste
         """
-        Sets the class generico_dao for test, importing it and setting the outputs.
+        Configures the ambient for test.
 
         @brief Local variables:
             x -
@@ -61,16 +61,29 @@ class TestDAO(SimpleTestCase):
         self.shortDescription()
 
     def tearDown(self):
+        """
+        Informs that the test was executed.
+        """
         # informa que o teste foi realizado
         sys.stderr.write('Done\n')
 
     def shortDescription(self):
+        """
+        Gives a description of the class being tested.
+        """
         return "Teste da classe GenericoDAO"
 
     def test_existing_dao_instance(self):
+        """
+        Tests to see if the class is correctly instanced.
+        """
         self.assertIsNotNone(self.dao)
 
     def test_get_conexao(self):
+        """
+        Tests the connection. 
+        Expects an error in case the method has at least on of it's parameters not set.
+        """
         self.dao.database = ' '
         self.dao.usuario = ' '
         self.dao.senha = ' '
@@ -80,11 +93,20 @@ class TestDAO(SimpleTestCase):
             self.dao.get_conexao()
 
     def test_try_query(self):
+        """
+        Tests the execution of a query.
+        Expects an error in case the table selected does not exist.
+        """
         with self.assertRaises(ProgrammingError):
             self.assertIsNone(self.dao.executa_query("show * from jik;"))
         self.assertIsNotNone(self.dao.executa_query("show tables;"))
 
     def test_transforma_objeto(self):
+        """
+        Tests the transformation of the query results to a model object.
+        If the query is correctl selected, tests it goes through the IF and ELSE of the FOR loop.
+        After it tests if the list isn't empty and end with the exception in case it fails to transform the query. 
+        """
         # Quando tudo funciona bem
         query = """SELECT tufuf, tufdenominacao FROM uf
                 WHERE tufuf = 'DF' ORDER BY tufdenominacao;"""
@@ -110,6 +132,9 @@ class TestDAO(SimpleTestCase):
             )
 
     def test_instancia_objetos(self):
+        """
+        Tests the object were correctly instanced.
+        """
         self.assertIsNotNone(causas_acidentes.Acidentes())
         self.assertIsNotNone(str(causas_acidentes.Acidentes()))
         self.assertIsNotNone(causas_acidentes.AcidentesAno())
