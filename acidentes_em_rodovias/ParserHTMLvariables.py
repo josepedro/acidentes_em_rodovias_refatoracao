@@ -59,4 +59,17 @@ if __name__ == '__main__':
 	fout.write(parser.ids)
 	fout.write("\n\n")
 
+	parser = AllIds()
+	f = open("app/views/header.html","r")
+	parser.feed(f.read())
+	fout.write("###header.html\n")
+	fout.write(parser.ids)
+	fout.write("\n\n")
+
+	parser = AllIds()
+	f = open("app/views/header.html","r")
+	parser.feed(f.read())
+	fout.write("###header.html\n")
+	fout.write(parser.ids)
+	fout.write("\n\n")
 
