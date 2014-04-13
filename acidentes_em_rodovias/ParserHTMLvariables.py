@@ -10,6 +10,7 @@ class AllIds(HTMLParser):
         self.lasttag = None
         self.lastname = None
         self.lastvalue = None
+        self.ids = ""
 
     def handle_starttag(self, tag, attrs):
         self.inLink = False
@@ -19,7 +20,7 @@ class AllIds(HTMLParser):
                     self.count += 1
                     self.inLink = True
                     self.lasttag = tag
-                    print value	
+                    self.ids += value+"\n"
 
     def handle_endtag(self, tag):
         if tag == "div":
@@ -28,6 +29,7 @@ class AllIds(HTMLParser):
 if __name__ == '__main__':
 	parser = AllIds()
 	f = open("app/views/acidentes_sexo.html","r")
-	fout = open("newfile.md", "w")
-	fout.write("hello world in the new file\n")
+	fout = open("VARIABLES-HTML.md", "w")
 	parser.feed(f.read())
+	print parser.ids
+	fout.write(parser.ids)
