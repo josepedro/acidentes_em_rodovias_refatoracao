@@ -31,21 +31,32 @@ if __name__ == '__main__':
 	fout = open("VARIABLES-HTML.md", "w")
 	fout.write("#Variables in html files\n\n")
 
+	parser = AllIds()
 	f = open("app/views/acidentes_sexo.html","r")
 	parser.feed(f.read())
 	fout.write("###acidentes_sexo.html\n")
 	fout.write(parser.ids)
 	fout.write("\n\n")
 
+	parser = AllIds()
 	f = open("app/views/br_acidentes.html","r")
 	parser.feed(f.read())
 	fout.write("###br_acidentes.html\n")
 	fout.write(parser.ids)
 	fout.write("\n\n")
 
+	parser = AllIds()
 	f = open("app/views/causas_acidentes.html","r")
 	parser.feed(f.read())
 	fout.write("###causas_acidentes.html\n")
 	fout.write(parser.ids)
 	fout.write("\n\n")
+
+	parser = AllIds()
+	f = open("app/views/footer.html","r")
+	parser.feed(f.read())
+	fout.write("###footer.html\n")
+	fout.write(parser.ids)
+	fout.write("\n\n")
+
 
