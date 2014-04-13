@@ -215,6 +215,24 @@ class CausasAcidentesDAO(GenericoDAO):
         return probabilidade_causas_acidentes_list
 
     def media_desvio_causas_acidentes(self):
+        """ Calculates the standard deviation of the causes of the accidents
+
+            @brief Local variable:
+
+                query -
+                    SQL instruction to query the number of accidents by cause.
+
+                medias_list -
+                    Receives a list with the media of each cause.
+
+                desvios_padroes_list -
+                    Receives a list with the standard deviation of each cause.
+
+                media_desvio_causas_acidentes_list -
+                    Receives a list with the media and the standard deviation of each cause.
+
+            @return A list of the media and standard deviation of accidents causes.
+        """
         query = """SELECT causa, quantidade_ocorrencias, ano
                 FROM estatisticas_causa
                 ORDER BY causa, ano ; """
