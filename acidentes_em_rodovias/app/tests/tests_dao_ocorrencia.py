@@ -68,6 +68,10 @@ class TestOcorrencia(SimpleTestCase):
         """
         Tests is the number of occurrences were instantiated, for a defined and an undefined limit.
         Also verifies if the return for the occurrences are in the same state.
+
+        @brief Local variables
+            oco -
+                A list of occurences on a region.
         """
         # 97012 = Brasilia
         oco = self.ocorrencia.lista_ocorrencias_por_regiao(97012)
@@ -85,6 +89,10 @@ class TestOcorrencia(SimpleTestCase):
         """
         Tests is the number of occurrences were instantiated in a determined period, for a defined and an undefined limit.
         Also verifies if the return for the occurrences are in the same year.
+
+        @brief Local variables
+            oco -
+                A list of occurences on a period.
         """
         oco = self.ocorrencia.lista_ocorrencias_por_periodo(
             '06/01/06',
