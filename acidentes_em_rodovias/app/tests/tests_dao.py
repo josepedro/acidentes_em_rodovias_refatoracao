@@ -133,7 +133,7 @@ class TestDAO(SimpleTestCase):
 
     def test_instancia_objetos(self):
         """
-        Tests the object were correctly instanced.
+        Tests that the objects were correctly instanced.
         """
         self.assertIsNotNone(causas_acidentes.Acidentes())
         self.assertIsNotNone(str(causas_acidentes.Acidentes()))
