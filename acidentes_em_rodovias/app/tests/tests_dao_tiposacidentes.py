@@ -14,17 +14,11 @@ import inspect
 from django.test import SimpleTestCase
 from django.core.urlresolvers import reverse, resolve
 
-from models.dao import *
+from app.models.dao import *
 
 from _mysql_exceptions import OperationalError, ProgrammingError
 
 from exception.internal_exceptions import *
-
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
 
 
 class TestTiposAcidentes(SimpleTestCase):
