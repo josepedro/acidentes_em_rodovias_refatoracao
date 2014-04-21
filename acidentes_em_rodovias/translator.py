@@ -7,6 +7,7 @@
  """
 
 from multiprocessing import Pool
+from mock import MagicMock
 from goslate import Goslate
 import fnmatch
 import logging
@@ -14,7 +15,7 @@ import os
 import re
 import urllib2
 
-_MAX_PEERS = 60
+_MAX_PEERS = 1
 
 os.remove('traducoes.log')
 logger = logging.getLogger(__name__)
@@ -37,7 +38,7 @@ def encontre_text(file):
     """
     find on the string the works wich have '_' on it
     """
-    text = file.read()
+    text = file.read().decode('utf-8')
     return re.findall(r"\w+(?<=_)\w+", text)
     #return re.findall(r"\"\w+\"", text)
 
@@ -48,14 +49,14 @@ def traduza_palavra(txt):
     """
     try:
         # try connect with google
-        #response = urllib2.urlopen('http://74.125.228.100', timeout=2)
+        response = urllib2.urlopen('http://74.125.228.100', timeout=2)
         pass
     except urllib2.URLError as err:
         print "No network connection "
         exit(-1)
     if txt[0] != '_':
         txt = txt.replace('_', ' ')
-    txt = txt.replace('media', 'média')
+    txt = txt.replace('media'.decode('utf-8'), 'média'.decode('utf-8'))
     gs = Goslate()
     #txt = gs.translate(txt, 'en', gs.detect(txt))
     txt = gs.translate(txt, 'en', 'pt-br')  # garantindo idioma tupiniquim
@@ -68,9 +69,9 @@ def subistitua(file, txt, novo_txt):
     should rewrite the file with the new text in the future
     """
     text = file.read()
-    text.replace(txt, novo_txt)
+    text.replace(txt.encode('utf-8'), novo_txt.encode('utf-8'))
     file.seek(0)  # rewind
-    file.write(text)
+    file.write(text.encode('utf-8'))
 
 
 def magica(File):
@@ -87,13 +88,13 @@ def magica(File):
             novo_txt = traduza_palavra(txt)
             if txt != novo_txt:
                 logger.info('%s -> %s [%s]' % (txt, novo_txt, File))
-            #subistitua(file, txt, novo_txt)
+            subistitua(file, txt, novo_txt)
         file.close()
     print File.ljust(70) + '[OK]'.rjust(5)
 
 if __name__ == '__main__':
     try:
-        response = urllib2.urlopen('http://www.google.com.br', timeout=2)
+        response = urllib2.urlopen('http://www.google.com.br', timeout=1)
     except urllib2.URLError as err:
         print "No network connection "
         exit(-1)
@@ -109,14 +110,18 @@ if __name__ == '__main__':
             result = _pool.map_async(magica, files)
             result.wait()
         else:
+            result = MagicMock()
+            result.successful.return_value = False
             for f in files:
+                pass
                 magica(f)
+            result.successful.return_value = True
     except AssertionError, e:
         print e
     else:
+        pass
+    finally:
         if result.successful():
             print 'Translated all files'
         else:
             print 'Some files was not translated'
-    finally:
-        print 'Bye'
