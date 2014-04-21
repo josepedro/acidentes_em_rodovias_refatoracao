@@ -12,8 +12,9 @@ import fnmatch
 import logging
 import os
 import re
+import urllib2
 
-_MAX_PEERS = 30
+_MAX_PEERS = 60
 
 os.remove('traducoes.log')
 logger = logging.getLogger(__name__)
@@ -45,6 +46,13 @@ def traduza_palavra(txt):
     """
         Translate the word/phrase to english
     """
+    try:
+        # try connect with google
+        #response = urllib2.urlopen('http://74.125.228.100', timeout=2)
+        pass
+    except urllib2.URLError as err:
+        print "No network connection "
+        exit(-1)
     if txt[0] != '_':
         txt = txt.replace('_', ' ')
     txt = txt.replace('media', 'média')
@@ -70,22 +78,45 @@ def magica(File):
     Thread Pool. Every single thread should play around here with
     one element from list os files
     """
-    #print '\n---- File %s' % File #inviavel em multithread
+    global _DONE
+    if _MAX_PEERS == 1:  # inviavel em multithread
+        logger.info('\n---- File %s' % File)
     with open(File, "r+") as file:
         list_txt = encontre_text(file)
         for txt in list_txt:
             novo_txt = traduza_palavra(txt)
-            logger.info('%s -> %s [%s]' % (txt, novo_txt, File))
+            if txt != novo_txt:
+                logger.info('%s -> %s [%s]' % (txt, novo_txt, File))
             #subistitua(file, txt, novo_txt)
         file.close()
     print File.ljust(70) + '[OK]'.rjust(5)
 
 if __name__ == '__main__':
+    try:
+        response = urllib2.urlopen('http://www.google.com.br', timeout=2)
+    except urllib2.URLError as err:
+        print "No network connection "
+        exit(-1)
     root = './app'
     ex = ".py"
     files = []
     os.path.walk(root, fileWalker, [ex, files])
 
-    _pool = Pool(processes=_MAX_PEERS)
-    result = _pool.map_async(magica, files)
-    result.wait()
+    print '%d files found to be translated' % len(files)
+    try:
+        if _MAX_PEERS > 1:
+            _pool = Pool(processes=_MAX_PEERS)
+            result = _pool.map_async(magica, files)
+            result.wait()
+        else:
+            for f in files:
+                magica(f)
+    except AssertionError, e:
+        print e
+    else:
+        if result.successful():
+            print 'Translated all files'
+        else:
+            print 'Some files was not translated'
+    finally:
+        print 'Bye'
