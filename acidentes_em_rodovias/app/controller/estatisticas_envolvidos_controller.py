@@ -17,7 +17,11 @@ import MySQLdb
 import logging
 
 # Adding upper directories to the Python Path
-from app import *
+#from app import *
+from app.util.estatisticas_util import *
+from app.exception.internal_exceptions import *
+from app.models.dao.envolvidos_acidentes_dao import *
+from app.models.dao.pessoas_acidentes_dao import *
 
 from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
