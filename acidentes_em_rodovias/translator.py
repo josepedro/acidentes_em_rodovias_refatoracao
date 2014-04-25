@@ -15,9 +15,12 @@ import os
 import re
 import urllib2
 
-_MAX_PEERS = 1
+_MAX_PEERS = 30
 
-os.remove('traducoes.log')
+try:
+    os.remove('traducoes.log')
+except OSError:
+    pass
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler('traducoes.log')
@@ -69,9 +72,10 @@ def subistitua(file, txt, novo_txt):
     should rewrite the file with the new text in the future
     """
     text = file.read()
-    text.replace(txt.encode('utf-8'), novo_txt.encode('utf-8'))
+    print '%s -> %s' % (txt, novo_txt)
+    text = text.replace(txt.encode('utf-8'), novo_txt.encode('utf-8'))
     file.seek(0)  # rewind
-    file.write(text.encode('utf-8'))
+    file.write(text)
 
 
 def magica(File):
