@@ -40,10 +40,10 @@ def acidentes_uf(request):
     """ Return the render with the accidents by states. """
 
     try:
-        data = datetime.now()
+        date = datetime.now()
         uf_dao = UFAcidentesDAO()
-        uf_acidentes_geral = uf_dao.acidentes_uf_geral()
-        uf_acidentes_ano = uf_dao.acidentes_uf_ano()
+        uf_accidents_general = uf_dao.acidentes_uf_geral()
+        uf_accidents_year = uf_dao.acidentes_uf_ano()
 
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
@@ -56,9 +56,9 @@ def acidentes_uf(request):
 
     return render_to_response(
         "uf_acidentes.html", {
-            'ano': range(2007, data.year + 1),
-            'uf_acidentes_ano': uf_acidentes_ano,
-            'uf_acidentes_geral': uf_acidentes_geral[:10],
-            'uf_acidentes_geral_mapa': uf_acidentes_geral
+            'ano': range(2007, date.year + 1),
+            'uf_acidentes_ano': uf_accidents_year,
+            'uf_acidentes_geral': uf_accidents_general[:10],
+            'uf_acidentes_geral_mapa': uf_accidents_general
         }, context_instance=RequestContext(request)
     )
