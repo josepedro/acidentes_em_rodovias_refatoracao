@@ -55,9 +55,9 @@ def consulta_ocorrencias_por_periodo(request):
 
     try:
         ## string with the initial date
-        data_inicio = str(request.GET['data_inicio'])
+        start_date = str(request.GET['start_date'])
         ## string with the final date
-        data_fim = str(request.GET['data_fim'])
+        end_date = str(request.GET['end_date'])
     except (MultiValueDictKeyError) as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
@@ -68,8 +68,8 @@ def consulta_ocorrencias_por_periodo(request):
         )
 
     try:
-        valida_data(data_inicio)
-        valida_data(data_fim)
+        valida_data(start_date)
+        valida_data(end_date)
     except DataInvalidaError as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
@@ -81,10 +81,10 @@ def consulta_ocorrencias_por_periodo(request):
 
     try:
         ## DAO object from basic occurrence
-        ocorrencia_dao = OcorrenciaBasicaDAO()
+        ocurrence_dao = OcorrenciaBasicaDAO()
         ## list of occurrences
-        ocorrencia_list = ocorrencia_dao.lista_ocorrencias_por_periodo(
-            data_inicio, data_fim, 1000)
+        ocurrence_list = ocurrence_dao.lista_ocorrencias_por_periodo(
+            start_date, end_date, 1000)
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
@@ -96,9 +96,9 @@ def consulta_ocorrencias_por_periodo(request):
 
     return render_to_response(
         "resultado.html", {
-            'ocorrencia_list': ocorrencia_list,
+            'ocorrencia_list': ocurrence_list,
             'tipo_consulta': 'periodo',
-            'data_inicio': data_inicio,
-            'data_fim': data_fim
+            'start_date': start_date,
+            'end_date': end_date
         }, context_instance=RequestContext(request)
     )
