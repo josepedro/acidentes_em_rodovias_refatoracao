@@ -81,9 +81,9 @@ def consulta_ocorrencias_por_periodo(request):
 
     try:
         ## DAO object from basic occurrence
-        ocurrence_dao = OcorrenciaBasicaDAO()
+        occurrences_dao = OcorrenciaBasicaDAO()
         ## list of occurrences
-        ocurrence_list = ocurrence_dao.lista_ocorrencias_por_periodo(
+        occurrences_list = occurrences_dao.lista_ocorrencias_por_periodo(
             start_date, end_date, 1000)
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
@@ -96,7 +96,7 @@ def consulta_ocorrencias_por_periodo(request):
 
     return render_to_response(
         "resultado.html", {
-            'ocorrencia_list': ocurrence_list,
+            'ocorrencia_list': occurrences_list,
             'tipo_consulta': 'periodo',
             'start_date': start_date,
             'end_date': end_date
