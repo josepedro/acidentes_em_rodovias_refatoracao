@@ -1,0 +1,345 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-02 01:36-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/views/acidentes_sexo.html:19 app/views/br_acidentes.html:17
+#: app/views/causas_acidentes.html:16 app/views/header.html:27
+#: app/views/header.html.py:91 app/views/index.html:17
+#: app/views/municipio.html:17 app/views/ocorrencias-e-envolvidos.html:17
+#: app/views/periodo.html:17 app/views/regiao.html:17
+#: app/views/resultado.html:17 app/views/tipos_acidentes.html:17
+#: app/views/uf_acidentes.html:17
+msgid "Acidentes em Rodovias"
+msgstr "Accidents on Highways"
+
+#: app/views/acidentes_sexo.html:28
+msgid "Estatísticas - Sexo dos envolvidos"
+msgstr "Statistics - Involved's gender"
+
+#: app/views/acidentes_sexo.html:40
+msgid "Quantidade de Homens/Mulheres envolvidos em acidentes por ano"
+msgstr "Number of Men / Women involved in accidents per year"
+
+#: app/views/acidentes_sexo.html:122
+msgid "Porcentagem de Homens/Mulheres envolvidos em acidentes já registrados"
+msgstr "Percentage of Men / Women involved in accidents on record"
+
+#: app/views/br_acidentes.html:26
+msgid "Estatísticas - BR"
+msgstr "Statistics - BR"
+
+#: app/views/br_acidentes.html:38
+msgid "10 Rodovias com mais acidentes - Geral"
+msgstr "10 Highways wih more accidents - General"
+
+#: app/views/br_acidentes.html:117
+msgid "10 Rodovias com mais acidentes - Por ano"
+msgstr "10 Highways wih more accidents - Per year"
+
+#: app/views/causas_acidentes.html:25
+msgid "Estatísticas - Causas de acidente"
+msgstr "Statistics - Cause of accident"
+
+#: app/views/causas_acidentes.html:37
+msgid "Causas de acidentes ao longo dos anos"
+msgstr "Cause of accidents over the years"
+
+#: app/views/causas_acidentes.html:121
+msgid "Porcentagem de acidentes já registrados de acordo com a causa"
+msgstr "Percentage of accidents ever recorded according to the cause"
+
+#: app/views/causas_acidentes.html:189
+msgid "Média e desvio padrão de cada causa de acidente"
+msgstr "Mean and standard deviation of each accident cause"
+
+#: app/views/causas_acidentes.html:276
+msgid "Probabilidade para cada causa de acidente no próximo ano"
+msgstr "Probability for each accident cause next year"
+
+#: app/views/causas_acidentes.html:284
+msgid ""
+"\n"
+"            <Strong>\n"
+"              OBS\n"
+"            </strong>\n"
+"            : Para cálculo da probabilidade foi utilizado a distribuição "
+"na \n"
+"            <a href=\"http://www.datalyzer.com.br/site/suporte/administrador/"
+"info/arquivos/info73/73.html\">\n"
+"              curva normal reduzida\n"
+"            </a>\n"
+"            "
+msgstr ""
+"\n"
+"            <Strong>\n"
+"              OBS\n"
+"            </strong>\n"
+"            : To calculate the probability distribution was used "
+"in \n"
+"            <a href=\"http://www.datalyzer.com.br/site/suporte/administrador/"
+"info/arquivos/info73/73.html\">\n"
+"              the reduced normal curve\n"
+"            </a>\n"
+"            "
+
+#: app/views/header.html:98
+msgid "Menu"
+msgstr "Menu"
+
+#: app/views/header.html:109
+msgid "Consulta"
+msgstr "Consult"
+
+#: app/views/header.html:114
+msgid "Selecione o tipo de consulta"
+msgstr "Select the type of query"
+
+#: app/views/header.html:119 app/views/resultado.html:140
+msgid "Região"
+msgstr "Region"
+
+#: app/views/header.html:126
+msgid "Período"
+msgstr "Period"
+
+#: app/views/header.html:135
+msgid "Estatísticas"
+msgstr "Statistics"
+
+#: app/views/header.html:140
+msgid "Selecione o tipo de estatística"
+msgstr "Select the type of statistical"
+
+#: app/views/header.html:145
+msgid "Tipos de acidentes"
+msgstr "Types of accidents"
+
+#: app/views/header.html:152
+msgid "Causas de acidentes"
+msgstr "Causes of accidents"
+
+#: app/views/header.html:159
+msgid "Número de ocorrências/envolvidos"
+msgstr "Number of occurrences/involved"
+
+#: app/views/header.html:166
+msgid "Homens/Mulheres envolvidos"
+msgstr "Men/Women involved"
+
+#: app/views/header.html:173
+msgid "Acidentes por BR"
+msgstr "Accidents per BR"
+
+#: app/views/header.html:180
+msgid "Acidentes por UF"
+msgstr "Accidents per FU"
+
+#: app/views/index.html:28
+msgid ""
+"\n"
+"    <p>\n"
+"      Acidentes em Rodovias - Uma aplicação de análise sobre dados de "
+"boletins de ocorrência de acidentes em rodovias federais Brasileiras (An "
+"application of data analysis from police reports of accidents in Brazilian "
+"federal highways).\n"
+"    </p>\n"
+"    \n"
+"    <p>\n"
+"      Projeto em realização conjunta por alunos das disciplinas Gestão de "
+"Portifólios e Projetos de Software (GPP) e Métodos de Desenvolvimento de "
+"Software (MDS) do curso de \n"
+"      <a href=\"http://fga.unb.br\">\n"
+"        Engenharia de Software, Universidade de Brasília\n"
+"      </a>\n"
+"      . \n"
+"    </p>\n"
+"    "
+msgstr ""
+"\n"
+"    <p>\n"
+"      Accidents on Highway - An application of data analysis from police "
+"reports of accidents in Brazilian federal highways.\n"
+"    </p>\n"
+"    \n"
+"    <p>\n"
+"      Projeto em realização conjunta por alunos das disciplinas Gestão de "
+"Portifólios e Projetos de Software (GPP) e Métodos de Desenvolvimento de "
+"Software (MDS) do curso de \n"
+"      <a href=\"http://fga.unb.br\">\n"
+"        Engenharia de Software, Universidade de Brasília\n"
+"      </a>\n"
+"      . \n"
+"    </p>\n"
+"    "
+
+#: app/views/index.html:47
+msgid "* Selecione uma opção no menu superior."
+msgstr "* Select an option from the top menu."
+
+#: app/views/municipio.html:26
+msgid "Consulta por Região - Município"
+msgstr "Query by Region - County"
+
+#: app/views/municipio.html:38
+msgid "Selecione um município..."
+msgstr "Select county ..."
+
+#: app/views/municipio.html:50
+msgid "Buscar Ocorrencias"
+msgstr "Search Ocorrencias"
+
+#: app/views/ocorrencias-e-envolvidos.html:26
+msgid "Estatísticas - Ocorrências e envolvidos"
+msgstr "Statistics - Results and involved"
+
+#: app/views/ocorrencias-e-envolvidos.html:38
+msgid "Quantidade de acidentes e envolvidos ao longo dos anos"
+msgstr "Number of accidents and involved over the years"
+
+#: app/views/ocorrencias-e-envolvidos.html:128
+msgid "Média de envolvidos por acidente e desvio padrão"
+msgstr "Average involved by accident and standard deviation"
+
+#: app/views/periodo.html:26
+msgid "Consulta por Período"
+msgstr "Query by Period"
+
+#: app/views/regiao.html:26
+msgid "Consulta por Região - Estado"
+msgstr "Query by Region - State"
+
+#: app/views/regiao.html:38
+msgid "Selecione um estado..."
+msgstr "Select a state ..."
+
+#: app/views/regiao.html:49
+msgid "Buscar Municipios"
+msgstr "Search Counties"
+
+#: app/views/resultado.html:25
+msgid "Resultado da consulta"
+msgstr "Query result"
+
+#: app/views/resultado.html:45
+msgid "Ocorrência #"
+msgstr "Occurrence #"
+
+#: app/views/resultado.html:52
+msgid "Rodovia (BR):"
+msgstr "Highway (BR):"
+
+#: app/views/resultado.html:61
+msgid "Data da ocorrência:"
+msgstr "Occurrence date:"
+
+#: app/views/resultado.html:70
+msgid "Data de registro:"
+msgstr "Date of registration:"
+
+#: app/views/resultado.html:79
+msgid "Região:"
+msgstr "Region"
+
+#: app/views/resultado.html:92
+msgid "Tipo de ocorrência:"
+msgstr "Occurrence type:"
+
+#: app/views/resultado.html:102
+msgid "Causa do acidente:"
+msgstr "Cause of the accident:"
+
+#: app/views/resultado.html:111
+msgid "Veículo envolvido:"
+msgstr "Vehicle involved:"
+
+#: app/views/resultado.html:146
+msgid "Cidade:"
+msgstr "City"
+
+#: app/views/resultado.html:168
+msgid "Periodo"
+msgstr "Period"
+
+#: app/views/resultado.html:174
+msgid "De:"
+msgstr "From"
+
+#: app/views/resultado.html:180
+msgid "Até:"
+msgstr "Until"
+
+#: app/views/tipos_acidentes.html:26
+msgid "Estatísticas - Tipo de acidente"
+msgstr "Statistics - Type of accident"
+
+#: app/views/tipos_acidentes.html:38
+msgid "Tipos de acidente ao longo dos anos"
+msgstr "Types of accidents over the years"
+
+#: app/views/tipos_acidentes.html:122
+msgid "Porcentagem de acidentes já registrados de acordo com o tipo"
+msgstr "Percentage of accidents ever recorded according to the type"
+
+#: app/views/tipos_acidentes.html:190
+msgid "Média e desvio padrão de cada tipo de acidente"
+msgstr "Mean and standard deviation for each type of accident"
+
+#: app/views/tipos_acidentes.html:277
+msgid "Probabilidade para cada tipo de acidente no próximo ano"
+msgstr "Probability for each type of accident in the next year"
+
+#: app/views/tipos_acidentes.html:285
+msgid ""
+"\n"
+"            <Strong>\n"
+"              OBS\n"
+"            </strong>\n"
+"            : Para cálculo da probabilidade foi utilizado modelo de  \n"
+"            <a href=\"http://www.datalyzer.com.br/site/suporte/administrador/"
+"info/arquivos/info73/73.html\">\n"
+"              distribuição normal reduzida\n"
+"            </a>\n"
+"            "
+msgstr ""
+"\n"
+"            <Strong>\n"
+"              OBS\n"
+"            </strong>\n"
+"            : To calculate the probability model was used  \n"
+"            <a href=\"http://www.datalyzer.com.br/site/suporte/administrador/"
+"info/arquivos/info73/73.html\">\n"
+"              reduced normal distribution\n"
+"            </a>\n"
+"            "
+
+#: app/views/uf_acidentes.html:26
+msgid "Estatísticas - UF"
+msgstr "Statistics - FU"
+
+#: app/views/uf_acidentes.html:38
+msgid "10 Estados com mais acidentes - Geral"
+msgstr "10 states with more accidents - PGeneral"
+
+#: app/views/uf_acidentes.html:117
+msgid "10 Estados com mais acidentes - Por ano"
+msgstr "Top 10 states with more accidents - Per year"
+
+#: app/views/uf_acidentes.html:200
+msgid "Mapa (todos os Estados):"
+msgstr "Map (all states):"
+

@@ -93,9 +93,9 @@ def consulta_municipios_na_regiao(request):
 
     try:
         ## object DAO from municipalities
-        municipio_dao = MunicipioDAO()
+        municipalities_dao = MunicipioDAO()
         ## list of municipalities
-        municipio_list = municipio_dao.lista_municipios(uf_id)
+        municipalities_list = municipalities_dao.lista_municipios(uf_id)
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
@@ -107,7 +107,7 @@ def consulta_municipios_na_regiao(request):
 
     return render_to_response(
         "municipio.html", {
-            'municipio_list': municipio_list
+            'municipio_list': municipalities_list
         }, context_instance=RequestContext(request)
     )
 
@@ -120,7 +120,7 @@ def consulta_ocorrencias_por_municipio(request):
 
     try:
         ## Municipalitie Id
-        municipio_id = int(request.GET['municipio_id'])
+        municipalities_id = int(request.GET['municipio_id'])
     except (ValueError, MultiValueDictKeyError) as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
@@ -132,10 +132,10 @@ def consulta_ocorrencias_por_municipio(request):
 
     try:
         ## Occurrences DAO
-        ocorrencia_dao = OcorrenciaBasicaDAO()
+        occurrences_dao = OcorrenciaBasicaDAO()
         ## List of occurrences
-        ocorrencia_list = ocorrencia_dao.lista_ocorrencias_por_regiao(
-            municipio_id,
+        occurrences_list = occurrences_dao.lista_ocorrencias_por_regiao(
+            municipalities_id,
             1000
         )
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
@@ -147,7 +147,7 @@ def consulta_ocorrencias_por_municipio(request):
             }, context_instance=RequestContext(request)
         )
 
-    if (len(ocorrencia_list) == 0):
+    if (len(occurrences_list) == 0):
         erro = "A consulta não retornou resultados!"
         return render_to_response(
             "index.html", {
@@ -155,14 +155,14 @@ def consulta_ocorrencias_por_municipio(request):
             }, context_instance=RequestContext(request)
         )
 
-    municipio = ocorrencia_list[0].tmudenominacao
-    uf = ocorrencia_list[0].tmuuf
+    municipalities = occurrences_list[0].tmudenominacao
+    uf = occurrences_list[0].tmuuf
 
     return render_to_response(
         "resultado.html", {
-            'ocorrencia_list': ocorrencia_list,
+            'ocorrencia_list': occurrences_list,
             'tipo_consulta': 'regiao',
-            'municipio': municipio,
+            'municipio': municipalities,
             'uf': uf
         }, context_instance=RequestContext(request)
     )

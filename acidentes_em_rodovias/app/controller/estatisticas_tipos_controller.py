@@ -39,15 +39,15 @@ def tipos_acidentes(request):
     """ Return the render with the kinds of accidents. """
 
     try:
-        tipos_dao = TiposAcidentesDAO()
-        tipos_acidentes_list = tipos_dao.tipos_acidentes()
-        tipos_acidentes_ano_list = tipos_dao.tipos_acidentes_ano()
-        probabilidade_list = tipos_dao.probabilidade_tipos_acidentes()
-        media_desvio_list = tipos_dao.media_desvio_tipos_acidentes()
+        type_dao = TiposAcidentesDAO()
+        types_accidents_list = type_dao.tipos_acidentes()
+        types_accidents_year_list = type_dao.tipos_acidentes_ano()
+        probability_list = type_dao.probabilidade_tipos_acidentes()
+        average_deviation_list = type_dao.media_desvio_tipos_acidentes()
 
-        tipos_list = []
-        for acidente in probabilidade_list:
-            tipos_list.append(acidente.tipo)
+        type_list = []
+        for accident in probability_list:
+            type_list.append(accident.tipo)
 
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
@@ -60,11 +60,11 @@ def tipos_acidentes(request):
 
     return render_to_response(
         "tipos_acidentes.html", {
-            'tipos_acidentes_list': tipos_acidentes_list,
-            'tipos_acidentes_ano_list': tipos_acidentes_ano_list,
-            'anos': tipos_acidentes_ano_list[0].ano_list,
-            'probabilidade_tipos_acidentes_list': probabilidade_list,
-            'tipos': tipos_list,
-            'media_desvio_tipos_acidentes_list': media_desvio_list,
+            'tipos_acidentes_list': types_accidents_list,
+            'tipos_acidentes_ano_list': types_accidents_year_list,
+            'anos': types_accidents_year_list[0].ano_list,
+            'probabilidade_tipos_acidentes_list': probability_list,
+            'tipos': type_list,
+            'media_desvio_tipos_acidentes_list': average_deviation_list,
         }, context_instance=RequestContext(request)
     )

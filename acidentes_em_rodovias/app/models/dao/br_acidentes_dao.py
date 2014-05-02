@@ -61,19 +61,19 @@ class BRAcidentesDAO(GenericoDAO):
                 query -
                     SQL instruction to query accidents from highways per year
 
-                resultado_query -
+                query_result -
                     Saves the results from the query
 
-                ultima_br -
+                last_br -
                     Saves the last type of accident listed, used for comparison
 
                 br -
                     Highway's name
 
-                br_acidentes_ano_list -
+                br_accidents_year_list -
                     List of accidents per year
 
-                brs_acidentes_ano -
+                brs_accidents_year -
                     A instance of BRAcidentesAno
 
 
@@ -86,26 +86,26 @@ class BRAcidentesDAO(GenericoDAO):
                 GROUP BY bre.ano, bre.br
                 ORDER BY bre.br, bre.ano;"""
 
-        resultado_query = self.executa_query(query)
+        query_result = self.executa_query(query)
 
-        br_acidentes_ano_list = []
-        ultima_br = ''
-        for (br, quantidade_ocorrencias, ano) in zip(
-                resultado_query['br'].values(),
-                resultado_query['quantidade_ocorrencias'].values(),
-                resultado_query['ano'].values()
+        br_accidents_year_list = []
+        last_br = ''
+        for (br, amount_occurrences, year) in zip(
+                query_result['br'].values(),
+                query_result['quantidade_ocorrencias'].values(),
+                query_result['ano'].values()
         ):
             br = br.decode('iso-8859-1').encode('utf8')
 
-            if (ultima_br != br):
-                brs_acidentes_ano = BRAcidentesAno()
-                br_acidentes_ano_list.append(brs_acidentes_ano)
-                brs_acidentes_ano.br = br
-                ultima_br = br
+            if (last_br != br):
+                brs_accidents_year = BRAcidentesAno()
+                br_accidents_year_list.append(brs_accidents_year)
+                brs_accidents_year.br = br
+                last_br = br
 
-            brs_acidentes_ano.ano_list.append(ano)
-            brs_acidentes_ano.quantidade_ocorrencias_list.append(
-                quantidade_ocorrencias,
+            brs_accidents_year.ano_list.append(year)
+            brs_accidents_year.quantidade_ocorrencias_list.append(
+                amount_occurrences,
             )
 
-        return br_acidentes_ano_list
+        return br_accidents_year_list

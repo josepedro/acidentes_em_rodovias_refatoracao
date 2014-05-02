@@ -21,9 +21,9 @@ import inspect
 
 from .generico_dao import GenericoDAO
 
-from models.envolvidos_acidentes import *
+from app.models.envolvidos_acidentes import *
 
-from util.estatisticas_util import *
+from app.util.estatisticas_util import *
 
 
 class EnvolvidosAcidentesDAO(GenericoDAO):

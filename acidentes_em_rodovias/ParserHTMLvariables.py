@@ -1,4 +1,8 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 from HTMLParser import HTMLParser
+from os import listdir as ls
 
 
 class AllIds(HTMLParser):
@@ -27,97 +31,17 @@ class AllIds(HTMLParser):
             self.inlink = False
 
 if __name__ == '__main__':
-	parser = AllIds()
-	fout = open("VARIABLES-HTML.md", "w")
-	fout.write("#Variables in html files\n\n")
+    parser = AllIds()
+    fout = open("VARIABLES-HTML.md", "w")
+    fout.write("#Variables in html files\n\n")
 
-	parser = AllIds()
-	f = open("app/views/acidentes_sexo.html","r")
-	parser.feed(f.read())
-	fout.write("###acidentes_sexo.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
+    files = ls('./app/views')
+    files.remove('robots.txt')
 
-	parser = AllIds()
-	f = open("app/views/br_acidentes.html","r")
-	parser.feed(f.read())
-	fout.write("###br_acidentes.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/causas_acidentes.html","r")
-	parser.feed(f.read())
-	fout.write("###causas_acidentes.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/footer.html","r")
-	parser.feed(f.read())
-	fout.write("###footer.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/header.html","r")
-	parser.feed(f.read())
-	fout.write("###header.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/index.html","r")
-	parser.feed(f.read())
-	fout.write("###index.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/municipio.html","r")
-	parser.feed(f.read())
-	fout.write("###municipio.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/ocorrencias-e-envolvidos.html","r")
-	parser.feed(f.read())
-	fout.write("###ocorrencias-e-envolvidos.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/periodo.html","r")
-	parser.feed(f.read())
-	fout.write("###periodo.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/regiao.html","r")
-	parser.feed(f.read())
-	fout.write("###regiao.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/resultado.html","r")
-	parser.feed(f.read())
-	fout.write("###resultado.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/tipos_acidentes.html","r")
-	parser.feed(f.read())
-	fout.write("###tipos_acidentes.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
-
-	parser = AllIds()
-	f = open("app/views/uf_acidentes.html","r")
-	parser.feed(f.read())
-	fout.write("###uf_acidentes.html\n")
-	fout.write(parser.ids)
-	fout.write("\n\n")
+    for file_name in files:
+        parser = AllIds()
+        f = open("app/views/%s" % file_name, "r")
+        parser.feed(f.read())
+        fout.write("###%s\n" % file_name)
+        fout.write(parser.ids)
+        fout.write("\n\n")

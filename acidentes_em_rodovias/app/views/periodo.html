@@ -7,13 +7,14 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 -->
 
 {% include 'header.html' %}
+{% load i18n %}
 
 <div class="row">
   <div class="large-12 columns">
     <h2>
       <center>
         <img src="{{ STATIC_URL }}img/Ar-name.jpg"/>
-        Acidentes em Rodovias 
+        {% trans "Acidentes em Rodovias" %}
         <img src="{{ STATIC_URL }}img/Ar-name.jpg"/>
       </center>
     </h2>
@@ -22,7 +23,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
     <div class="row">
       <h4>
         <center>
-          Consulta por Período
+          {% trans "Consulta por Período" %}
         </center>
       </h4>
     </div>
@@ -52,40 +53,37 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 </script>
 
 <script>
-  $(function() {
-    $( "#de" ).datepicker({
-      defaultDate: "01/01/08",
-      dateFormat: 'dd/mm/yy',
-      dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-      dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-      dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-      monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-      monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-      nextText: 'Próximo',
-      prevText: 'Anterior',
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#ate" ).datepicker( "option", "minDate", selectedDate );
-      }
-    }
-                         );
-    $( "#ate" ).datepicker({
-      dateFormat: 'dd/mm/yy',
-      dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-      dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-      dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-      monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-      monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-      nextText: 'Próximo',
-      prevText: 'Anterior',
-      defaultDate: "01/01/09",
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#de" ).datepicker( "option", "maxDate", selectedDate );
-      }
-    }
-                          );
-  }
-   );
-</script>
+    $(function() {
+      $( "#de" ).datepicker({
+        defaultDate: "01/01/08",
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+        nextText: 'Próximo',
+        prevText: 'Anterior',
+        numberOfMonths: 1,
+        onClose: function( selectedDate ) {
+          $( "#ate" ).datepicker( "option", "minDate", selectedDate );
+        }
+      });
+      $( "#ate" ).datepicker({
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+        nextText: 'Próximo',
+        prevText: 'Anterior',
+        defaultDate: "01/01/09",
+        numberOfMonths: 1,
+        onClose: function( selectedDate ) {
+          $( "#de" ).datepicker( "option", "maxDate", selectedDate );
+        }
+      });
+    });
+  </script>
 {% include 'footer.html' %}

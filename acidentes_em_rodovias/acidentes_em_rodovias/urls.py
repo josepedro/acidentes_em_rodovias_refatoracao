@@ -27,4 +27,6 @@ urlpatterns = patterns('',
     url(r'^acidentes_rodovias/estatisticas/acidentes-sexo$', 'app.controller.estatisticas_envolvidos_controller.acidentes_sexo'),
     url(r'^acidentes_rodovias/estatisticas/br$', 'app.controller.estatisticas_br_controller.acidentes_br'),
     url(r'^acidentes_rodovias/estatisticas/uf$', 'app.controller.estatisticas_uf_controller.acidentes_uf'),
+
+    (r'^i18n/', include('django.conf.urls.i18n')),
 )

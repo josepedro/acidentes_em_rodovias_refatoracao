@@ -38,8 +38,8 @@ def acidentes_br(request):
     try:
         data = datetime.now()
         br_dao = BRAcidentesDAO()
-        br_acidentes_geral = br_dao.acidentes_br_geral()
-        acidentes_ano = br_dao.acidentes_br_ano()
+        br_overall_accidents = br_dao.acidentes_br_geral()
+        accidents_ano = br_dao.acidentes_br_ano()
 
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
@@ -53,7 +53,7 @@ def acidentes_br(request):
     return render_to_response(
         "br_acidentes.html", {
             'ano': range(2007, data.year + 1),
-            'br_acidentes_geral': br_acidentes_geral,
-            'acidentes_ano': acidentes_ano
+            'br_acidentes_geral': br_overall_accidents,
+            'acidentes_ano': accidents_ano
         }, context_instance=RequestContext(request)
     )
