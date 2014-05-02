@@ -33,7 +33,7 @@ class Test_Estatistica_Pessoa(SimpleTestCase):
         Configures the ambient for test.
 
         @brief Local variables:
-            func - 
+            func -
                 Gets the name of the test function and fixes it for the output.
             out -
                 Writes the name of the test function that is being proccessed.
@@ -66,8 +66,9 @@ class Test_Estatistica_Pessoa(SimpleTestCase):
         self.assertIsNotNone(self.estatistica)
 
     def test_instancia_estatistica_pessoa(self):
-         """
-        Test for instancia_estatistica_pessoa to check if the possible exceptions are being treated correctly.
+        """
+        Test for instancia_estatistica_pessoa to check if the possible
+        exceptions are being treated correctly.
         """
         with self.assertRaises(NameError):
             self.assertIsNotNone(
