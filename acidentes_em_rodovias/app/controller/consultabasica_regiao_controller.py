@@ -21,7 +21,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
 from app.models.dao.uf_dao import *
-from app.models.dao.municipalities_dao import *
+from app.models.dao.municipio_dao import *
 from app.models.dao.ocorrencia_basica_dao import *
 
 from app.exception.validation_exceptions import *
