@@ -6,12 +6,14 @@ Acidentes em Rodovias, 2013-2014
 GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 -->
 {% include 'header.html' %}
+{% load i18n %}
+
 <div class="row">
   <div class="large-12 columns">
     <h2>
       <center>
         <img src="{{ STATIC_URL }}img/Ar-name.jpg"/>
-        Acidentes em Rodovias 
+        {% trans "Acidentes em Rodovias" %}
         <img src="{{ STATIC_URL }}img/Ar-name.jpg"/>
       </center>
     </h2>
@@ -20,7 +22,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
     <div class="row">
       <h4>
         <center>
-          Estatísticas - Causas de acidente
+          {% trans "Estatísticas - Causas de acidente" %}
         </center>
       </h4>
     </div>
@@ -32,7 +34,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
     <section >
       <p class="title button" data-section-title>
         <a href="#">
-          Causas de acidentes ao longo dos anos
+          {% trans "Causas de acidentes ao longo dos anos" %}
         </a>
       </p>
       <div class="content" data-section-content>
@@ -116,7 +118,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
     <section>
       <p class="title button" data-section-title>
         <a href="#">
-          Porcentagem de acidentes já registrados de acordo com a causa
+          {% trans "Porcentagem de acidentes já registrados de acordo com a causa" %}
         </a>
       </p>
       <div class="content" data-section-content>
@@ -184,7 +186,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
     <section>
       <p class="title button" data-section-title>
         <a href="#">
-          Média e desvio padrão de cada causa de acidente
+          {% trans "Média e desvio padrão de cada causa de acidente" %}
         </a>
       </p>
       <div class="content" data-section-content>
@@ -271,7 +273,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
     <section>
       <p class="title button" data-section-title>
         <a href="#">
-          Probabilidade para cada causa de acidente no próximo ano
+          {% trans "Probabilidade para cada causa de acidente no próximo ano" %}
         </a>
       </p>
       <div class="content" data-section-content>
@@ -279,6 +281,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
         </div>
         <blockquote>
           <p>
+            {% blocktrans %}
             <Strong>
               OBS
             </strong>
@@ -286,6 +289,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
             <a href="http://www.datalyzer.com.br/site/suporte/administrador/info/arquivos/info73/73.html">
               curva normal reduzida
             </a>
+            {% endblocktrans %}
           </p>
         </blockquote>
         <script type="text/javascript">

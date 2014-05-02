@@ -55,9 +55,9 @@ def consulta_ocorrencias_por_periodo(request):
 
     try:
         ## string with the initial date
-        start_date = str(request.GET['start_date'])
+        start_date = str(request.GET['data_inicio'])
         ## string with the final date
-        end_date = str(request.GET['end_date'])
+        end_date = str(request.GET['data_fim'])
     except (MultiValueDictKeyError) as e:
         logger.error(str(e))
         erro = "Preencha corretamente o formulário!"

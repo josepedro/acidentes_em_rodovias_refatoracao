@@ -7,13 +7,14 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 -->
 
 {% include 'header.html' %}
+{% load i18n %}
 
 <div class="row">
   <div class="large-12 columns">
     <h2>
       <center>
         <img src="{{ STATIC_URL }}img/Ar-name.jpg"/>
-        Acidentes em Rodovias 
+        {% trans "Acidentes em Rodovias" %}
         <img src="{{ STATIC_URL }}img/Ar-name.jpg"/>
       </center>
     </h2>
@@ -21,7 +22,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
     <hr />
     <h4>
       <center>
-        Resultado da consulta
+        {% trans "Resultado da consulta" %}
       </center>
     </h4>
     <br />
@@ -41,14 +42,14 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
         {% for ocorrencia in ocorrencia_list %}
         <div class="resultados">
           <h4 class="subheader">
-            Ocorrência #
+            {% trans "Ocorrência #" %}
             <span class="id_ocorrencia">
               {{ocorrencia.ocoid}}
             </span>
           </h4>
           <p>
             <b>
-              Rodovia (BR):
+              {% trans "Rodovia (BR):" %}
             </b>
             
             <span class="br">
@@ -57,7 +58,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
           </p>
           <p>
             <b>
-              Data da ocorrência:
+              {% trans "Data da ocorrência:" %}
             </b>
             
             <span class="data_ocorrencia">
@@ -66,7 +67,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
           </p>
           <p>
             <b>
-              Data de registro:
+              {% trans "Data de registro:" %}
             </b>
             
             <span class="data_registro">
@@ -75,7 +76,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
           </p>
           <p>
             <b>
-              Região:
+              {% trans "Região:" %}
             </b>
             
             <span class="municipio">
@@ -88,7 +89,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
           </p>
           <p>
             <b>
-              Tipo de ocorrência:
+              {% trans "Tipo de ocorrência:" %}
             </b>
             {{ocorrencia.tcodescricao}} (
             <span class="tipo_acidente">
@@ -98,7 +99,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
           </p>
           <p>
             <b>
-              Causa do acidente:
+              {% trans "Causa do acidente:" %}
             </b>
             
             <span class="causa_acidente">
@@ -107,7 +108,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
           </p>
           <p>
             <b>
-              Veículo envolvido:
+              {% trans "Veículo envolvido:" %}
             </b>
             
             <span class="marca_veiculo">
@@ -136,13 +137,13 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
             {% endif %}
             <p class="title">
               <a href="#">
-                Região
+                {% trans "Região" %}
               </a>
             </p>
             <div class="content">
               <ul class="side-nav">
                 <li>
-                  Cidade:
+                  {% trans "Cidade:" %}
                   <a href="#">
                     {{municipio}}
                   </a>
@@ -164,19 +165,19 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
               {% endif %}
               <p class="title">
                 <a href="#">
-                  Periodo
+                  {% trans "Periodo" %}
                 </a>
               </p>
               <div class="content">
                 <ul class="side-nav">
                   <li>
-                    De:
+                    {% trans "De:" %}
                     <a href="#">
                       {{data_inicio}}
                     </a>
                   </li>
                   <li>
-                    Até:
+                    {% trans "Até:" %}
                     <a href="#">
                       {{data_fim}}
                     </a>
@@ -184,7 +185,6 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
                 </ul>
               </div>
             </section>
-            
             
           </div>
         </div>
