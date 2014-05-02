@@ -46,7 +46,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 LANGUAGE_CODE = 'pt-br'
 
 LOCALE_PATHS = (
-    ROOT_DIR + 'locale'
+    ROOT_DIR + 'locale',
 )
 
 SITE_ID = 1

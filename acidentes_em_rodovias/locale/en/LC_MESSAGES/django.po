@@ -333,7 +333,7 @@ msgstr "Statistics - FU"
 
 #: app/views/uf_acidentes.html:38
 msgid "10 Estados com mais acidentes - Geral"
-msgstr ""Top 10 states with more accidents - PGeneral""
+msgstr "10 states with more accidents - PGeneral"
 
 #: app/views/uf_acidentes.html:117
 msgid "10 Estados com mais acidentes - Por ano"
