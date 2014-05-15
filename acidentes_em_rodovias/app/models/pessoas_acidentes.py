@@ -15,21 +15,7 @@ for persons involved in accidents.
 """
 
 
-class PessoasAcidentes:
-
-    """Model class for persons involved in accidents by year
-    """
-
-    def __init__(self):
-        ## Field to insert year
-        self.ano = ''
-        ## Field to insert person's gender
-        self.sexo = ''
-        ## Field to insert how many occurrences
-        self.quantidade = ''
-
-
-class PessoasAcidentesGeral:
+class PessoasAcidentesGeral(object):
 
     """Model class for persons involved in accidents
     """
@@ -39,3 +25,13 @@ class PessoasAcidentesGeral:
         self.sexo = ''
         ## Field to insert how many occurrences
         self.quantidade = ''
+
+
+class PessoasAcidentes(PessoasAcidentesGeral):
+
+    """Model class for persons involved in accidents by year
+    """
+
+    def __init__(self):
+        ## Field to insert year
+        self.ano = ''

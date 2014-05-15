@@ -14,8 +14,16 @@ This module contains the declaration of model classes
 for accidents in BRs
 """
 
+class BR(object):
 
-class BRAcidentes():
+    """Basic class for BRs"""
+
+    def __init__(self, arg):
+        ## Field for insert highway's name
+        self.br = ''
+        
+
+class BRAcidentes(BR):
 
     """Model class for accidents by BR
     """
@@ -24,17 +32,15 @@ class BRAcidentes():
         ## Field to insert how many occurrences
         self.quantidade_ocorrencias = ''
         ## Field for insert highway's name
-        self.br = ''
+        
 
 
-class BRAcidentesAno():
+class BRAcidentesAno(BR):
 
     """Model class for accidents by BR and year
     """
     def __init__(self):
         ## Field to insert list with how many occurrences
         self.quantidade_ocorrencias_list = []
-        ## Field to insert highway's name
-        self.br = ''
         ## Field to insert list with years
         self.ano_list = []
