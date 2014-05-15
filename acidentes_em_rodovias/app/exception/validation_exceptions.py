@@ -26,16 +26,8 @@ class DataInvalidaError(Exception):
         return self.message
 
 
-class ParametroInseguroClienteError(Exception):
+class ParametroInseguroClienteError(DataInvalidaError):
 
     """ Exception to occurs when an odd character is inserted by
     user or by Data Bank """
-
-    def __init__(self, message):
-        """ Initialize module """
-        Exception.__init__(self)
-        self.message = message
-
-    def __str__(self):
-        """ How module shold be printed """
-        return self.message
+    pass

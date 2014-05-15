@@ -1,9 +1,10 @@
 
+
 #------------Controller---------
 # Index
 #from tests_controller_index import *
 # Consulta basica
-#from tests_controller_consultabasica_periodo import *
+from tests_controller_consultabasica_periodo import *
 # Estatisticas
 #from tests_controller_estatisticas import * 
 #from tests_controller_estatistica_tipocausa import *
