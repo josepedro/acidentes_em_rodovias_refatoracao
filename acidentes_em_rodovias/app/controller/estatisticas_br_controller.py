@@ -31,6 +31,8 @@ from datetime import datetime
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 
+_FIRST_YEAR = 2007
+
 
 def acidentes_br(request):
     """ Return the render from statistics. """
