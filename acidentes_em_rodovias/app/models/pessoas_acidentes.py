@@ -20,11 +20,10 @@ class PessoasAcidentesGeral(object):
     """Model class for persons involved in accidents
     """
 
-    def _init__(self):
-        ## Field to insert person's gender
-        self.sexo = ''
-        ## Field to insert how many occurrences
-        self.quantidade = ''
+    ## Field to insert person's gender
+    sexo = ''
+    ## Field to insert how many occurrences
+    quantidade = ''
 
 
 class PessoasAcidentes(PessoasAcidentesGeral):

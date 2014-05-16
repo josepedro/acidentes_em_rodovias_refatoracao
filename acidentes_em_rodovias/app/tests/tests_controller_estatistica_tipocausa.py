@@ -11,35 +11,16 @@ import sys
 import os
 import inspect
 
-from django.test import SimpleTestCase
+from app.tests.tests_basic import Controller_Tests
 from django.template import RequestContext, TemplateDoesNotExist
 
-from controller import estatisticas_causas_controller as ctrl
+from app.controller import estatisticas_causas_controller as ctrl
 
 from _mysql_exceptions import *
 
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
-
-
-class TestTipoCausa(SimpleTestCase):
+class TestTipoCausa(Controller_Tests):
 
     """docstring for TestTipoCausa"""
-
-    def setUp(self):
-        func = str(self.id).split('=')[-1][:-2]
-        func = func.split('test_')[-1]
-        func = func.replace('_', ' ')
-        out = '\rTeste de ' + func + ' '
-        out = out.ljust(65, '-')
-        sys.stderr.write(out)
-        self.shortDescription()
-
-    def tearDown(self):
-        sys.stderr.write('Done\n')
 
     def shortDescription(self):
         return "Teste da classe TestTipoCausa"

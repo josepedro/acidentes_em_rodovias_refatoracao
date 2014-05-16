@@ -11,64 +11,37 @@ import sys
 import os
 import inspect
 
-from django.test import SimpleTestCase
+from app.tests.tests_basic import DAO_Tests
 from django.core.urlresolvers import reverse, resolve
 
-from app.models.dao import br_acidentes_dao as dao
+from app.models.dao.br_acidentes_dao import BRAcidentesDAO
 from app.models import br_acidentes
 
 from _mysql_exceptions import OperationalError, ProgrammingError
 
-from exception.internal_exceptions import *
+from app.exception.internal_exceptions import *
 
 
-class Test_BR_Acidentes(SimpleTestCase):
+class Test_BR_Acidentes(DAO_Tests):
     """
     Docstring for Test_BR_Acidentes
     Class that tests the methods from br_acidentes_dao
     """
-    def setUp(self):
-        """
-        Configures the ambient for test.
-
-        @brief Local variables:
-            func - 
-                Gets the name of the test function and fixes it for the output.
-            out -
-                Writes the name of the test function that is being proccessed.
-        """
-        self.estatistica = dao.BRAcidentesDAO()
-        func = str(self.id).split('=')[-1][:-2]
-        func = func.split('test_')[-1]
-        func = func.replace('_', ' ')
-        out = '\rTeste de ' + func + ' '
-        out = out.ljust(65, '-')
-        sys.stderr.write(out)
-        ##Gives a short description of what class is the test being executed.
-        self.shortDescription()
-
-    def tearDown(self):
-        """
-        Informs that the test was executed.
-        """
-        sys.stderr.write('Done\n')
-
-    def shortDescription(self):
-        """
-        Gives a description of the class being tested.
-        """
-        return "Teste da classe BRAcidentesDAO"
 
     def test_br_acidentes(self):
         """
         Tests to see if the statistics were correctly instanced.
         """
+
+        self.estatistica = BRAcidentesDAO()
         self.assertIsNotNone(self.estatistica)
 
     def test_acidentes_br_geral(self):
         """
         Tests to see if the query results return not NULL
         """
+
+        self.estatistica = BRAcidentesDAO()
         self.assertIsNotNone(self.estatistica.acidentes_br_geral())
 
     def test_acidentes_br_ano(self):
@@ -81,8 +54,10 @@ class Test_BR_Acidentes(SimpleTestCase):
             anos -
                 receives a list of years.
             brs -
-                
+                receives a list of br's.
         """
+
+        self.estatistica = BRAcidentesDAO()
         br_acidentes_ano_list = self.estatistica.acidentes_br_ano()
 
         anos = br_acidentes_ano_list[0].ano_list

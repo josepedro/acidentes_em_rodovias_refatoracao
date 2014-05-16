@@ -19,13 +19,12 @@ class Acidentes(object):
 
     """ Causes of accidents """
 
-    def __init__(self):
-        ## Field to insert cause
-        self.causa = ''
-        ## Field to insert type
-        self.tipo = ''
-        ## Field to insert how many occurrences
-        self.quantidade_ocorrencias = 0
+    ## Field to insert cause
+    causa = ''
+    ## Field to insert type
+    tipo = ''
+    ## Field to insert how many occurrences
+    quantidade_ocorrencias = 0
 
 
 class AcidentesAno(Acidentes):

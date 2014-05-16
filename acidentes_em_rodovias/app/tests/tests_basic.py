@@ -11,17 +11,52 @@ from django.test import SimpleTestCase
 from sys import stderr
 
 
-class Controller_Tests(SimpleTestCase):
+class Basic_Tests(SimpleTestCase):
     """Basic test class"""
+    name = ''
+    my_type = ''
 
-    def setUp(self):
-        func = str(self.id).split('=')[-1][:-2]
-        func = func.split('test_')[-1]
-        func = func.replace('_', ' ')
-        out = '\rTeste de ' + func + ' '
+    def getName(self):
+        self.name = str(self.id).split('=')[-1][:-2]
+        self.name = self.name.split('test_')[-1]
+        self.name = self.name.replace('_', ' ')
+
+    def __str__(self):
+        self.getName()
+        out = '\r[DAO] Teste de ' + self.name + ' '
+        out = '\r%s Teste de %s ' % (self.my_type, self.name)
         out = out.ljust(65, '-')
-        stderr.write(out)
-        self.shortDescription()
+        return out
 
     def tearDown(self):
-        stderr.write('Done\n')
+        stderr.write(' Done\n')
+
+    def shortDescription(self):
+        return "Teste da classe %s" % self.__class__.__name__
+
+
+class Validate_Tests(Basic_Tests):
+    """Basic test class to Controller"""
+
+    def setUp(self):
+        self.my_type = '[Validation]'
+        stderr.write(self.__str__())
+        self.shortDescription()
+
+
+class Controller_Tests(Basic_Tests):
+    """Basic test class to Controller"""
+
+    def setUp(self):
+        self.my_type = '[Controller]'
+        stderr.write(self.__str__())
+        self.shortDescription()
+
+
+class DAO_Tests(Basic_Tests):
+    """Basic test class to DAO"""
+
+    def setUp(self):
+        self.my_type = '[DAO]'
+        stderr.write(self.__str__())
+        self.shortDescription()
