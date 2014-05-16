@@ -21,16 +21,12 @@ class Test_Regiao(Controller_Tests):
     """docstring for Test_Regiao"""
 
     def setUp(self):
+        self.my_type = '[Controller]'
         self.request = Context()
         self.request.GET = dict()
         self.request.GET['uf_id'] = 'DF'
-        self.request.GET['municipio_id'] = 'Brasilia'
-        func = str(self.id).split('=')[-1][:-2]
-        func = func.split('test_')[-1]
-        func = func.replace('_', ' ')
-        out = '\rTeste de ' + func + ' '
-        out = out.ljust(65, '-')
-        stderr.write(out)
+        self.request.GET['municipio_id'] = '0'
+        stderr.write(self.__str__())
         self.shortDescription()
 
     def test_consulta_por_regiao(self):
