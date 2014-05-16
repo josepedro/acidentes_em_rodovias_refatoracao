@@ -14,8 +14,9 @@ Este modulo contem declação da classe de modelo
 para Ocorrencias basicas
 """
 
+from app.models.municipio import Municipio
 
-class OcorrenciaBasica:
+class OcorrenciaBasica(Municipio):
 
     """ Basic Occurrences """
 
@@ -27,10 +28,6 @@ class OcorrenciaBasica:
         ## Occurrences register's date table
         self.ocodataregistro = ''
         ## Denomination table
-        self.tmudenominacao = ''
-        ## UF table
-        self.tmuuf = ''
-        ## Comunication type table
         self.tcodescricao = ''
         ## Accident type table
         self.ttadescricao = ''

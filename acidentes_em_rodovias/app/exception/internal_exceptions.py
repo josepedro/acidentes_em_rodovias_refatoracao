@@ -9,18 +9,9 @@
 This module contains control classes of exception for internal validations
 """
 
-from exceptions import Exception
+from app.exception.validation_exceptions import DataInvalidaError
 
 
-class ResultadoConsultaNuloError(Exception):
+class ResultadoConsultaNuloError(DataInvalidaError):
 
     """ Exception to occurs when a inquiry returns null """
-
-    def __init__(self, message):
-        """ Initialize module """
-        Exception.__init__(self)
-        self.message = message
-
-    def __str__(self):
-        """ How module shold be printed """
-        return self.message

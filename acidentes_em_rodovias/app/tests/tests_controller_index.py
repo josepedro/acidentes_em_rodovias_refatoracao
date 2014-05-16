@@ -7,38 +7,19 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-import sys
-import os
-import inspect
-
-from django.test import SimpleTestCase
+from app.tests.tests_basic import Index_Tests
 from django.template import RequestContext, TemplateDoesNotExist
 
-from exception.validation_exceptions import *
+from app.exception.validation_exceptions import *
 
-from controller import index_controller as ctrl
+from app.controller import index_controller as ctrl
 
 from _mysql_exceptions import *
 
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
 
-
-class TestControllerIndex(SimpleTestCase):
+class TestControllerIndex(Index_Tests):
 
     """docstring for TestControllerIndex"""
-
-    def setUp(self):
-        func = str(self.id).split('=')[-1][:-2]
-        func = func.split('test_')[-1]
-        func = func.replace('_', ' ')
-        out = '\rTeste de ' + func + ' '
-        out = out.ljust(65, '-')
-        sys.stderr.write(out)
-        self.shortDescription()
 
     def test_render_to_response(self):
         self.assertIsNotNone(ctrl.render_to_response(

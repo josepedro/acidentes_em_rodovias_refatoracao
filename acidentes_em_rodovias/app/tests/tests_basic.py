@@ -60,3 +60,11 @@ class DAO_Tests(Basic_Tests):
         self.my_type = '[DAO]'
         stderr.write(self.__str__())
         self.shortDescription()
+
+class Index_Tests(Basic_Tests):
+    """Basic test class to DAO"""
+
+    def setUp(self):
+        self.my_type = '[Index]'
+        stderr.write(self.__str__())
+        self.shortDescription()

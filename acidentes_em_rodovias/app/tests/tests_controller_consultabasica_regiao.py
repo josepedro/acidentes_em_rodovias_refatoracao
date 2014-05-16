@@ -7,30 +7,16 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-import sys
-import os
-import inspect
+from sys import stderr
 
-from django.test import SimpleTestCase
+from app.tests.tests_basic import Controller_Tests
 from django.template import RequestContext, TemplateDoesNotExist, Context
 from django.utils.datastructures import MultiValueDictKeyError
 
-from controller import consultabasica_regiao_controller as ctrl
-
-from _mysql_exceptions import *
-
-from nose import with_setup
-
-from mock import MagicMock, patch, Mock
-
-# Adding upper directories to the Python Path
-current_path = os.path.dirname(os.path.abspath('..'))
-sys.path.append(current_path)
-current_path = os.path.dirname(os.path.abspath('.'))
-sys.path.append(current_path)
+from app.controller import consultabasica_regiao_controller as ctrl
 
 
-class Test_Regiao(SimpleTestCase):
+class Test_Regiao(Controller_Tests):
 
     """docstring for Test_Regiao"""
 
@@ -44,14 +30,8 @@ class Test_Regiao(SimpleTestCase):
         func = func.replace('_', ' ')
         out = '\rTeste de ' + func + ' '
         out = out.ljust(65, '-')
-        sys.stderr.write(out)
+        stderr.write(out)
         self.shortDescription()
-
-    def tearDown(self):
-        sys.stderr.write('Done\n')
-
-    def shortDescription(self):
-        return "Teste da classe Test_Regiao"
 
     def test_consulta_por_regiao(self):
         ctrl.consulta_por_regiao(None)

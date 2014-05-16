@@ -31,6 +31,4 @@ class PessoasAcidentes(PessoasAcidentesGeral):
     """Model class for persons involved in accidents by year
     """
 
-    def __init__(self):
-        ## Field to insert year
-        self.ano = ''
+    ano = ''

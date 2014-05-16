@@ -14,8 +14,9 @@ This module contains the declaration of model classes
 for involved in accidents.
 """
 
+from app.models.pessoas_acidentes import PessoasAcidentes
 
-class EnvolvidosAcidente:
+class EnvolvidosAcidente(PessoasAcidentes):
 
     """Model class for involved in accidents
     """
@@ -25,5 +26,3 @@ class EnvolvidosAcidente:
         self.quantidade_envolvidos = 0
         ## Field to insert how many occurrences
         self.quantidade_acidentes = 0
-        ## Field to insert year
-        self.ano = 0

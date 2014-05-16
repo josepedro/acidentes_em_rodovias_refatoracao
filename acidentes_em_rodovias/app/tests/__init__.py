@@ -2,9 +2,10 @@
 
 #------------Controller---------
 # Index
-#from tests_controller_index import *
+from tests_controller_index import *
 # Consulta basica
 from tests_controller_consultabasica_periodo import *
+from tests_controller_consultabasica_regiao import *
 # Estatisticas
 from tests_controller_estatistica_tipocausa import *
 from tests_controller_estatistica_sexo import *

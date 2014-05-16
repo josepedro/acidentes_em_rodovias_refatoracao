@@ -14,15 +14,14 @@ This module contains the declaration of model classes
 for accidents in UF.
 """
 
+from app.models.uf import Uf
 
-class UFAcidentes():
+class UFAcidentes(Uf):
 
     """Model class for involved in accidents
     """
 
     def __init__(self):
-        ## Field to insert states' abreviation
-        self.uf = ''
         ## Field to insert how many occurrences
         self.quantidade_ocorrencias = ''
         ## Field to insert states' latitude
@@ -31,14 +30,12 @@ class UFAcidentes():
         self.longitude = 0.0
 
 
-class UFAcidentesAno():
+class UFAcidentesAno(Uf):
 
     """Model class for involved in accidents by year
     """
 
     def __init__(self):
-        ## Field to insert states' abreviation
-        self.uf = ''
         ## Field to insert list with how many occurrences
         self.quantidade_ocorrencias_list = []
         ## Field to insert list with years
