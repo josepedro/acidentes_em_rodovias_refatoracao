@@ -127,6 +127,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
         <script type="text/javascript">
                         $(function () {
                             $(document).ready(function () {
+                                
                                 $('#grafico_torta').highcharts({
                   exporting: {
                                         buttons: {
@@ -222,7 +223,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
                                 xAxis: {
                                     categories: [
                                         {% for causa in causas %}
-                                            '{{causa}}',
+                                            '{{causa.causa}}',
                                         {% endfor %}
                                     ]
                                 },
@@ -325,7 +326,7 @@ GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
                                 xAxis: {
                                     categories: [
                                         {% for causa in causas %}
-                                            '{{causa}}',
+                                            '{{causa.causa}}',
                                         {% endfor %}
                                     ]
                                 },
