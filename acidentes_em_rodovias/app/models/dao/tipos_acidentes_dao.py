@@ -141,17 +141,28 @@ class TiposAcidentesDAO(GenericoDAO):
             probabilidade_tipo.tipo = medias_list.keys()[
                 i].decode('iso-8859-1').encode('utf8')
 
+            limits_min_one = 0
+            limits_max_one = 5000
+            limits_min_two = 5001
+            limits_max_two = 10000
+            limits_min_three = 10001
+            limits_max_three = 30000
+            limits_min_four = 30001
+            limits_max_four = 50000
+            limits_min_five = 50001
             limites = [
-                (0, 1000),
-                (1001, 5000),
-                (5001, 10000),
-                (10001, 50000),
-                (50001, sys.maxsize)
-            ]
+                (limits_min_one, limits_max_one),
+                (limits_min_two, limits_max_two),
+                (limits_min_three, limits_max_three),
+                (limits_min_four, limits_max_four),
+                (limits_min_five, sys.maxsize)]
+
+
+            normalization_in_percent = 100
             for (inferior, superior) in limites:
                 if (medias_list[i] >= inferior and medias_list[i] <= superior):
                     probabilidade_tipo.probabilidade_por_limite_list.append(
-                        100 * (
+                        normalization_in_percent * (
                             distribuicao_normal(
                                 inferior,
                                 medias_list[i],
@@ -165,7 +176,7 @@ class TiposAcidentesDAO(GenericoDAO):
                     )
                 elif (medias_list[i] >= inferior):
                     probabilidade_tipo.probabilidade_por_limite_list.append(
-                        100 * (
+                        normalization_in_percent * (
                             distribuicao_normal(
                                 inferior,
                                 medias_list[i],
@@ -179,7 +190,7 @@ class TiposAcidentesDAO(GenericoDAO):
                     )
                 elif (medias_list[i] <= inferior):
                     probabilidade_tipo.probabilidade_por_limite_list.append(
-                        100 * (
+                        normalization_in_percent * (
                             distribuicao_normal(
                                 superior,
                                 medias_list[i],
