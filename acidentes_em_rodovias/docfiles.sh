@@ -15,6 +15,6 @@ echo -n 'Running Pylint ... '
 echo 'Done'
 
 echo -n 'Generating graphs ... '
-#pyreverse -o png app -p Acidentes_Rodovias -f ALL > pyreverse.log
-#mv *.png ../../Documents/
+pyreverse -o png app -p Acidentes_Rodovias -f ALL > pyreverse.log
+mv *.png ../../Documents/
 echo 'Done'

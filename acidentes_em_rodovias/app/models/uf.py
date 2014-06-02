@@ -20,6 +20,8 @@ class Uf:
     """ States' UF """
 
     def __init__(self):
+    	## Field to insert states' abreviation
+        self.uf = ''
         ## Abbreviation of the Federal City
         self.tufuf = ''
         ## Denomination of the Federal City

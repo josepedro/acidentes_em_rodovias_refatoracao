@@ -35,6 +35,8 @@ from app import *
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 
+_FIRST_YEAR = 2007
+
 
 def acidentes_uf(request):
     """ Return the render with the accidents by states. """
@@ -56,7 +58,7 @@ def acidentes_uf(request):
 
     return render_to_response(
         "uf_acidentes.html", {
-            'ano': range(2007, date.year + 1),
+            'ano': range(_FIRST_YEAR, date.year + 1),
             'uf_acidentes_ano': uf_accidents_year,
             'uf_acidentes_geral': uf_accidents_general[:10],
             'uf_acidentes_geral_mapa': uf_accidents_general

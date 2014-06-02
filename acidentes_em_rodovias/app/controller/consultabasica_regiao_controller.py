@@ -31,8 +31,10 @@ from app.util.validacao_util import *
 
 # Logging config
 logging.basicConfig()
-## logger object
+# logger object
 logger = logging.getLogger(__name__)
+
+_MAX_ITEMS = 1000
 
 
 def consulta_por_regiao(request):
@@ -42,9 +44,9 @@ def consulta_por_regiao(request):
     """
 
     try:
-        ## object DAO from UF
+        # object DAO from UF
         uf_dao = UfDAO()
-        ## list of UFs
+        # list of UFs
         uf_list = uf_dao.lista_ufs()
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
@@ -69,7 +71,7 @@ def consulta_municipios_na_regiao(request):
     """
 
     try:
-        ## Id from UF requested
+        # Id from UF requested
         uf_id = request.GET['uf_id']
     except MultiValueDictKeyError as e:
         logger.error(str(e))
@@ -92,9 +94,9 @@ def consulta_municipios_na_regiao(request):
         )
 
     try:
-        ## object DAO from municipalities
+        # object DAO from municipalities
         municipalities_dao = MunicipioDAO()
-        ## list of municipalities
+        # list of municipalities
         municipalities_list = municipalities_dao.lista_municipios(uf_id)
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
@@ -119,7 +121,7 @@ def consulta_ocorrencias_por_municipio(request):
     """
 
     try:
-        ## Municipalitie Id
+        # Municipalitie Id
         municipalities_id = int(request.GET['municipio_id'])
     except (ValueError, MultiValueDictKeyError) as e:
         logger.error(str(e))
@@ -131,12 +133,12 @@ def consulta_ocorrencias_por_municipio(request):
         )
 
     try:
-        ## Occurrences DAO
+        # Occurrences DAO
         occurrences_dao = OcorrenciaBasicaDAO()
-        ## List of occurrences
+        # List of occurrences
         occurrences_list = occurrences_dao.lista_ocorrencias_por_regiao(
             municipalities_id,
-            1000
+            _MAX_ITEMS
         )
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))

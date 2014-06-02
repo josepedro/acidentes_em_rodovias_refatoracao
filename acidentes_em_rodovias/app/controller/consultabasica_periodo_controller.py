@@ -30,8 +30,10 @@ from app.util.validacao_util import *
 # Logging config
 logging.basicConfig()
 
-## Logger object
+# Logger object
 logger = logging.getLogger(__name__)
+
+_MAX_QUERIES = 1000
 
 
 def consulta_por_periodo(request):
@@ -54,9 +56,9 @@ def consulta_ocorrencias_por_periodo(request):
     """
 
     try:
-        ## string with the initial date
+        # string with the initial date
         start_date = str(request.GET['data_inicio'])
-        ## string with the final date
+        # string with the final date
         end_date = str(request.GET['data_fim'])
     except (MultiValueDictKeyError) as e:
         logger.error(str(e))
@@ -80,11 +82,11 @@ def consulta_ocorrencias_por_periodo(request):
         )
 
     try:
-        ## DAO object from basic occurrence
+        # DAO object from basic occurrence
         occurrences_dao = OcorrenciaBasicaDAO()
-        ## list of occurrences
+        # list of occurrences
         occurrences_list = occurrences_dao.lista_ocorrencias_por_periodo(
-            start_date, end_date, 1000)
+            start_date, end_date, _MAX_QUERIES)
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
         logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"

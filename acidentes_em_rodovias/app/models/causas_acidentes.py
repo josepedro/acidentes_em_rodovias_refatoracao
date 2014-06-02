@@ -15,56 +15,43 @@ para acidentes contendo o tipo ou causa
 """
 
 
-class Acidentes:
+class Acidentes(object):
 
     """ Causes of accidents """
 
-    def __init__(self):
-        ## Field to insert cause
-        self.causa = ''
-        ## Field to insert type
-        self.tipo = ''
-        ## Field to insert how many occurrences
-        self.quantidade_ocorrencias = 0
+    ## Field to insert cause
+    causa = ''
+    ## Field to insert type
+    tipo = ''
+    ## Field to insert how many occurrences
+    quantidade_ocorrencias = 0
 
 
-class AcidentesAno:
+class AcidentesAno(Acidentes):
 
     """ Separate causes of accidents per year """
 
     def __init__(self):
-        ## Field to insert cause
-        self.causa = ''
-        ## Field to insert type
-        self.tipo = ''
         ## Field to insert list with how many occurrences
         self.quantidade_ocorrencias_list = []
         ## Field to insert list of years
         self.ano_list = []
 
 
-class ProbabilidadeAcidentes:
+class ProbabilidadeAcidentes(Acidentes):
 
     """ Probability of causes of accidents """
 
     def __init__(self):
-        ## Field to insert cause
-        self.causa = ''
-        ## Field to insert type
-        self.tipo = ''
         ## Field to insert probability
         self.probabilidade_por_limite_list = []
 
 
-class MediaDesvioAcidentes:
+class MediaDesvioAcidentes(Acidentes):
 
     """ Average and standard deviations of the causes of accidents """
 
     def __init__(self):
-        ## Field to insert cause
-        self.causa = ''
-        ## Field to insert type
-        self.tipo = ''
         ## Field to insert average
         self.media = 0.0
         ## Field to insert standard deviation

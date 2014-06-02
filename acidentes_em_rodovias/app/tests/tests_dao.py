@@ -11,73 +11,43 @@ import sys
 import os
 import inspect
 
-from django.test import SimpleTestCase
+from app.tests.tests_basic import DAO_Tests
 from django.core.urlresolvers import reverse, resolve
 
 from app.models.dao import *
 from app.models import envolvidos_acidentes, causas_acidentes
+from app.models.dao.generico_dao import GenericoDAO
 
 from _mysql_exceptions import OperationalError, ProgrammingError
 
-from exception.internal_exceptions import *
-from exception.validation_exceptions import *
+from app.exception.internal_exceptions import *
+from app.exception.validation_exceptions import *
 
 
-class TestDAO(SimpleTestCase):
+class TestDAO(DAO_Tests):
 
     """docstring for TestDAO
         Class that tests the methods from generico_dao
     """
 
-    def setUp(self):  # configura ambiente para teste
-        """
-        Configures the ambient for test.
-
-        @brief Local variables:
-            x -
-                Receives the import from models.dao.generico_dao.
-            func - 
-                Gets the name of the test function and fixes it for the output.
-            out -
-                Writes the name of the test function that is being proccessed.
-        """
-        x = __import__('models.dao.generico_dao')
-        self.dao = x.dao.generico_dao.GenericoDAO()
-        # help(x.dao.generico_dao)
-        #sys.stderr.write('\n' + str(x) + '\n' )
-        # descobre qual metodo será chamado e formata a saída
-        func = str(self.id).split('=')[-1][:-2]
-        func = func.split('test_')[-1]
-        func = func.replace('_', ' ')
-        out = '\rTeste de ' + func + ' '
-        out = out.ljust(65, '-')
-        sys.stderr.write(out)
-        self.shortDescription()
-
-    def tearDown(self):
-        """
-        Informs that the test was executed.
-        """
-        # informa que o teste foi realizado
-        sys.stderr.write('Done\n')
-
-    def shortDescription(self):
-        """
-        Gives a description of the class being tested.
-        """
-        return "Teste da classe GenericoDAO"
-
     def test_existing_dao_instance(self):
         """
         Tests to see if the class is correctly instanced.
         """
+
+        self.dao = GenericoDAO()
+
         self.assertIsNotNone(self.dao)
 
     def test_get_conexao(self):
         """
-        Tests the connection. 
-        Expects an error in case the method has at least one of it's parameters not set.
+        Tests the connection.
+        Expects an error in case the method has at least one of it's
+        parameters not set.
         """
+
+        self.dao = GenericoDAO()
+
         ## Field to insert database
         self.dao.database = ' '
         ## Field to insert user
@@ -95,6 +65,9 @@ class TestDAO(SimpleTestCase):
         Tests the execution of a query.
         Expects an error in case the table selected does not exist.
         """
+
+        self.dao = GenericoDAO()
+
         with self.assertRaises(ProgrammingError):
             self.assertIsNone(self.dao.executa_query("show * from jik;"))
         self.assertIsNotNone(self.dao.executa_query("show tables;"))
@@ -102,8 +75,10 @@ class TestDAO(SimpleTestCase):
     def test_transforma_objeto(self):
         """
         Tests the transformation of the query results to a model object.
-        If the query is correctly selected, tests that it goes through the IF and ELSE of the FOR loop.
-        After, it tests if the list isn't empty and raises an exception in case it fails to transform the query. 
+        If the query is correctly selected, tests that it goes through the IF
+        and ELSE of the FOR loop.
+        After, it tests if the list isn't empty and raises an exception in
+        case it fails to transform the query.
 
         @brief Local variable
             query -
@@ -111,6 +86,8 @@ class TestDAO(SimpleTestCase):
             ufList -
                 Receives the query results after they become model objects.
         """
+
+        self.dao = GenericoDAO()
         # Quando tudo funciona bem
         query = """SELECT tufuf, tufdenominacao FROM uf
                 WHERE tufuf = 'DF' ORDER BY tufdenominacao;"""
@@ -139,6 +116,8 @@ class TestDAO(SimpleTestCase):
         """
         Tests that the objects were correctly instanced.
         """
+        self.dao = GenericoDAO()
+
         self.assertIsNotNone(causas_acidentes.Acidentes())
         self.assertIsNotNone(str(causas_acidentes.Acidentes()))
         self.assertIsNotNone(causas_acidentes.AcidentesAno())

@@ -24,40 +24,45 @@ for linha in arquivo_csv:
 
 def distribuicao_normal(x, media, desvio):
     """ Calc Normal distribution (Gaussian) """
-
+    normalization = 100
+    adjust_vertical = 10
+    value_standard = 0.5
     z = (x - media) / float(abs(desvio))
-    z = abs(int(z * 100) / 100.0)
-    eixo_vertical = int(z * 10)
-    eixo_horizontal = int(z * 100) - 10 * eixo_vertical
+    z = abs(int(z * normalization) / normalization)
+    eixo_vertical = int(z * adjust_vertical)
+    eixo_horizontal = int(z * normalization) - adjust_vertical * eixo_vertical
     try:
         p = tabela[eixo_vertical][eixo_horizontal]
     except IndexError as e:
-        p = 0.5
+        p = value_standard
 
     return p
 
 
 def desvio_padrao(lista):
     """ Calc standard deviation """
+    array_initial = 0
+    elevation_to_2 = 2
+    square_root = 0.5
 
     media_total = 0
-    for i in range(0, len(lista)):
+    for i in range(array_initial, len(lista)):
         media_total = media_total + lista[i]
     media_total = media_total / len(lista)
 
     for i in range(0, len(lista)):
-        desvio = (i - media_total) ** 2
+        desvio = (i - media_total) ** elevation_to_2
 
-    return (desvio / len(lista)) ** (0.5)
+    return (desvio / len(lista)) ** (square_root)
 
 
 def media_sexo(homens, mulheres):
     """ Calc mean about men and women """
-
+    porcent_division = 100
     total = int(homens[0].quantidade) + int(mulheres[0].quantidade)
     for homem in homens:
-        homem.quantidade = float(homem.quantidade) / float(total) * 100
+        homem.quantidade = float(homem.quantidade) / float(total) * porcent_division
     for mulher in mulheres:
-        mulher.quantidade = float(mulher.quantidade) / float(total) * 100
+        mulher.quantidade = float(mulher.quantidade) / float(total) * porcent_division
 
     return homens[0], mulheres[0]
