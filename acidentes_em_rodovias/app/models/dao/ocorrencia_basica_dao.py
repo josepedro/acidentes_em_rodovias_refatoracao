@@ -27,6 +27,10 @@ class OcorrenciaBasicaDAO(GenericoDAO):
         @brief Local variable:
             query -
                 SQL instruction to query the occurrences per region.
+            occurrences_by_region_SQL
+                Receives the query execution
+            list_of_ocurrences
+                Receives the list of occurrences per period.
 
         @param municipio_id County's ID, returning the counties by each region selected.
         @param limite Limits the number of registers in the Database.
@@ -65,11 +69,15 @@ class OcorrenciaBasicaDAO(GenericoDAO):
                 WHERE oco.ocomunicipio = %s
                 %s;""" % (municipio_id, limite)
 
-        return self.transforma_dicionario_em_objetos(
-            self.executa_query(query),
+        occurrences_by_region_SQL = self.executa_query(query)
+        list_of_ocurrences = self.transforma_dicionario_em_objetos(
+            occurrences_by_region_SQL,
             "OcorrenciaBasica",
             "ocorrencia_basica"
         )
+
+        return list_of_ocurrences
+
 
     def lista_ocorrencias_por_periodo(self, data_inicio, data_fim, limite=0):
         """
@@ -78,11 +86,15 @@ class OcorrenciaBasicaDAO(GenericoDAO):
         @brief Local variable:
             query -
                 SQL instruction to query the occurrences per period.
+            occurrences_by_period_SQL
+                Receives the query execution
+            list_of_ocurrences
+                Receives the list of occurrences per period.
 
         @param data_inicio Determines the initial date for the query search.
         @param data_fim Determines the final date for the query search.
         @param limite Limits the number of registers in the Database.
-        @return Method that transforms the query results in a model object.
+        @return List of occurences per period.
         """
         if(limite != 0):
             limite = 'LIMIT %s' % limite
@@ -128,8 +140,11 @@ class OcorrenciaBasicaDAO(GenericoDAO):
             limite
         )
 
-        return self.transforma_dicionario_em_objetos(
-            self.executa_query(query),
+        occurrences_by_period_SQL = self.executa_query(query)
+        list_of_ocurrences = self.transforma_dicionario_em_objetos(
+            occurrences_by_period_SQL,
             "OcorrenciaBasica",
             "ocorrencia_basica"
         )
+
+        return list_of_ocurrences
