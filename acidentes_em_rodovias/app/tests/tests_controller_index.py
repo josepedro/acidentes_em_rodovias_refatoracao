@@ -32,3 +32,8 @@ class TestControllerIndex(Index_Tests):
 
     def test_index(self):
         self.assertIsNotNone(ctrl.index(None))
+
+    def test_response(self):
+        response = self.client.get('/acidentes_rodovias')
+
+        self.assertEquals(response.status_code, 200)

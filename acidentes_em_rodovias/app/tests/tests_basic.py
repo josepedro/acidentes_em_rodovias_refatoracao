@@ -7,11 +7,12 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 
-from django.test import SimpleTestCase
+from django.test import SimpleTestCase, Client
 from sys import stderr
 
 
 class Basic_Tests(SimpleTestCase):
+
     """Basic test class"""
     name = ''
     my_type = ''
@@ -36,6 +37,7 @@ class Basic_Tests(SimpleTestCase):
 
 
 class Validate_Tests(Basic_Tests):
+
     """Basic test class to Controller"""
 
     def setUp(self):
@@ -45,6 +47,7 @@ class Validate_Tests(Basic_Tests):
 
 
 class Controller_Tests(Basic_Tests):
+
     """Basic test class to Controller"""
 
     def setUp(self):
@@ -54,6 +57,7 @@ class Controller_Tests(Basic_Tests):
 
 
 class DAO_Tests(Basic_Tests):
+
     """Basic test class to DAO"""
 
     def setUp(self):
@@ -61,10 +65,13 @@ class DAO_Tests(Basic_Tests):
         stderr.write(self.__str__())
         self.shortDescription()
 
+
 class Index_Tests(Basic_Tests):
+
     """Basic test class to DAO"""
 
     def setUp(self):
         self.my_type = '[Index]'
         stderr.write(self.__str__())
         self.shortDescription()
+        self.client = Client()
