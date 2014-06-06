@@ -54,6 +54,7 @@ class Controller_Tests(Basic_Tests):
         self.my_type = '[Controller]'
         stderr.write(self.__str__())
         self.shortDescription()
+        self.client = Client()
 
 
 class DAO_Tests(Basic_Tests):

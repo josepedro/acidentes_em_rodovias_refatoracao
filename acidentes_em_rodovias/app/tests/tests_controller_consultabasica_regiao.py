@@ -37,3 +37,26 @@ class Test_Regiao(Controller_Tests):
 
     def test_consulta_ocorrencias_por_municipio(self):
         ctrl.consulta_ocorrencias_por_municipio(self.request)
+
+    def test_response_regiao(self):
+        response = self.client.get('/acidentes_rodovias/regiao')
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'regiao.html')
+
+    def test_response_municipios_regiao(self):
+        response = self.client.get('/acidentes_rodovias/municipios-regiao')
+        self.assertEquals(response.status_code, 200)
+
+        response = self.client.get(
+            '/acidentes_rodovias/municipios-regiao?uf_id=AC'
+        )
+        self.assertEquals(response.status_code, 200)
+
+    def test_response_consulta_municipio(self):
+        response = self.client.get('/acidentes_rodovias/consulta/municipio')
+        self.assertEquals(response.status_code, 200)
+
+        response = self.client.get(
+            '/acidentes_rodovias/consulta/municipio?municipio_id=6432'
+        )
+        self.assertEquals(response.status_code, 200)
