@@ -18,3 +18,4 @@ bin/*
 .pydevproject
 .settings
 acidentes_em_rodovias/.sonar
+acidentes_em_rodovias/acidentes_em_rodovias/settings.py
