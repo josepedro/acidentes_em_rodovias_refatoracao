@@ -47,6 +47,16 @@ class Test_Regiao(Controller_Tests):
         response = self.client.get('/acidentes_rodovias/municipios-regiao')
         self.assertEquals(response.status_code, 200)
 
+        response = self.client.get(
+            '/acidentes_rodovias/municipios-regiao?uf_id=AC'
+        )
+        self.assertEquals(response.status_code, 200)
+
     def test_response_consulta_municipio(self):
         response = self.client.get('/acidentes_rodovias/consulta/municipio')
+        self.assertEquals(response.status_code, 200)
+
+        response = self.client.get(
+            '/acidentes_rodovias/consulta/municipio?municipio_id=6432'
+        )
         self.assertEquals(response.status_code, 200)
