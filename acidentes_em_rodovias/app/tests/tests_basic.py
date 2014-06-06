@@ -38,7 +38,7 @@ class Basic_Tests(SimpleTestCase):
 
 class Validate_Tests(Basic_Tests):
 
-    """Basic test class to Controller"""
+    """Basic test class to Validations"""
 
     def setUp(self):
         self.my_type = '[Validation]'
