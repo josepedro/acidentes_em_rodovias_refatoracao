@@ -28,8 +28,12 @@ class MunicipioDAO(GenericoDAO):
 
             @brief Local variable:
 
-                query -
+                select_sql -
                     SQL instruction to query the municipalities of a state
+                result_select_sql -
+                    Result of select query
+                county_list -
+                    list of counties
 
             @param uf Abreviation of the state's name
             @param limite Limits the query. Default 0.
@@ -41,14 +45,17 @@ class MunicipioDAO(GenericoDAO):
         else:
             limite = ''
 
-        query = """SELECT DISTINCT tmucodigo, tmudenominacao, tmuuf
+        select_sql = """SELECT DISTINCT tmucodigo, tmudenominacao, tmuuf
                 FROM municipio tmu
                 INNER JOIN ocorrencia oco ON oco.ocomunicipio = tmu.tmucodigo
                 WHERE tmu.tmuuf = '%s'
                 ORDER BY tmudenominacao %s; """ % (uf, limite)
 
-        return self.transforma_dicionario_em_objetos(
-            self.executa_query(query),
+        result_select_sql = self.executa_query(select_sql)
+        county_list = self.transforma_dicionario_em_objetos(
+            result_select_sql,
             "Municipio",
             "municipio"
         )
+
+        return county_list
