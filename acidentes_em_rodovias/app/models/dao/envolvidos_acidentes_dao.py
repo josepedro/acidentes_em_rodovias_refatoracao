@@ -36,23 +36,30 @@ class EnvolvidosAcidentesDAO(GenericoDAO):
 
             @brief Local variable:
 
-                query -
+                involved_in_accidents_SQL -
                     SQL instruction to query the number of involved in
                 accidents
+
+                involved_in_accidents -
+                    Receives the result of the involved_in_accidents_SQL query
 
             @return List of objects with the number of involved in
             accidents
         """
 
-        query = """SELECT
+        involved_in_accidents_SQL = """SELECT
                     `quantidade_envolvidos`, `quantidade_acidentes`, `ano`
                 FROM `estatisticas_envolvido`;"""
 
-        return self.transforma_dicionario_em_objetos(
-            self.executa_query(query),
+        involved_in_accidents = self.executa_query(involved_in_accidents_SQL)
+
+        list_involved = self.transforma_dicionario_em_objetos(
+            involved_in_accidents,
             "EnvolvidosAcidente",
             "envolvidos_acidentes"
         )
+
+        return list_involved
 
     def media_desvio_envolvidos(self):
         """ Queries the number of involved in accidents per year

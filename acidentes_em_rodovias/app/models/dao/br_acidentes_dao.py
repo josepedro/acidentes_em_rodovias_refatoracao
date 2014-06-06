@@ -53,6 +53,31 @@ class BRAcidentesDAO(GenericoDAO):
             'br_acidentes'
         )
 
+    def populate_queries(self, query_result):
+        last_br = ''
+        br_accidents_year_list = []
+
+        # Populate list of Queries
+        for (br, amount_occurrences, year) in zip(
+                query_result['br'].values(),
+                query_result['quantidade_ocorrencias'].values(),
+                query_result['ano'].values()
+        ):
+            br = br.decode('iso-8859-1').encode('utf8')
+
+            if (last_br != br):
+                brs_accidents_year = BRAcidentesAno()
+                br_accidents_year_list.append(brs_accidents_year)
+                brs_accidents_year.br = br
+                last_br = br
+
+            brs_accidents_year.ano_list.append(year)
+            brs_accidents_year.quantidade_ocorrencias_list.append(
+                amount_occurrences,
+            )
+
+        return br_accidents_year_list
+
     def acidentes_br_ano(self):
         """ Queries accidents by highways per year
 
@@ -88,24 +113,6 @@ class BRAcidentesDAO(GenericoDAO):
 
         query_result = self.executa_query(query)
 
-        br_accidents_year_list = []
-        last_br = ''
-        for (br, amount_occurrences, year) in zip(
-                query_result['br'].values(),
-                query_result['quantidade_ocorrencias'].values(),
-                query_result['ano'].values()
-        ):
-            br = br.decode('iso-8859-1').encode('utf8')
-
-            if (last_br != br):
-                brs_accidents_year = BRAcidentesAno()
-                br_accidents_year_list.append(brs_accidents_year)
-                brs_accidents_year.br = br
-                last_br = br
-
-            brs_accidents_year.ano_list.append(year)
-            brs_accidents_year.quantidade_ocorrencias_list.append(
-                amount_occurrences,
-            )
+        br_accidents_year_list = self.populate_queries(query_result)
 
         return br_accidents_year_list
