@@ -68,12 +68,12 @@ def define_dates(request):
             }, context_instance=RequestContext(request)
         )
 
-    return start_data, end_date
+    return start_date, end_date
 
 
-def validate_date(start_data, end_date):
+def validate_date(start_date, end_date, request):
     """ Validate two dates
-    @param start_data Initial date.
+    @param start_date Initial date.
     @param end_data Final date.
     @return True if a valid date.
     """
@@ -92,9 +92,9 @@ def validate_date(start_data, end_date):
     return True
 
 
-def build_list_occurences(start_data, end_date):
+def build_list_occurences(start_date, end_date, request):
     """ Creates a list of occurrences
-    @param start_data Initial date.
+    @param start_date Initial date.
     @param end_data Final date.
     @return List of occurrences
     """
@@ -105,14 +105,11 @@ def build_list_occurences(start_data, end_date):
         # list of occurrences
         occurrences_list = occurrences_dao.lista_ocorrencias_por_periodo(
             start_date, end_date, _MAX_QUERIES)
-    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
-        erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
-        return render_to_response(
-            "index.html", {
-                'erro': erro
-            }, context_instance=RequestContext(request)
-        )
+    except (MySQLdb.Error, ResultadoConsultaNuloError):
+        raise MySQLdb.Error, ResultadoConsultaNuloError
+    except (DataInvalidaError):
+        raise DataInvalidaError("Periodo invalido")
+
     return occurrences_list
 
 
@@ -123,9 +120,25 @@ def consulta_ocorrencias_por_periodo(request):
     returns the index page with error message.
     """
 
-    start_data, end_date = define_dates(request)
-    assert(True, validate_date(start_data, end_date))
-    occurrences_list = build_list_occurences(start_data, end_date)
+    start_date, end_date = define_dates(request)
+    assert(True, validate_date(start_date, end_date, request))
+
+    try:
+        occurrences_list = build_list_occurences(start_date, end_date, request)
+    except (MySQLdb.Error, ResultadoConsultaNuloError):
+        erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
+        return render_to_response(
+            "index.html", {
+                'erro': erro
+            }, context_instance=RequestContext(request)
+        )
+    except (DataInvalidaError):
+        erro = "Preencha corretamente o formulário!"
+        return render_to_response(
+            "index.html", {
+                'erro': erro
+            }, context_instance=RequestContext(request)
+        )
 
     render = render_to_response(
         "resultado.html", {
