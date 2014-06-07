@@ -49,7 +49,7 @@ def consulta_por_regiao(request):
         # list of UFs
         uf_list = uf_dao.lista_ufs()
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
             "index.html", {
@@ -85,7 +85,7 @@ def consulta_municipios_na_regiao(request):
     try:
         valida_caracteres(uf_id)
     except ParametroInseguroClienteError as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
             "index.html", {
@@ -99,7 +99,7 @@ def consulta_municipios_na_regiao(request):
         # list of municipalities
         municipalities_list = municipalities_dao.lista_municipios(uf_id)
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
             "index.html", {
@@ -141,7 +141,7 @@ def consulta_ocorrencias_por_municipio(request):
             _MAX_ITEMS
         )
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
             "index.html", {
