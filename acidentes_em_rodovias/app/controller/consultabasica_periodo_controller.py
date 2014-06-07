@@ -48,11 +48,10 @@ def consulta_por_periodo(request):
     )
 
 
-def consulta_ocorrencias_por_periodo(request):
-    """ Return the render of page with occurrences inquiry in time.
+def define_dates(request):
+    """ Return the strt and end date.
     @param request context request from view.
-    @return If no errors, return the occurrences page, otherwise,
-    returns the index page with error message.
+    @return return the date
     """
 
     try:
@@ -69,6 +68,16 @@ def consulta_ocorrencias_por_periodo(request):
             }, context_instance=RequestContext(request)
         )
 
+    return start_data, end_date
+
+
+def validate_date(start_data, end_date):
+    """ Validate two dates
+    @param start_data Initial date.
+    @param end_data Final date.
+    @return True if a valid date.
+    """
+
     try:
         valida_data(start_date)
         valida_data(end_date)
@@ -80,6 +89,15 @@ def consulta_ocorrencias_por_periodo(request):
                 'erro': erro
             }, context_instance=RequestContext(request)
         )
+    return True
+
+
+def build_list_occurences(start_data, end_date):
+    """ Creates a list of occurrences
+    @param start_data Initial date.
+    @param end_data Final date.
+    @return List of occurrences
+    """
 
     try:
         # DAO object from basic occurrence
@@ -95,8 +113,21 @@ def consulta_ocorrencias_por_periodo(request):
                 'erro': erro
             }, context_instance=RequestContext(request)
         )
+    return occurrences_list
 
-    return render_to_response(
+
+def consulta_ocorrencias_por_periodo(request):
+    """ Return the render of page with occurrences inquiry in time.
+    @param request context request from view.
+    @return If no errors, return the occurrences page, otherwise,
+    returns the index page with error message.
+    """
+
+    start_data, end_date = define_dates(request)
+    assert(True, validate_date(start_data, end_date))
+    occurrences_list = build_list_occurences(start_data, end_date)
+
+    render = render_to_response(
         "resultado.html", {
             'ocorrencia_list': occurrences_list,
             'tipo_consulta': 'periodo',
@@ -104,3 +135,5 @@ def consulta_ocorrencias_por_periodo(request):
             'end_date': end_date
         }, context_instance=RequestContext(request)
     )
+
+    return render
