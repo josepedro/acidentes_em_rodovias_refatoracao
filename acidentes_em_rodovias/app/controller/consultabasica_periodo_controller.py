@@ -96,8 +96,6 @@ def build_list_occurences(start_date, end_date, request):
             start_date, end_date, _MAX_QUERIES)
     except (MySQLdb.Error, ResultadoConsultaNuloError):
         raise MySQLdb.Error, ResultadoConsultaNuloError
-    except (DataInvalidaError):
-        raise DataInvalidaError("Periodo invalido")
 
     return occurrences_list
 

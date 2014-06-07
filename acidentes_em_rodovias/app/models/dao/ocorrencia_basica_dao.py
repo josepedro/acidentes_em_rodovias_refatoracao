@@ -104,8 +104,6 @@ class OcorrenciaBasicaDAO(GenericoDAO):
         if data_inicio != "" and data_fim != "":
             data_inicio = data_inicio + ' 00:00:00'
             data_fim = data_fim + ' 23:59:59'
-        else:
-            raise DataInvalidaError("Periodo Invalido Inserido")
 
         query = """SELECT oco.ocoid, oco.ocodataocorrencia,
                 tmu.tmudenominacao, tmu.tmuuf, tco.tcodescricao,

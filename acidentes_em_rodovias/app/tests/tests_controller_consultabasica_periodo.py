@@ -86,6 +86,24 @@ class Test_Periodo(Controller_Tests):
                           "Preencha corretamente o formulário!"
                           )
 
+        response = self.client.get(
+            '/acidentes_rodovias/consulta/periodo?data_inicio=&data_fim='
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+        self.assertEquals(response.context[-1]['erro'],
+                          "Preencha corretamente o formulário!"
+                          )
+
+        response = self.client.get(
+            '/acidentes_rodovias/consulta/periodo?data_fim='
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+        self.assertEquals(response.context[-1]['erro'],
+                          "Preencha corretamente o formulário!"
+                          )
+
     def test_database_conection(self):
         myconfiguration.DB_PASS = ""
 
