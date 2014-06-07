@@ -60,18 +60,12 @@ def define_dates(request):
         # string with the final date
         end_date = str(request.GET['data_fim'])
     except (MultiValueDictKeyError) as e:
-        logger.error(str(e))
-        erro = "Preencha corretamente o formulário!"
-        return render_to_response(
-            "index.html", {
-                'erro': erro
-            }, context_instance=RequestContext(request)
-        )
+        raise MultiValueDictKeyError
 
     return start_date, end_date
 
 
-def validate_date(start_date, end_date, request):
+def validate_date(start_date, end_date):
     """ Validate two dates
     @param start_date Initial date.
     @param end_data Final date.
@@ -82,13 +76,8 @@ def validate_date(start_date, end_date, request):
         valida_data(start_date)
         valida_data(end_date)
     except DataInvalidaError as e:
-        logger.error(str(e))
-        erro = "Preencha corretamente o formulário!"
-        return render_to_response(
-            "index.html", {
-                'erro': erro
-            }, context_instance=RequestContext(request)
-        )
+        raise DataInvalidaError("Data invalida")
+
     return True
 
 
@@ -120,10 +109,9 @@ def consulta_ocorrencias_por_periodo(request):
     returns the index page with error message.
     """
 
-    start_date, end_date = define_dates(request)
-    assert(True, validate_date(start_date, end_date, request))
-
     try:
+        start_date, end_date = define_dates(request)
+        validate_date(start_date, end_date)
         occurrences_list = build_list_occurences(start_date, end_date, request)
     except (MySQLdb.Error, ResultadoConsultaNuloError):
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
@@ -132,7 +120,7 @@ def consulta_ocorrencias_por_periodo(request):
                 'erro': erro
             }, context_instance=RequestContext(request)
         )
-    except (DataInvalidaError):
+    except (DataInvalidaError, MultiValueDictKeyError):
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
             "index.html", {
