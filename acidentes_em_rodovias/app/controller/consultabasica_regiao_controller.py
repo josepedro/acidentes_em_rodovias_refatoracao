@@ -74,7 +74,7 @@ def consulta_municipios_na_regiao(request):
         # Id from UF requested
         uf_id = request.GET['uf_id']
     except MultiValueDictKeyError as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
             "index.html", {
@@ -124,7 +124,7 @@ def consulta_ocorrencias_por_municipio(request):
         # Municipalitie Id
         municipalities_id = int(request.GET['municipio_id'])
     except (ValueError, MultiValueDictKeyError) as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Preencha corretamente o formulário!"
         return render_to_response(
             "index.html", {

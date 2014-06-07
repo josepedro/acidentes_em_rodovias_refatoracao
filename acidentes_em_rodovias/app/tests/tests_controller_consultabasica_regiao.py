@@ -11,6 +11,7 @@ from sys import stderr
 
 from app.tests.tests_basic import Controller_Tests
 from django.template import RequestContext, TemplateDoesNotExist, Context
+
 from django.utils.datastructures import MultiValueDictKeyError
 
 from app.controller import consultabasica_regiao_controller as ctrl
@@ -51,6 +52,19 @@ class Test_Regiao(Controller_Tests):
             '/acidentes_rodovias/municipios-regiao?uf_id=AC'
         )
         self.assertEquals(response.status_code, 200)
+
+    def test_municipios_regiao_invalid_param(self):
+        response = self.client.get(
+            '/acidentes_rodovias/municipios-regiao?uf_id='
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+
+        response = self.client.get(
+            "/acidentes_rodovias/municipios-regiao?uf_id=';a"
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
 
     def test_response_consulta_municipio(self):
         response = self.client.get('/acidentes_rodovias/consulta/municipio')
