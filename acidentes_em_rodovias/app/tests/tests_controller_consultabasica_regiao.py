@@ -9,12 +9,15 @@
 
 from sys import stderr
 
+from django.test import Client
 from app.tests.tests_basic import Controller_Tests
 from django.template import RequestContext, TemplateDoesNotExist, Context
 
 from django.utils.datastructures import MultiValueDictKeyError
 
 from app.controller import consultabasica_regiao_controller as ctrl
+
+from app import myconfiguration
 
 
 class Test_Regiao(Controller_Tests):
@@ -29,6 +32,11 @@ class Test_Regiao(Controller_Tests):
         self.request.GET['municipio_id'] = '0'
         stderr.write(self.__str__())
         self.shortDescription()
+        self.client = Client()
+        self.db_password = myconfiguration.DB_PASS
+
+    def tearDown(self):
+        myconfiguration.DB_PASS = self.db_password
 
     def test_consulta_por_regiao(self):
         ctrl.consulta_por_regiao(None)
@@ -52,6 +60,7 @@ class Test_Regiao(Controller_Tests):
             '/acidentes_rodovias/municipios-regiao?uf_id=AC'
         )
         self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'municipio.html')
 
     def test_municipios_regiao_invalid_param(self):
         response = self.client.get(
@@ -74,3 +83,30 @@ class Test_Regiao(Controller_Tests):
             '/acidentes_rodovias/consulta/municipio?municipio_id=6432'
         )
         self.assertEquals(response.status_code, 200)
+
+    def test_database_conection(self):
+        myconfiguration.DB_PASS = ""
+        response = self.client.get(
+            '/acidentes_rodovias/consulta/municipio?municipio_id=6432'
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+        self.assertEquals(response.context[-1]['erro'],
+                          "Ocorreu um erro no sistema, tente novamente mais tarde!"
+                          )
+
+        response = self.client.get(
+            '/acidentes_rodovias/municipios-regiao?uf_id=AC'
+        )
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+        self.assertEquals(response.context[-1]['erro'],
+                          "Ocorreu um erro no sistema, tente novamente mais tarde!"
+                          )
+
+        response = self.client.get('/acidentes_rodovias/regiao')
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+        self.assertEquals(response.context[-1]['erro'],
+                          "Ocorreu um erro no sistema, tente novamente mais tarde!"
+                          )
