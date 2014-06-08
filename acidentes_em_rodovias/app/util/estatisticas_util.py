@@ -12,6 +12,7 @@ Calc some statistics methods.
 import os
 
 def open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal):
+    value_standard = 0.5
     prev_path = os.path.dirname(os.path.abspath(__file__))
     arquivo_csv = open(
         prev_path +
@@ -21,7 +22,11 @@ def open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal):
     for linha in arquivo_csv:
         l = [float(i.strip()) for i in linha.split(';')]
         tabela.append(l)
-    probabilities = tabela[eixo_vertical][eixo_horizontal]
+    try:
+        probabilities = tabela[eixo_vertical][eixo_horizontal]
+    except TypeError as e:
+        probabilities = value_standard
+
     return probabilities
 
 
