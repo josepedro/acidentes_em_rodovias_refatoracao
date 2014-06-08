@@ -11,15 +11,18 @@ Calc some statistics methods.
 
 import os
 
-prev_path = os.path.dirname(os.path.abspath(__file__))
-arquivo_csv = open(
-    prev_path +
-    "/../resources/tabela-normal-reduzida.csv",
-    "rb")
-tabela = []
-for linha in arquivo_csv:
-    l = [float(i.strip()) for i in linha.split(';')]
-    tabela.append(l)
+def open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal):
+    prev_path = os.path.dirname(os.path.abspath(__file__))
+    arquivo_csv = open(
+        prev_path +
+        "/../resources/tabela-normal-reduzida.csv",
+        "rb")
+    tabela = []
+    for linha in arquivo_csv:
+        l = [float(i.strip()) for i in linha.split(';')]
+        tabela.append(l)
+    probabilities = tabela[eixo_vertical][eixo_horizontal]
+    return probabilities
 
 
 def distribuicao_normal(x, media, desvio):
@@ -33,7 +36,7 @@ def distribuicao_normal(x, media, desvio):
         eixo_vertical = int(z * adjust_vertical)
         eixo_horizontal = int(z * normalization) - adjust_vertical * eixo_vertical
         try:
-            probabilities = tabela[eixo_vertical][eixo_horizontal]
+            probabilities = open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal)
         except IndexError as e:
             probabilities = value_standard
     except TypeError as e:
