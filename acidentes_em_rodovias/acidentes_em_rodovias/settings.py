@@ -21,7 +21,7 @@ DATABASES = {
         # Or path to database file if using sqlite3.
         'NAME': 'acidentes_rodovias',
         'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': '1234',                  # Not used with sqlite3.
+        'PASSWORD': '123456',                  # Not used with sqlite3.
         # Set to empty string for localhost. Not used with sqlite3.
         'HOST': '',
         # Set to empty string for default. Not used with sqlite3.
