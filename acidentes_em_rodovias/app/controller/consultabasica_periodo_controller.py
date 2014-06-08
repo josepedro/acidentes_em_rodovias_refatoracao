@@ -48,11 +48,10 @@ def consulta_por_periodo(request):
     )
 
 
-def consulta_ocorrencias_por_periodo(request):
-    """ Return the render of page with occurrences inquiry in time.
+def define_dates(request):
+    """ Return the strt and end date.
     @param request context request from view.
-    @return If no errors, return the occurrences page, otherwise,
-    returns the index page with error message.
+    @return return the date
     """
 
     try:
@@ -61,25 +60,33 @@ def consulta_ocorrencias_por_periodo(request):
         # string with the final date
         end_date = str(request.GET['data_fim'])
     except (MultiValueDictKeyError) as e:
-        logger.error(str(e))
-        erro = "Preencha corretamente o formulário!"
-        return render_to_response(
-            "index.html", {
-                'erro': erro
-            }, context_instance=RequestContext(request)
-        )
+        raise MultiValueDictKeyError
+
+    return start_date, end_date
+
+
+def validate_date(start_date, end_date):
+    """ Validate two dates
+    @param start_date Initial date.
+    @param end_data Final date.
+    @return True if a valid date.
+    """
 
     try:
         valida_data(start_date)
         valida_data(end_date)
     except DataInvalidaError as e:
-        logger.error(str(e))
-        erro = "Preencha corretamente o formulário!"
-        return render_to_response(
-            "index.html", {
-                'erro': erro
-            }, context_instance=RequestContext(request)
-        )
+        raise DataInvalidaError("Data invalida")
+
+    return True
+
+
+def build_list_occurences(start_date, end_date, request):
+    """ Creates a list of occurrences
+    @param start_date Initial date.
+    @param end_data Final date.
+    @return List of occurrences
+    """
 
     try:
         # DAO object from basic occurrence
@@ -87,16 +94,41 @@ def consulta_ocorrencias_por_periodo(request):
         # list of occurrences
         occurrences_list = occurrences_dao.lista_ocorrencias_por_periodo(
             start_date, end_date, _MAX_QUERIES)
-    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
+    except (MySQLdb.Error, ResultadoConsultaNuloError):
+        raise MySQLdb.Error, ResultadoConsultaNuloError
+    except (DataInvalidaError):
+        raise DataInvalidaError("Periodo invalido")
+
+    return occurrences_list
+
+
+def consulta_ocorrencias_por_periodo(request):
+    """ Return the render of page with occurrences inquiry in time.
+    @param request context request from view.
+    @return If no errors, return the occurrences page, otherwise,
+    returns the index page with error message.
+    """
+
+    try:
+        start_date, end_date = define_dates(request)
+        validate_date(start_date, end_date)
+        occurrences_list = build_list_occurences(start_date, end_date, request)
+    except (MySQLdb.Error, ResultadoConsultaNuloError):
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
             "index.html", {
                 'erro': erro
             }, context_instance=RequestContext(request)
         )
+    except (DataInvalidaError, MultiValueDictKeyError):
+        erro = "Preencha corretamente o formulário!"
+        return render_to_response(
+            "index.html", {
+                'erro': erro
+            }, context_instance=RequestContext(request)
+        )
 
-    return render_to_response(
+    render = render_to_response(
         "resultado.html", {
             'ocorrencia_list': occurrences_list,
             'tipo_consulta': 'periodo',
@@ -104,3 +136,5 @@ def consulta_ocorrencias_por_periodo(request):
             'end_date': end_date
         }, context_instance=RequestContext(request)
     )
+
+    return render

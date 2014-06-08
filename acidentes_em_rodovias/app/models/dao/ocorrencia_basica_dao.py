@@ -10,6 +10,7 @@
 from .generico_dao import GenericoDAO
 
 from app.models.ocorrencia_basica import *
+from app.exception.validation_exceptions import *
 
 
 class OcorrenciaBasicaDAO(GenericoDAO):
@@ -78,7 +79,6 @@ class OcorrenciaBasicaDAO(GenericoDAO):
 
         return list_of_ocurrences
 
-
     def lista_ocorrencias_por_periodo(self, data_inicio, data_fim, limite=0):
         """
         Executes and lists query results by period.
@@ -101,8 +101,11 @@ class OcorrenciaBasicaDAO(GenericoDAO):
         else:
             limite = ''
 
-        data_inicio = data_inicio + ' 00:00:00'
-        data_fim = data_fim + ' 23:59:59'
+        if data_inicio != "" and data_fim != "":
+            data_inicio = data_inicio + ' 00:00:00'
+            data_fim = data_fim + ' 23:59:59'
+        else:
+            raise DataInvalidaError("Periodo Invalido Inserido")
 
         query = """SELECT oco.ocoid, oco.ocodataocorrencia,
                 tmu.tmudenominacao, tmu.tmuuf, tco.tcodescricao,

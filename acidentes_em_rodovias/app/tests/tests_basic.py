@@ -9,6 +9,7 @@
 
 from django.test import SimpleTestCase, Client
 from sys import stderr
+from app import myconfiguration
 
 
 class Basic_Tests(SimpleTestCase):
@@ -63,6 +64,8 @@ class Controller_Tests(Basic_Tests):
         self.my_type = '[Controller]'
         stderr.write(self.__str__())
         self.shortDescription()
+        self.client = Client()
+        self.db_password = myconfiguration.DB_PASS
 
 
 class DAO_Tests(Basic_Tests):
