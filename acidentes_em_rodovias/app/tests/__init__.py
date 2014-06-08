@@ -10,7 +10,7 @@ from tests_controller_consultabasica_regiao import *
 from tests_controller_estatistica_tipocausa import *
 from tests_controller_estatistica_sexo import *
 from tests_controller_estatistica_envolvidos import *
-#------------DAO---------
+# ------------DAO---------
 from tests_dao import *
 from tests_dao_municipio import *
 from tests_dao_UF import *

@@ -34,6 +34,9 @@ def valida_data(data):
             or int(data[3:5]) >= _MAX_MONTH):
         raise DataInvalidaError("Data invalida inserida: " + data)
 
+    if data == "":
+        raise DataInvalidaError("Data invalida inserida: " + data)
+
 
 def valida_caracteres(palavra):
     """

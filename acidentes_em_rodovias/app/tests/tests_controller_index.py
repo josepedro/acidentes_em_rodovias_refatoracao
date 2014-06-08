@@ -35,5 +35,7 @@ class TestControllerIndex(Index_Tests):
 
     def test_response(self):
         response = self.client.get('/acidentes_rodovias')
+        self.assertEquals(response.status_code, 301)
 
+        response = self.client.get('/acidentes_rodovias/')
         self.assertEquals(response.status_code, 200)
