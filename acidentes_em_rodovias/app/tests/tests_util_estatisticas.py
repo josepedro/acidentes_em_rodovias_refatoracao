@@ -23,6 +23,15 @@ class Test_Estatisticas(Util_Estatisticas):
 
     """Test the validate of inputs"""
 
-    def test_estatisticas(self):
+    def test_estatisticas_distribuicao_normal(self):
+        testando = "testando"
+        print "\n\n\n\n"+estatisticas_util.distribuicao_normal(None,None,None)
+        self.assertIsNotNone(estatisticas_util.distribuicao_normal(None,None,None))
+
+    def test_estatisticas_desvio_padrao(self):
+        testando = "testando"
+        self.assertIsNotNone(None)
+
+    def test_estatisticas_media_sexo(self):
         testando = "testando"
         self.assertIsNotNone(testando)
