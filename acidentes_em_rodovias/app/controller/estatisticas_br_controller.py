@@ -44,7 +44,7 @@ def acidentes_br(request):
         accidents_ano = br_dao.acidentes_br_ano()
 
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         return render_to_response(
             "index.html", {
@@ -52,10 +52,12 @@ def acidentes_br(request):
             }, context_instance=RequestContext(request)
         )
 
-    return render_to_response(
+    response = render_to_response(
         "br_acidentes.html", {
             'ano': range(2007, data.year + 1),
             'br_acidentes_geral': br_overall_accidents,
             'acidentes_ano': accidents_ano
         }, context_instance=RequestContext(request)
     )
+
+    return response
