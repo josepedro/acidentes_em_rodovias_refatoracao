@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # Django settings for acidentes_em_rodovias project.
 
+from app import myconfiguration
+
 import os
 ROOT_DIR = os.path.dirname(__file__)
 
@@ -19,13 +21,11 @@ DATABASES = {
         # 'oracle'.
         'ENGINE': 'django.db.backends.mysql',
         # Or path to database file if using sqlite3.
-        'NAME': 'acidentes_rodovias',
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': '123456',                  # Not used with sqlite3.
-        # Set to empty string for localhost. Not used with sqlite3.
-        'HOST': '',
-        # Set to empty string for default. Not used with sqlite3.
-        'PORT': '',
+        'NAME': myconfiguration.DB,
+        # Not used with sqlite3.
+        'USER': myconfiguration.DB_USER,
+        # Not used with sqlite3.
+        'PASSWORD': myconfiguration.DB_PASS,
     }
 }
 
