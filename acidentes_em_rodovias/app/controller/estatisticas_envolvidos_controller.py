@@ -42,20 +42,28 @@ def ocorrencias_e_envolvidos(request):
     involved_dao = EnvolvidosAcidentesDAO()
     involved_list = involved_dao.envolvidos_acidentes()
     medias, desvio = involved_dao.media_desvio_envolvidos()
-    years = []
-
-    for accident in involved_list:
-        years.append(accident.ano)
+    years = get_years_list(involved_list)
 
     year_average_list = zip(years, medias)
 
-    return render_to_response(
+    response = render_to_response(
         "ocorrencias-e-envolvidos.html", {
             'lista_envolvidos': involved_list,
             'ano_media_list': year_average_list,
             'desvio': desvio
         }, context_instance=RequestContext(request)
     )
+
+    return response
+
+
+def get_years_list(involved_list):
+    years = []
+
+    for accident in involved_list:
+        years.append(accident.ano)
+
+    return years
 
 
 def acidentes_sexo(request):
@@ -70,15 +78,17 @@ def acidentes_sexo(request):
         men_general, women_general = media_sexo(men_general, women_general)
 
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
-        return render_to_response(
+        response = render_to_response(
             "index.html", {
                 'erro': erro
             }, context_instance=RequestContext(request)
         )
 
-    return render_to_response(
+        return response
+
+    response = render_to_response(
         "acidentes_sexo.html", {
             'homens_geral': men_general,
             'mulheres_geral': women_general,
@@ -86,3 +96,5 @@ def acidentes_sexo(request):
             'mulheres_ano': women_year
         }, context_instance=RequestContext(request)
     )
+
+    return response
