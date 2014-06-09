@@ -34,10 +34,9 @@ class Test_Envolvidos(Controller_Tests):
     def test_database_connection(self):
         myconfiguration.DB_PASS = ''
 
-        with self.assertRaises(OperationalError):
-            response = self.client.get('/acidentes_rodovias/estatisticas/acidentes-sexo')
-            self.assertTemplateUsed(response, 'index.html')
-            self.assertEquals(response.context[-1]['erro'],
-                          "Ocorreu um erro no sistema, tente novamente mais tarde!"
-                          )
+        response = self.client.get('/acidentes_rodovias/estatisticas/acidentes-sexo')
+        self.assertTemplateUsed(response, 'index.html')
+        self.assertEquals(response.context[-1]['erro'],
+                      "Ocorreu um erro no sistema, tente novamente mais tarde!"
+                      )
 
