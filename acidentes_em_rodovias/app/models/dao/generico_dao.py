@@ -73,7 +73,7 @@ class GenericoDAO:
 
             @brief Local variable:
 
-                dados - 
+                dados -
                     Receives the query result
 
             @param query A SQL instruction
@@ -95,13 +95,7 @@ class GenericoDAO:
                 con=self.conexao
             )
 
-        if (dados is None):
-            raise ResultadoConsultaNuloError(
-                "A biblioteca pandas não está instalada, " +
-                "ou nenhum dado foi passado a esse método"
-            )
-        else:
-            return dados
+        return dados
 
     def transforma_dicionario_em_objetos(self, dados, classe, modulo):
         """ Transforms the query results in a model object
