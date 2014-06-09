@@ -18,15 +18,13 @@ from app.controller import estatisticas_causas_controller as ctrl
 
 from app import myconfiguration
 
-from _mysql_exceptions import *
-
 
 class TestCausa(Controller_Tests):
 
-    """docstring for TestTipoCausa"""
+    """docstring for TestCausa"""
 
     def shortDescription(self):
-        return "Teste da classe TestTipoCausa"
+        return "Teste da classe TestCausa"
 
     def tearDown(self):
         myconfiguration.DB_PASS = self.db_password
