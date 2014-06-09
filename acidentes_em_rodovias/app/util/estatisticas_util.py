@@ -62,10 +62,15 @@ def desvio_padrao(lista):
     elevation_to_2 = 2
     square_root = 0.5
     array_initial = 0
-    total_mean = calculate_total_mean(lista)
-    for i in range(array_initial, len(lista)):
-        desvio = (i - total_mean) ** elevation_to_2
-    return (desvio / len(lista)) ** (square_root)
+    devition_for_None = -1
+    try:
+        total_mean = calculate_total_mean(lista)
+        for i in range(array_initial, len(lista)):
+            desvio = (i - total_mean) ** elevation_to_2
+        deviation = (desvio / len(lista)) ** (square_root) 
+    except TypeError as e:
+        deviation = devition_for_None
+    return deviation
 
 
 def media_sexo(homens, mulheres):
