@@ -43,9 +43,10 @@ class Test_Estatisticas(Util_Estatisticas):
     def test_estatisticas_desvio_padrao(self):
         f = []
         for i in range(30):
-            f.append(i)
+            f.append(0)
         self.assertIsNotNone(estatisticas_util.desvio_padrao(None))    
         self.assertIsNotNone(estatisticas_util.desvio_padrao(f))
+        self.assertEquals(5.291502622129181, estatisticas_util.desvio_padrao(f))
 
     def test_estatisticas_media_sexo(self):
         self.assertIsNone(None)
