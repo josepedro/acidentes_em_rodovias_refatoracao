@@ -45,20 +45,20 @@ def tipos_acidentes(request):
         probability_list = type_dao.probabilidade_tipos_acidentes()
         average_deviation_list = type_dao.media_desvio_tipos_acidentes()
 
-        type_list = []
-        for accident in probability_list:
-            type_list.append(accident.tipo)
+        type_list = get_type_list(probability_list)
 
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
-        return render_to_response(
+        response = render_to_response(
             "index.html", {
                 'erro': erro
             }, context_instance=RequestContext(request)
         )
 
-    return render_to_response(
+        return response
+
+    response = render_to_response(
         "tipos_acidentes.html", {
             'tipos_acidentes_list': types_accidents_list,
             'tipos_acidentes_ano_list': types_accidents_year_list,
@@ -68,3 +68,13 @@ def tipos_acidentes(request):
             'media_desvio_tipos_acidentes_list': average_deviation_list,
         }, context_instance=RequestContext(request)
     )
+
+    return response
+
+
+def get_type_list(probability_list):
+    type_list = []
+    for accident in probability_list:
+            type_list.append(accident.tipo)
+
+    return type_list
