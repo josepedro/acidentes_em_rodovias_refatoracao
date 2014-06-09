@@ -37,7 +37,8 @@ class Test_Estatisticas(Util_Estatisticas):
         for i in range(30):
             f.append(10)
         self.assertIsNotNone(estatisticas_util.calculate_total_mean(f))
-        
+        self.assertEquals(10, estatisticas_util.calculate_total_mean(f))
+
 
     def test_estatisticas_desvio_padrao(self):
         f = []
