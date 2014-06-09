@@ -33,9 +33,10 @@ class Test_Estatisticas(Util_Estatisticas):
         self.assertEquals(estatisticas_util.distribuicao_normal(100,50,0.5),0.5)        
 
     def test_estatisticas_desvio_padrao(self):
-        testando = "testando"
-        self.assertIsNotNone(testando)
+        f = []
+        for i in range(30):
+            f.append(i)
+        self.assertIsNotNone(estatisticas_util.desvio_padrao(f))
 
     def test_estatisticas_media_sexo(self):
-        testando = "testando"
-        self.assertIsNotNone(testando)
+        self.assertIsNone(None)
