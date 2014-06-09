@@ -30,7 +30,7 @@ from datetime import datetime
 
 # Logging config
 logging.basicConfig()
-## logger object
+# logger object
 logger = logging.getLogger(__name__)
 
 
@@ -41,34 +41,29 @@ def causas_acidentes(request):
     """
 
     try:
-        ## DAO object of causes
+        # DAO object of causes
         causes_dao = CausasAcidentesDAO()
-        ## List of causes 
+        # List of causes
         causes_list = causes_dao.causas_acidentes()
-        ## List of years by causes
+        # List of years by causes
         causes_year_list = causes_dao.causas_acidentes_ano()
-        ## List of statistics by causes
+        # List of statistics by causes
         probability_causes_list = causes_dao.probabilidade_causas_acidentes()
-        ## List of means
+        # List of means
         average_deviation_list = causes_dao.media_desvio_causas_acidentes()
 
-        # clean the list causes
-        #causes_list = []
-        #for accident in probability_causes_list:
-           # print accident.quantidade_acidente
-            #causes_list.append(accident.causa)
-
     except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
-        logger.error(str(e))
+        # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
-        return render_to_response(
+        response = render_to_response(
             "index.html", {
                 'erro': erro
             }, context_instance=RequestContext(request)
         )
 
+        return response
 
-    return render_to_response(
+    response = render_to_response(
         "causas_acidentes.html", {
             'causas_acidentes_list': causes_list,
             'causas_acidentes_ano_list': causes_year_list,
@@ -78,3 +73,5 @@ def causas_acidentes(request):
             'media_desvio_causas_acidentes_list': average_deviation_list,
         }, context_instance=RequestContext(request)
     )
+
+    return response

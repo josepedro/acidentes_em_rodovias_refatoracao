@@ -7,7 +7,7 @@ from tests_controller_index import TestControllerIndex
 from tests_controller_consultabasica_periodo import Test_Periodo
 from tests_controller_consultabasica_regiao import Test_Regiao
 # Estatisticas
-from tests_controller_estatistica_tipocausa import TestTipoCausa
+from tests_controller_estatistica_causa import TestCausa
 from tests_controller_estatistica_sexo import Test_Sexo
 from tests_controller_estatistica_envolvidos import Test_Envolvidos
 from tests_controller_estatistica_br import TestEstatisticaBR
