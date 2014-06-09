@@ -49,4 +49,4 @@ class Test_Estatisticas(Util_Estatisticas):
         self.assertEquals(5.291502622129181, estatisticas_util.desvio_padrao(f))
 
     def test_estatisticas_media_sexo(self):
-        self.assertIsNone(None)
+        self.assertIsNotNone(estatisticas_util.media_sexo(None))
