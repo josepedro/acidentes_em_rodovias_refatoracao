@@ -50,21 +50,21 @@ def distribuicao_normal(x, media, desvio):
 
 
 def total_mean(lista):
-    media_total = 0
+    total_mean = 0
     array_initial = 0
     for i in range(array_initial, len(lista)):
-        media_total = media_total + lista[i]
-    media_total = media_total / len(lista)
-    return media_total
-
+        total_mean = total_mean + lista[i]
+    total_mean = total_mean / len(lista)
+    return total_mean
 
 def desvio_padrao(lista):
     """ Calc standard deviation """
     elevation_to_2 = 2
     square_root = 0.5
-    media_total = total_mean(lista)
-    for i in range(0, len(lista)):
-        desvio = (i - media_total) ** elevation_to_2
+    array_initial = 0
+    total_mean = total_mean(lista)
+    for i in range(array_initial, len(lista)):
+        desvio = (i - total_mean) ** elevation_to_2
     return (desvio / len(lista)) ** (square_root)
 
 
