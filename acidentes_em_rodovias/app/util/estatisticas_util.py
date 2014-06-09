@@ -76,6 +76,7 @@ def desvio_padrao(lista):
 def media_sexo(homens, mulheres):
     """ Calc mean about men and women """
     porcent_division = 100
+    paramter_none = -1
     try:
         total = int(homens[0].quantidade) + int(mulheres[0].quantidade)
         for homem in homens:
@@ -84,5 +85,5 @@ def media_sexo(homens, mulheres):
             mulher.quantidade = float(mulher.quantidade) / float(total) * porcent_division
         return homens[0], mulheres[0]
     except TypeError as e:
-        return -1
+        return paramter_none
     
