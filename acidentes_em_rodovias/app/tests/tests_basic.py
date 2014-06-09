@@ -27,7 +27,7 @@ class Basic_Tests(SimpleTestCase):
         self.getName()
         out = '\r[DAO] Teste de ' + self.name + ' '
         out = '\r%s Teste de %s ' % (self.my_type, self.name)
-        out = out.ljust(65, '-')
+        out = out.ljust(70, '-')
         return out
 
     def tearDown(self):
