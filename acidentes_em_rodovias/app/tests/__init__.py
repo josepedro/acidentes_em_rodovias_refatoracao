@@ -25,3 +25,4 @@ from tests_dao_br_acidentes import Test_BR_Acidentes
 from tests_dao_uf_acidentes import Test_UF_Acidentes
 # Util
 from tests_util_validacao import Test_Valida
+from tests_util_estatisticas import Test_Estatisticas
