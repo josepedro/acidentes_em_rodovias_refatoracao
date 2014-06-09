@@ -20,8 +20,3 @@ __version__ = "1.0.1"
 __author__ = """Matheus Fonseca, Rodrigo Lopes Rincon, Paulo Borba,
 Gustavo Jaruga Cruz, Matheus Fernandes, José Pedro Santana,
 Carlos Oliveira, Bruno Amorim and Luiz Fernando Gomes de Oliveira"""
-
-if not "DJANGO_SETTINGS_MODULE" in _environ:
-    _environ.setdefault(
-        "DJANGO_SETTINGS_MODULE",
-        "acidentes_em_rodovias.settings")
