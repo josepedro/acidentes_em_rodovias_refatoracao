@@ -31,3 +31,13 @@ class Test_Estatisticas_UF(Controller_Tests):
         response = self.client.get('/acidentes_rodovias/estatisticas/uf')
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'uf_acidentes.html')
+
+    def test_database_connection(self):
+        myconfiguration.DB_PASS = ''
+
+        response = self.client.get('/acidentes_rodovias/estatisticas/uf')
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+        self.assertEquals(response.context[-1]['erro'],
+                          "Ocorreu um erro no sistema, tente novamente mais tarde!"
+                          )

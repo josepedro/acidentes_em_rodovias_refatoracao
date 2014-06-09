@@ -11,6 +11,7 @@ from tests_controller_estatistica_tipocausa import TestTipoCausa
 from tests_controller_estatistica_sexo import Test_Sexo
 from tests_controller_estatistica_envolvidos import Test_Envolvidos
 from tests_controller_estatistica_br import TestEstatisticaBR
+from tests_controller_estatistica_uf import Test_Estatisticas_UF
 # ------------DAO---------
 from tests_dao import TestDAO
 from tests_dao_municipio import TestMunicipio
