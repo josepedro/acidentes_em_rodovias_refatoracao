@@ -49,7 +49,7 @@ def distribuicao_normal(x, media, desvio):
     return probabilities
 
 
-def total_mean(lista):
+def calculate_total_mean(lista):
     total_mean = 0
     array_initial = 0
     for i in range(array_initial, len(lista)):
@@ -62,7 +62,7 @@ def desvio_padrao(lista):
     elevation_to_2 = 2
     square_root = 0.5
     array_initial = 0
-    total_mean = total_mean(lista)
+    total_mean = calculate_total_mean(lista)
     for i in range(array_initial, len(lista)):
         desvio = (i - total_mean) ** elevation_to_2
     return (desvio / len(lista)) ** (square_root)
