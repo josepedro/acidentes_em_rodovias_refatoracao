@@ -29,12 +29,12 @@ def valida_data(data):
     _MAX_DAY = 32
     _MAX_MONTH = 13
 
+    if data == "":
+        raise DataInvalidaError("Data invalida inserida: " + data)
+
     if (search('^[0-3]\d/[01]\d/\d{4}$', data) is None
             or int(data[0:2]) >= _MAX_DAY
             or int(data[3:5]) >= _MAX_MONTH):
-        raise DataInvalidaError("Data invalida inserida: " + data)
-
-    if data == "":
         raise DataInvalidaError("Data invalida inserida: " + data)
 
 

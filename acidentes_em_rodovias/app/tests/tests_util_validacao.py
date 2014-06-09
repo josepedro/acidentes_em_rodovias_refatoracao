@@ -33,6 +33,10 @@ class Test_Valida(Validate_Tests):
             self.assertFalse(validacao_util.valida_data(
                 "20 de março de 2013"
             ))
+        with self.assertRaises(DataInvalidaError):
+            self.assertFalse(validacao_util.valida_data(
+                ""
+            ))
 
     def test_valida_caracteres(self):
         with self.assertRaises(ParametroInseguroClienteError):
