@@ -16,14 +16,13 @@ accidents in the bank and exports them to the controller.
 """
 
 import sys
-import os
-import inspect
 
 from .generico_dao import GenericoDAO
 
-from app.models.causas_acidentes import *
+from app.models.causas_acidentes import AcidentesAno, ProbabilidadeAcidentes
+from app.models.causas_acidentes import MediaDesvioAcidentes
 
-from app.util.estatisticas_util import *
+from app.util.estatisticas_util import distribuicao_normal
 
 
 class CausasAcidentesDAO(GenericoDAO):
@@ -241,9 +240,11 @@ class CausasAcidentesDAO(GenericoDAO):
                     Receives a list with the standard deviation of each cause.
 
                 media_desvio_causas_acidentes_list -
-                    Receives a list with the media and the standard deviation of each cause.
+                    Receives a list with the media and the standard deviation
+                    of each cause.
 
-            @return A list of the media and standard deviation of accidents causes.
+            @return A list of the media and standard deviation of accidents
+            causes.
         """
         query = """SELECT causa, quantidade_ocorrencias, ano
                 FROM estatisticas_causa
