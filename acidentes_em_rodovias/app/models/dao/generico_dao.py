@@ -13,11 +13,6 @@ Data Access Object (DAO) para causa de acidentes nas BRs.
 This module contains the class declaration that accesses
 data in the database and exports them to the controller
 """
-
-import sys
-import os
-import inspect
-
 import app.myconfiguration as myconfiguration
 import MySQLdb
 import importlib
@@ -25,7 +20,7 @@ import logging
 
 import pandas.io.sql as psql
 
-from app.exception.internal_exceptions import *
+from app.exception.internal_exceptions import ResultadoConsultaNuloError
 
 # Logging config
 logging.basicConfig()
@@ -128,7 +123,7 @@ class GenericoDAO:
 
         try:
             chaves = dados.keys()
-        except AttributeError as e:
+        except AttributeError:
             raise ResultadoConsultaNuloError(
                 "A biblioteca pandas não está instalada," +
                 "ou nenhum dado foi passado a esse método"
