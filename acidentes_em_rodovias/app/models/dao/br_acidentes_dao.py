@@ -14,15 +14,9 @@ This module contains the class declaration that
 accesses the database relating to highway accidents
 in the bank and exports them to the controller.
 """
-
-
-import sys
-import os
-import inspect
-
 from .generico_dao import GenericoDAO
 
-from app.models.br_acidentes import *
+from app.models.br_acidentes import BRAcidentesAno
 
 
 class BRAcidentesDAO(GenericoDAO):
