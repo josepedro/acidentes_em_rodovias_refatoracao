@@ -8,24 +8,19 @@
 
 Parser responsable to return to HTML inquiry in time/period.
 """
-
-import sys
-import os
-import inspect
 import logging
 import MySQLdb
 
 from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
-from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
-from app.models.dao.ocorrencia_basica_dao import *
+from app.models.dao.ocorrencia_basica_dao import OcorrenciaBasicaDAO
 
-from app.exception.validation_exceptions import *
-from app.exception.internal_exceptions import *
+from app.exception.validation_exceptions import DataInvalidaError
+from app.exception.internal_exceptions import ResultadoConsultaNuloError
 
-from app.util.validacao_util import *
+from app.util.validacao_util import valida_data
 
 # Logging config
 logging.basicConfig()
@@ -59,7 +54,7 @@ def define_dates(request):
         start_date = str(request.GET['data_inicio'])
         # string with the final date
         end_date = str(request.GET['data_fim'])
-    except (MultiValueDictKeyError) as e:
+    except (MultiValueDictKeyError):
         raise MultiValueDictKeyError
 
     return start_date, end_date
@@ -75,7 +70,7 @@ def validate_date(start_date, end_date):
     try:
         valida_data(start_date)
         valida_data(end_date)
-    except DataInvalidaError as e:
+    except DataInvalidaError:
         raise DataInvalidaError("Data invalida")
 
     return True

@@ -28,7 +28,7 @@ class UfDAO(GenericoDAO):
 
             @brief Local variable:
 
-                query - 
+                query -
                     SQL instruction to query brazilian states
 
             @param limite   Limits the query result. Default 0.
