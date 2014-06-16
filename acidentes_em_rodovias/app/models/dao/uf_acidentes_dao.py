@@ -15,13 +15,9 @@ accesses the database relating to UF's accidents
 in the bank and exports them to the controller.
 """
 
-import sys
-import os
-import inspect
-
 from .generico_dao import GenericoDAO
 
-from app.models.uf_acidentes import *
+from app.models.uf_acidentes import UFAcidentes, UFAcidentesAno
 
 # List of coordinates of the capitals
 coordenadas_capitais = {
@@ -59,7 +55,7 @@ class UFAcidentesDAO(GenericoDAO):
 
     """Queries' accidents from UF's and accidents by UF per year
     """
-    
+
     def acidentes_uf_geral(self):
         """ Queries accidents from the Brazilian state's
 
@@ -67,22 +63,22 @@ class UFAcidentesDAO(GenericoDAO):
 
                 query -
                     SQL instruction to query accidents by UF
-                
+
                 resultado_query -
                     Saves the results from the query
-                    
+
                 uf_acidentes_list -
                     List of accidents by UF
-                    
+
                 uf -
                     Abreviature of the brazilians state's name
-                    
+
                 uf_acidentes -
                     Instance of UFAcidentes
 
             @return A list of objects containing the number of accidents by UF
         """
-        
+
         query = """SELECT ufe.uf,
                     SUM(ufe.quantidade_ocorrencias) AS quantidade_ocorrencias
                 FROM estatisticas_uf ufe
@@ -115,25 +111,26 @@ class UFAcidentesDAO(GenericoDAO):
 
                 query -
                     SQL instruction to query accidents by UF and year
-                
+
                 resultado_query -
                     Saves the results from the query
-                    
+
                 ufs_acidentes_ano -
                     Instance of UFAcidentesAnos
-                    
+
                 uf_acidentes_ano_list -
                     List of accidents by UF and year
-                    
+
                 ultima_uf -
                     Saves the last UF of accident listed, used for comparison.
-                    
+
                 uf_mais_acidentes -
                     Receives the ten states with more accidents
 
-            @return A list of objects containing the number of accidents by UF and year
+            @return A list of objects containing the number of accidents by UF
+            and year
         """
-        
+
         query = """SELECT u.tufdenominacao AS uf,
                     ufe.uf AS uf_sigla, ufe.quantidade_ocorrencias, ufe.ano
                 FROM estatisticas_uf ufe
