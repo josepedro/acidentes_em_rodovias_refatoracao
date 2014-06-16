@@ -15,7 +15,7 @@ accesses the database relating people who have suffered accidents
 in the bank and exports them to the controller.
 """
 
-from app.models.dao.generico_dao import *
+from app.models.dao.generico_dao import GenericoDAO
 
 
 class PessoasAcidentesDAO(GenericoDAO):
