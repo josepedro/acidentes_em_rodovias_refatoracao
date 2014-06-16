@@ -14,16 +14,9 @@ This module contains the class declaration that
 accesses the database relating to involved in
 accidents in the bank and exports them to the controller.
 """
-
-import sys
-import os
-import inspect
-
 from .generico_dao import GenericoDAO
 
-from app.models.envolvidos_acidentes import *
-
-from app.util.estatisticas_util import *
+from app.util.estatisticas_util import desvio_padrao
 
 
 class EnvolvidosAcidentesDAO(GenericoDAO):
