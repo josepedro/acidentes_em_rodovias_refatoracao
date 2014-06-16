@@ -9,9 +9,6 @@
 
 from .generico_dao import GenericoDAO
 
-from app.models.ocorrencia_basica import *
-from app.exception.validation_exceptions import *
-
 
 class OcorrenciaBasicaDAO(GenericoDAO):
 
@@ -33,7 +30,8 @@ class OcorrenciaBasicaDAO(GenericoDAO):
             list_of_ocurrences
                 Receives the list of occurrences per period.
 
-        @param municipio_id County's ID, returning the counties by each region selected.
+        @param municipio_id County's ID, returning the counties by each region
+        selected.
         @param limite Limits the number of registers in the Database.
         @return Method that transforms the query results in a model object.
         """
