@@ -6,24 +6,9 @@
 # Acidentes em Rodovias, 2013-2014
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
-
-import sys
-import os
-import inspect
-
 from app.tests.tests_basic import Controller_Tests
-from django.template import RequestContext, TemplateDoesNotExist, Context
-from django.utils.datastructures import MultiValueDictKeyError
 
 from app.controller import consultabasica_periodo_controller as ctrl
-from app.controller.consultabasica_periodo_controller import *
-
-from _mysql_exceptions import *
-
-from nose import with_setup
-
-from app.exception.validation_exceptions import *
-
 from app import myconfiguration
 
 

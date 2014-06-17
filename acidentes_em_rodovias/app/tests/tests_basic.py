@@ -46,6 +46,7 @@ class Validate_Tests(Basic_Tests):
         stderr.write(self.__str__())
         self.shortDescription()
 
+
 class Util_Estatisticas(Basic_Tests):
 
     """Basic test class to Util_Estatisticas"""
