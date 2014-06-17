@@ -6,22 +6,16 @@
 # Acidentes em Rodovias, 2013-2014
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
-
-import sys
-import os
-import inspect
-
 from app.tests.tests_basic import DAO_Tests
-from django.core.urlresolvers import reverse, resolve
-
-from app.models.dao import *
-from app.models import envolvidos_acidentes, causas_acidentes
-from app.models.dao.generico_dao import GenericoDAO
 
 from _mysql_exceptions import OperationalError, ProgrammingError
 
-from app.exception.internal_exceptions import *
-from app.exception.validation_exceptions import *
+from app.models import envolvidos_acidentes, causas_acidentes
+from app.models.dao.generico_dao import GenericoDAO
+
+from app.exception.internal_exceptions import ResultadoConsultaNuloError
+from app.exception.internal_exceptions import DataInvalidaError
+from app.exception.validation_exceptions import ParametroInseguroClienteError
 
 
 class TestDAO(DAO_Tests):
@@ -48,13 +42,13 @@ class TestDAO(DAO_Tests):
 
         self.dao = GenericoDAO()
 
-        ## Field to insert database
+        # Field to insert database
         self.dao.database = ' '
-        ## Field to insert user
+        # Field to insert user
         self.dao.usuario = ' '
-        ## Field to insert password
+        # Field to insert password
         self.dao.senha = ' '
-        ## Field to insert host
+        # Field to insert host
         self.dao.host = ' '
         # self.assertIsNone(self.dao.get_conexao())
         with self.assertRaises(OperationalError):
