@@ -6,15 +6,10 @@
 # Acidentes em Rodovias, 2013-2014
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
-
-from app.tests.tests_basic import Index_Tests
 from django.template import RequestContext, TemplateDoesNotExist
 
-from app.exception.validation_exceptions import *
-
+from app.tests.tests_basic import Index_Tests
 from app.controller import index_controller as ctrl
-
-from _mysql_exceptions import *
 
 
 class TestControllerIndex(Index_Tests):
