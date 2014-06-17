@@ -11,6 +11,7 @@ Calc some statistics methods.
 
 import os
 
+
 def open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal):
     value_standard = 0.5
     prev_path = os.path.dirname(os.path.abspath(__file__))
@@ -24,7 +25,7 @@ def open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal):
         tabela.append(l)
     try:
         probabilities = tabela[eixo_vertical][eixo_horizontal]
-    except TypeError as e:
+    except TypeError:
         probabilities = value_standard
 
     return probabilities
@@ -39,12 +40,14 @@ def distribuicao_normal(x, media, desvio):
         z = (x - media) / float(abs(desvio))
         z = abs(int(z * normalization) / normalization)
         eixo_vertical = int(z * adjust_vertical)
-        eixo_horizontal = int(z * normalization) - adjust_vertical * eixo_vertical
+        eixo_horizontal = int(
+            z * normalization) - adjust_vertical * eixo_vertical
         try:
-            probabilities = open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal)
-        except IndexError as e:
+            probabilities = open_table_values_gaussian_distribution(
+                eixo_vertical, eixo_horizontal)
+        except IndexError:
             probabilities = value_standard
-    except TypeError as e:
+    except TypeError:
         probabilities = value_standard
     return probabilities
 
@@ -57,6 +60,7 @@ def calculate_total_mean(lista):
     total_mean = total_mean / len(lista)
     return total_mean
 
+
 def desvio_padrao(lista):
     """ Calc standard deviation """
     elevation_to_2 = 2
@@ -67,8 +71,8 @@ def desvio_padrao(lista):
         total_mean = calculate_total_mean(lista)
         for i in range(array_initial, len(lista)):
             desvio = (i - total_mean) ** elevation_to_2
-        deviation = (desvio / len(lista)) ** (square_root) 
-    except TypeError as e:
+        deviation = (desvio / len(lista)) ** (square_root)
+    except TypeError:
         deviation = devition_for_None
     return deviation
 
@@ -80,10 +84,11 @@ def media_sexo(homens, mulheres):
     try:
         total = int(homens[0].quantidade) + int(mulheres[0].quantidade)
         for homem in homens:
-            homem.quantidade = float(homem.quantidade) / float(total) * porcent_division
+            homem.quantidade = float(
+                homem.quantidade) / float(total) * porcent_division
         for mulher in mulheres:
-            mulher.quantidade = float(mulher.quantidade) / float(total) * porcent_division
+            mulher.quantidade = float(
+                mulher.quantidade) / float(total) * porcent_division
         return homens[0], mulheres[0]
-    except TypeError as e:
+    except TypeError:
         return paramter_none
-    
