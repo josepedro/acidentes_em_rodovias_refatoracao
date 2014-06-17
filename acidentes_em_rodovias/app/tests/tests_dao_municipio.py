@@ -6,19 +6,8 @@
 # Acidentes em Rodovias, 2013-2014
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
-
-import sys
-import os
-import inspect
-
 from app.tests.tests_basic import DAO_Tests
-from django.core.urlresolvers import reverse, resolve
-
 from app.models.dao.municipio_dao import MunicipioDAO
-
-from _mysql_exceptions import OperationalError, ProgrammingError
-
-from app.exception.internal_exceptions import *
 
 
 class TestMunicipio(DAO_Tests):
@@ -37,7 +26,8 @@ class TestMunicipio(DAO_Tests):
 
     def test_list_municipio(self):
         """
-        Tests if the list of counties does not return null, in general and in a determined limit.
+        Tests if the list of counties does not return null, in general and in
+        a determined limit.
         """
 
         self.municipio = MunicipioDAO()
