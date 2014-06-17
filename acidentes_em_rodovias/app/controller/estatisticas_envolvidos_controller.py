@@ -9,26 +9,17 @@
 Parser responsable to return to HTML inquiry about statistics
 involved in the accident.
 """
-
-import sys
-import os
-import inspect
 import MySQLdb
 import logging
 
-# Adding upper directories to the Python Path
-#from app import *
-from app.util.estatisticas_util import *
-from app.exception.internal_exceptions import *
-from app.models.dao.envolvidos_acidentes_dao import *
-from app.models.dao.pessoas_acidentes_dao import *
+from app.util.estatisticas_util import media_sexo
+from app.exception.internal_exceptions import ResultadoConsultaNuloError
 
-from django.utils.datastructures import MultiValueDictKeyError
+from app.models.dao.envolvidos_acidentes_dao import EnvolvidosAcidentesDAO
+from app.models.dao.pessoas_acidentes_dao import PessoasAcidentesDAO
+
 from django.template import RequestContext
-from django.http import HttpResponse
 from django.shortcuts import render_to_response
-
-from datetime import datetime
 
 # Logging config
 logging.basicConfig()
@@ -77,7 +68,7 @@ def acidentes_sexo(request):
         women_general = people_dao.acidentes_por_sexo_geral('F')
         men_general, women_general = media_sexo(men_general, women_general)
 
-    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError):
         # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         response = render_to_response(
