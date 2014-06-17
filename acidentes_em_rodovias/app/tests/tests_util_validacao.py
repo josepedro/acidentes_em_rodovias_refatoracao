@@ -6,19 +6,12 @@
 # Acidentes em Rodovias, 2013-2014
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
-
-import sys
-import os
-import inspect
-
 from app.tests.tests_basic import Validate_Tests
-from django.template import RequestContext, TemplateDoesNotExist
 
-from app.exception.validation_exceptions import *
+from app.exception.validation_exceptions import DataInvalidaError
+from app.exception.validation_exceptions import ParametroInseguroClienteError
 
 from app.util import validacao_util
-
-from _mysql_exceptions import *
 
 
 class Test_Valida(Validate_Tests):
