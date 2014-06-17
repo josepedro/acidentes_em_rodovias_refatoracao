@@ -9,27 +9,16 @@
 Parser responsable to return to HTML the the abbreviation (UF)
 of the states from Brazil.
 """
-
-import sys
-import os
-import inspect
 import MySQLdb
 import logging
 
-from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
-from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
-from app.exception.validation_exceptions import *
-from app.exception.internal_exceptions import *
-
-from app.models.dao.uf_acidentes_dao import *
+from app.exception.internal_exceptions import ResultadoConsultaNuloError
+from app.models.dao.uf_acidentes_dao import UFAcidentesDAO
 
 from datetime import datetime
-
-# Adding upper directories to the Python Path
-from app import *
 
 """ Logging config """
 logging.basicConfig()
@@ -47,7 +36,7 @@ def acidentes_uf(request):
         uf_accidents_general = uf_dao.acidentes_uf_geral()
         uf_accidents_year = uf_dao.acidentes_uf_ano()
 
-    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError):
         # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         response = render_to_response(
