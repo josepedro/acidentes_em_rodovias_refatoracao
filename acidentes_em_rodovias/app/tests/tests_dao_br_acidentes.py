@@ -6,23 +6,12 @@
 # Acidentes em Rodovias, 2013-2014
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
-
-import sys
-import os
-import inspect
-
 from app.tests.tests_basic import DAO_Tests
-from django.core.urlresolvers import reverse, resolve
-
 from app.models.dao.br_acidentes_dao import BRAcidentesDAO
-from app.models import br_acidentes
-
-from _mysql_exceptions import OperationalError, ProgrammingError
-
-from app.exception.internal_exceptions import *
 
 
 class Test_BR_Acidentes(DAO_Tests):
+
     """
     Docstring for Test_BR_Acidentes
     Class that tests the methods from br_acidentes_dao
