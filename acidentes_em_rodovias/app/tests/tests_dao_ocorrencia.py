@@ -6,19 +6,8 @@
 # Acidentes em Rodovias, 2013-2014
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
-
-import sys
-import os
-import inspect
-
 from app.tests.tests_basic import DAO_Tests
-from django.core.urlresolvers import reverse, resolve
-
 from app.models.dao.ocorrencia_basica_dao import OcorrenciaBasicaDAO
-
-from _mysql_exceptions import OperationalError, ProgrammingError
-
-from app.exception.internal_exceptions import *
 
 
 class TestOcorrencia(DAO_Tests):
