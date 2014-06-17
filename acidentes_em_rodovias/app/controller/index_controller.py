@@ -8,20 +8,8 @@
 
 Parser responsable to return to HTML the index page.
 """
-
-import sys
-import os
-import inspect
-import MySQLdb
-import logging
-
-from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
-from django.http import HttpResponse
 from django.shortcuts import render_to_response
-
-# Adding upper directories to the Python Path
-from app import *
 
 
 def index(request):
