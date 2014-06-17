@@ -9,14 +9,9 @@
 
 Calc some statistics methods.
 """
-
-import sys
-import os
-import inspect
-
 from re import search
-from app.exception.validation_exceptions import *
-from app.exception.internal_exceptions import *
+from app.exception.validation_exceptions import DataInvalidaError
+from app.exception.validation_exceptions import ParametroInseguroClienteError
 
 
 def valida_data(data):
