@@ -11,9 +11,8 @@ from sys import stderr
 
 from django.test import Client
 from app.tests.tests_basic import Controller_Tests
-from django.template import RequestContext, TemplateDoesNotExist, Context
+from django.template import Context
 
-from django.utils.datastructures import MultiValueDictKeyError
 
 from app.controller import consultabasica_regiao_controller as ctrl
 
@@ -91,22 +90,25 @@ class Test_Regiao(Controller_Tests):
         )
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
-        self.assertEquals(response.context[-1]['erro'],
-                          "Ocorreu um erro no sistema, tente novamente mais tarde!"
-                          )
+        self.assertEquals(
+            response.context[-1]['erro'],
+            "Ocorreu um erro no sistema, tente novamente mais tarde!"
+        )
 
         response = self.client.get(
             '/acidentes_rodovias/municipios-regiao?uf_id=AC'
         )
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
-        self.assertEquals(response.context[-1]['erro'],
-                          "Ocorreu um erro no sistema, tente novamente mais tarde!"
-                          )
+        self.assertEquals(
+            response.context[-1]['erro'],
+            "Ocorreu um erro no sistema, tente novamente mais tarde!"
+        )
 
         response = self.client.get('/acidentes_rodovias/regiao')
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
-        self.assertEquals(response.context[-1]['erro'],
-                          "Ocorreu um erro no sistema, tente novamente mais tarde!"
-                          )
+        self.assertEquals(
+            response.context[-1]['erro'],
+            "Ocorreu um erro no sistema, tente novamente mais tarde!"
+        )
