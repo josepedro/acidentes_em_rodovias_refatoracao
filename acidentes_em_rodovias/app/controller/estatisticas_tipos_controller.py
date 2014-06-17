@@ -8,27 +8,14 @@
 
 Parser responsable to return to HTML inquiry about kinds of accidents.
 """
-
-import sys
-import os
-import inspect
 import MySQLdb
 import logging
 
-from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
-from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
-from app.exception.validation_exceptions import *
-from app.exception.internal_exceptions import *
-
-from app.models.dao.tipos_acidentes_dao import *
-
-from datetime import datetime
-
-# Adding upper directories to the Python Path
-from app import *
+from app.exception.internal_exceptions import ResultadoConsultaNuloError
+from app.models.dao.tipos_acidentes_dao import TiposAcidentesDAO
 
 # Logging config
 logging.basicConfig()
@@ -47,7 +34,7 @@ def tipos_acidentes(request):
 
         type_list = get_type_list(probability_list)
 
-    except (MySQLdb.Error, ResultadoConsultaNuloError) as e:
+    except (MySQLdb.Error, ResultadoConsultaNuloError):
         # logger.error(str(e))
         erro = "Ocorreu um erro no sistema, tente novamente mais tarde!"
         response = render_to_response(
