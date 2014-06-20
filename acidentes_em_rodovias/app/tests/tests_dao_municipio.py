@@ -7,7 +7,7 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 from app.tests.tests_basic import DAO_Tests
-from app.models.dao.municipio_dao import MunicipioDAO
+from app.dao.municipio_dao import MunicipioDAO
 
 
 class TestMunicipio(DAO_Tests):
