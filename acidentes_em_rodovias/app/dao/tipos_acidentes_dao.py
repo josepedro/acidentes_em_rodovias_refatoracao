@@ -223,7 +223,7 @@ class TiposAcidentesDAO(GenericoDAO):
                 List of averages.
             desvios_padroes_list -
                 List of standard deviations.
-            media_desvio_tipos_acidentes_list -
+            list_mean_type_accident -
                 Lists the average of the standard deviation for the different
                 accidents type.
 
@@ -242,15 +242,15 @@ class TiposAcidentesDAO(GenericoDAO):
             'tipo'
         )['quantidade_ocorrencias'].std()
 
-        media_desvio_tipos_acidentes_list = []
+        list_mean_type_accident = []
 
         for i in range(0, len(medias_list)):
             media_desvio_tipos_acidentes = MediaDesvioAcidentes()
             media_desvio_tipos_acidentes.media = medias_list[i]
             media_desvio_tipos_acidentes.desvio = desvios_padroes_list[i]
 
-            media_desvio_tipos_acidentes_list.append(
+            list_mean_type_accident.append(
                 media_desvio_tipos_acidentes
             )
 
-        return media_desvio_tipos_acidentes_list
+        return list_mean_type_accident
