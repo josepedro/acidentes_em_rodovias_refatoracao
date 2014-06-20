@@ -15,7 +15,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
-from app.models.dao.ocorrencia_basica_dao import OcorrenciaBasicaDAO
+from app.dao.ocorrencia_basica_dao import OcorrenciaBasicaDAO
 
 from app.exception.validation_exceptions import DataInvalidaError
 from app.exception.internal_exceptions import ResultadoConsultaNuloError
@@ -90,7 +90,7 @@ def build_list_occurences(start_date, end_date, request):
         occurrences_list = occurrences_dao.lista_ocorrencias_por_periodo(
             start_date, end_date, _MAX_QUERIES)
     except (MySQLdb.Error, ResultadoConsultaNuloError):
-        raise MySQLdb.Error, ResultadoConsultaNuloError
+        raise MySQLdb.Error(ResultadoConsultaNuloError)
 
     return occurrences_list
 
