@@ -10,7 +10,7 @@ echo 'Done'
 #echo 'Done'
 
 echo -n 'Running Pylint ... '
-pylint app --output-format=html > ../../Documents/pylint.html
+pylint app --output-format=html --ignore=tests> ../../Documents/pylint.html
 pylint app > ../../Documents/pylint.log
 echo 'Done'
 

@@ -29,7 +29,8 @@ class TestControllerEstatisticaTipo(Controller_Tests):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'tipos_acidentes.html')
 
-    def test_view_return_objects(self):
+    def test_view_object_returned(self):
+        """ Test object returned from view """
         response = self.client.get(
             '/acidentes_rodovias/estatisticas/tipos-acidentes'
         )
