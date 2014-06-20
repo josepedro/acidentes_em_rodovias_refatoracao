@@ -12,7 +12,8 @@ Calc some statistics methods.
 import os
 
 
-def open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal):
+def gaussian_distribution(eixo_vertical, eixo_horizontal):
+    """ Calculate the gaussian_distribution """
     value_standard = 0.5
     prev_path = os.path.dirname(os.path.abspath(__file__))
     arquivo_csv = open(
@@ -21,8 +22,8 @@ def open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal):
         "rb")
     tabela = []
     for linha in arquivo_csv:
-        l = [float(i.strip()) for i in linha.split(';')]
-        tabela.append(l)
+        line = [float(i.strip()) for i in linha.split(';')]
+        tabela.append(line)
     try:
         probabilities = tabela[eixo_vertical][eixo_horizontal]
     except TypeError:
@@ -31,19 +32,19 @@ def open_table_values_gaussian_distribution(eixo_vertical, eixo_horizontal):
     return probabilities
 
 
-def distribuicao_normal(x, media, desvio):
+def distribuicao_normal(x_point, media, desvio):
     """ Calc Normal distribution (Gaussian) """
     try:
         normalization = 100
         adjust_vertical = 10
         value_standard = 0.5
-        z = (x - media) / float(abs(desvio))
-        z = abs(int(z * normalization) / normalization)
-        eixo_vertical = int(z * adjust_vertical)
+        z_point = (x_point - media) / float(abs(desvio))
+        z_point = abs(int(z_point * normalization) / normalization)
+        eixo_vertical = int(z_point * adjust_vertical)
         eixo_horizontal = int(
-            z * normalization) - adjust_vertical * eixo_vertical
+            z_point * normalization) - adjust_vertical * eixo_vertical
         try:
-            probabilities = open_table_values_gaussian_distribution(
+            probabilities = gaussian_distribution(
                 eixo_vertical, eixo_horizontal)
         except IndexError:
             probabilities = value_standard
@@ -53,6 +54,7 @@ def distribuicao_normal(x, media, desvio):
 
 
 def calculate_total_mean(lista):
+    """ Calculate the mean total """
     total_mean = 0
     array_initial = 0
     for i in range(array_initial, len(lista)):
@@ -66,14 +68,14 @@ def desvio_padrao(lista):
     elevation_to_2 = 2
     square_root = 0.5
     array_initial = 0
-    devition_for_None = -1
+    devition_for_none = -1
     try:
         total_mean = calculate_total_mean(lista)
         for i in range(array_initial, len(lista)):
             desvio = (i - total_mean) ** elevation_to_2
         deviation = (desvio / len(lista)) ** (square_root)
     except TypeError:
-        deviation = devition_for_None
+        deviation = devition_for_none
     return deviation
 
 
