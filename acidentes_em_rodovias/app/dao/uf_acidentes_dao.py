@@ -89,15 +89,15 @@ class UFAcidentesDAO(GenericoDAO):
 
         uf_acidentes_list = []
 
-        for (uf, quantidade_ocorrencias) in zip(
+        for (uf_name, quantidade_ocorrencias) in zip(
             resultado_query['uf'].values(),
             resultado_query['quantidade_ocorrencias'].values()
         ):
-            uf = uf.decode('iso-8859-1').encode('utf8')
+            uf_name = uf_name.decode('iso-8859-1').encode('utf8')
             uf_acidentes = UFAcidentes()
-            uf_acidentes.uf = uf
-            uf_acidentes.latitude = coordenadas_capitais[uf][0]
-            uf_acidentes.longitude = coordenadas_capitais[uf][1]
+            uf_acidentes.uf = uf_name
+            uf_acidentes.latitude = coordenadas_capitais[uf_name][0]
+            uf_acidentes.longitude = coordenadas_capitais[uf_name][1]
             uf_acidentes.quantidade_ocorrencias = quantidade_ocorrencias
 
             uf_acidentes_list.append(uf_acidentes)
@@ -147,21 +147,21 @@ class UFAcidentesDAO(GenericoDAO):
         for i in self.acidentes_uf_geral()[:10]:
             ufs_mais_acidentes.append(i.uf)
 
-        for (uf, uf_sigla, quantidade_ocorrencias, ano) in zip(
+        for (uf_name, uf_sigla, quantidade_ocorrencias, ano) in zip(
             resultado_query['uf'].values(),
             resultado_query['uf_sigla'].values(),
             resultado_query['quantidade_ocorrencias'].values(),
             resultado_query['ano'].values()
         ):
-            uf = uf.decode('iso-8859-1').encode('utf8')
+            uf_name = uf_name.decode('iso-8859-1').encode('utf8')
             if (uf_sigla in ufs_mais_acidentes) is False:
                 continue
 
-            if (ultima_uf != uf):
+            if (ultima_uf != uf_name):
                 ufs_acidentes_ano = UFAcidentesAno()
                 uf_acidentes_ano_list.append(ufs_acidentes_ano)
-                ufs_acidentes_ano.uf = uf
-                ultima_uf = uf
+                ufs_acidentes_ano.uf = uf_name
+                ultima_uf = uf_name
 
             ufs_acidentes_ano.ano_list.append(ano)
             ufs_acidentes_ano.quantidade_ocorrencias_list.append(
