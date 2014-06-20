@@ -11,7 +11,7 @@ from app.tests.tests_basic import DAO_Tests
 from _mysql_exceptions import OperationalError, ProgrammingError
 
 from app.models import envolvidos_acidentes, causas_acidentes
-from app.models.dao.generico_dao import GenericoDAO
+from app.dao.generico_dao import GenericoDAO
 
 from app.exception.internal_exceptions import ResultadoConsultaNuloError
 from app.exception.internal_exceptions import DataInvalidaError
