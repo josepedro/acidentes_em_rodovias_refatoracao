@@ -16,17 +16,19 @@ for accidents in UF.
 
 from app.models.uf import Uf
 
+
 class UFAcidentes(Uf):
 
     """Model class for involved in accidents
     """
 
     def __init__(self):
-        ## Field to insert how many occurrences
+        super(UFAcidentes, self).__init__()
+        # Field to insert how many occurrences
         self.quantidade_ocorrencias = ''
-        ## Field to insert states' latitude
+        # Field to insert states' latitude
         self.latitude = 0.0
-        ## Field to insert states' longitude
+        # Field to insert states' longitude
         self.longitude = 0.0
 
 
@@ -36,7 +38,8 @@ class UFAcidentesAno(Uf):
     """
 
     def __init__(self):
-        ## Field to insert list with how many occurrences
+        super(UFAcidentesAno, self).__init__()
+        # Field to insert list with how many occurrences
         self.quantidade_ocorrencias_list = []
-        ## Field to insert list with years
+        # Field to insert list with years
         self.ano_list = []
