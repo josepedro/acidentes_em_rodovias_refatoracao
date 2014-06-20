@@ -15,7 +15,7 @@ accesses the database relating Brazilian municipalities
 in the bank and exports them to the controller.
 """
 
-from generico_dao import GenericoDAO
+from app.dao.generico_dao import GenericoDAO
 
 
 class MunicipioDAO(GenericoDAO):
