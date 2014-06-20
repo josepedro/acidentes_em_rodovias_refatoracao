@@ -19,12 +19,12 @@ class Municipio():
 
     """  Class to County """
 
-    ## county code table
+    # county code table
     tmucodigo = ''
-    ## county designation table
+    # county designation table
     tmudenominacao = ''
-    ## county designation table
+    # county designation table
     tmuuf = ''
 
     def __init__(self):
-    	pass
+        pass
