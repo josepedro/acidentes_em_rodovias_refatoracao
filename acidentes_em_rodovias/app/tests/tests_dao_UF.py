@@ -7,7 +7,7 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 from app.tests.tests_basic import DAO_Tests
-from app.models.dao.uf_dao import UfDAO
+from app.dao.uf_dao import UfDAO
 
 
 class TestUF(DAO_Tests):
