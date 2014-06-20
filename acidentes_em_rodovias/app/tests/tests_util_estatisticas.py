@@ -16,10 +16,10 @@ class Test_Estatisticas(Util_Estatisticas):
 
     def test_estatisticas_open_tables_values_gaussian(self):
         self.assertIsNotNone(
-            estatisticas_util.open_table_values_gaussian_distribution(
+            estatisticas_util.gaussian_distribution(
                 None, None))
         self.assertEquals(
-            estatisticas_util.open_table_values_gaussian_distribution(
+            estatisticas_util.gaussian_distribution(
                 None, None), 0.5)
 
     def test_estatisticas_distribuicao_normal(self):

@@ -36,10 +36,10 @@ class TestOcorrencia(DAO_Tests):
         """
 
         self.ocorrencia = OcorrenciaBasicaDAO()
-        _Brasilia = 97012
-        oco = self.ocorrencia.lista_ocorrencias_por_regiao(_Brasilia)
+        _brasilia = 97012
+        oco = self.ocorrencia.lista_ocorrencias_por_regiao(_brasilia)
         self.assertIsNotNone(oco)
-        oco = self.ocorrencia.lista_ocorrencias_por_regiao(_Brasilia, limite=3)
+        oco = self.ocorrencia.lista_ocorrencias_por_regiao(_brasilia, limite=3)
         self.assertIsNotNone(oco)
         self.assertLess(len(oco), 4)
 

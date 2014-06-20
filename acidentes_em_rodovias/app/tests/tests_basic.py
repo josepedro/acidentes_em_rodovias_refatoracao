@@ -10,6 +10,7 @@
 from django.test import SimpleTestCase, Client
 from sys import stderr
 from app import myconfiguration
+from app.dao.generico_dao import GenericoDAO
 
 
 class Basic_Tests(SimpleTestCase):
@@ -77,6 +78,7 @@ class DAO_Tests(Basic_Tests):
         self.my_type = '[DAO]'
         stderr.write(self.__str__())
         self.shortDescription()
+        self.dao = GenericoDAO()
 
 
 class Index_Tests(Basic_Tests):

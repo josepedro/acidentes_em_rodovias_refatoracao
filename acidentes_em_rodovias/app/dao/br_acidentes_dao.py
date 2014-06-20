@@ -48,22 +48,45 @@ class BRAcidentesDAO(GenericoDAO):
         )
 
     def populate_queries(self, query_result):
+        """ Populate the Queries
+
+            @brief Local variable:
+
+                query -
+                    SQL instruction to query accidents from highways per year
+
+                query_result -
+                    Saves the results from the query
+
+                last_br -
+                    Saves the last type of accident listed, used for comparison
+
+                br_name -
+                    Highway's name
+
+                br_accidents_year_list -
+                    List of accidents per year
+
+                brs_accidents_year -
+                    A instance of BRAcidentesAno
+        """
+
         last_br = ''
         br_accidents_year_list = []
 
         # Populate list of Queries
-        for (br, amount_occurrences, year) in zip(
+        for (br_name, amount_occurrences, year) in zip(
                 query_result['br'].values(),
                 query_result['quantidade_ocorrencias'].values(),
                 query_result['ano'].values()
         ):
-            br = br.decode('iso-8859-1').encode('utf8')
+            br_name = br_name.decode('iso-8859-1').encode('utf8')
 
-            if (last_br != br):
+            if (last_br != br_name):
                 brs_accidents_year = BRAcidentesAno()
                 br_accidents_year_list.append(brs_accidents_year)
-                brs_accidents_year.br = br
-                last_br = br
+                brs_accidents_year.br = br_name
+                last_br = br_name
 
             brs_accidents_year.ano_list.append(year)
             brs_accidents_year.quantidade_ocorrencias_list.append(
@@ -86,7 +109,7 @@ class BRAcidentesDAO(GenericoDAO):
                 last_br -
                     Saves the last type of accident listed, used for comparison
 
-                br -
+                br_name -
                     Highway's name
 
                 br_accidents_year_list -

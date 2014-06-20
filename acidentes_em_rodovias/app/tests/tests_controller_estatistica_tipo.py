@@ -22,6 +22,7 @@ class TestControllerEstatisticaTipo(Controller_Tests):
         myconfiguration.DB_PASS = self.db_password
 
     def test_response_causas_acidentes(self):
+        """ Test for response """
         response = self.client.get(
             '/acidentes_rodovias/estatisticas/tipos-acidentes'
         )
@@ -45,6 +46,7 @@ class TestControllerEstatisticaTipo(Controller_Tests):
             response.context[-1]['media_desvio_tipos_acidentes_list'])
 
     def test_database_connection(self):
+        """ Test for database connection """
         myconfiguration.DB_PASS = ''
 
         response = self.client.get(
