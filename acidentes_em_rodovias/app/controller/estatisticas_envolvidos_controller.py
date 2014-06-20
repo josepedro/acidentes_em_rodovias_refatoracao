@@ -15,8 +15,8 @@ import logging
 from app.util.estatisticas_util import media_sexo
 from app.exception.internal_exceptions import ResultadoConsultaNuloError
 
-from app.models.dao.envolvidos_acidentes_dao import EnvolvidosAcidentesDAO
-from app.models.dao.pessoas_acidentes_dao import PessoasAcidentesDAO
+from app.dao.envolvidos_acidentes_dao import EnvolvidosAcidentesDAO
+from app.dao.pessoas_acidentes_dao import PessoasAcidentesDAO
 
 from django.template import RequestContext
 from django.shortcuts import render_to_response
