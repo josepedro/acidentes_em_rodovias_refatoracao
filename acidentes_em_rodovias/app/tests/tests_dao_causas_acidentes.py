@@ -8,7 +8,7 @@
 #
 from app.tests.tests_basic import DAO_Tests
 
-from app.models.dao.causas_acidentes_dao import CausasAcidentesDAO
+from app.dao.causas_acidentes_dao import CausasAcidentesDAO
 
 
 class TestCausasAcidentes(DAO_Tests):
