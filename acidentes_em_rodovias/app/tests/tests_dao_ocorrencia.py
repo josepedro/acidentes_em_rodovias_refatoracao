@@ -7,7 +7,7 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 from app.tests.tests_basic import DAO_Tests
-from app.models.dao.ocorrencia_basica_dao import OcorrenciaBasicaDAO
+from app.dao.ocorrencia_basica_dao import OcorrenciaBasicaDAO
 
 
 class TestOcorrencia(DAO_Tests):
