@@ -15,9 +15,9 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
-from app.models.dao.uf_dao import UfDAO
-from app.models.dao.municipio_dao import MunicipioDAO
-from app.models.dao.ocorrencia_basica_dao import OcorrenciaBasicaDAO
+from app.dao.uf_dao import UfDAO
+from app.dao.municipio_dao import MunicipioDAO
+from app.dao.ocorrencia_basica_dao import OcorrenciaBasicaDAO
 
 from app.exception.validation_exceptions import ParametroInseguroClienteError
 from app.exception.internal_exceptions import ResultadoConsultaNuloError
