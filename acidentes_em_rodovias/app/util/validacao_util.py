@@ -21,15 +21,15 @@ def valida_data(data):
     @param data Date to be validate.
     """
 
-    _MAX_DAY = 32
-    _MAX_MONTH = 13
+    _max_day = 32
+    _max_month = 13
 
     if data == "":
         raise DataInvalidaError("Data invalida inserida: " + data)
 
     if (search('^[0-3]\d/[01]\d/\d{4}$', data) is None
-            or int(data[0:2]) >= _MAX_DAY
-            or int(data[3:5]) >= _MAX_MONTH):
+            or int(data[0:2]) >= _max_day
+            or int(data[3:5]) >= _max_month):
         raise DataInvalidaError("Data invalida inserida: " + data)
 
 
@@ -41,7 +41,7 @@ def valida_caracteres(palavra):
     are valid.
     """
 
-    if (search('^[\w\s]+$', str(palavra)) is None):
+    if search('^[\w\s]+$', str(palavra)) is None:
         raise ParametroInseguroClienteError(
             "Parametro invalido inserido: " +
             palavra)
