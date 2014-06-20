@@ -11,12 +11,15 @@
  Brazilian federal highways.
 """
 
-from os import environ as _environ
-
+# Copyright
 __copyright__ = "Copyright 2007, The Cogent Project"
+# License type
 __license__ = "GPL"
+# Date release
 __date__ = '2013-2014'
+# Actual version
 __version__ = "1.0.1"
+# Authors
 __author__ = """Matheus Fonseca, Rodrigo Lopes Rincon, Paulo Borba,
 Gustavo Jaruga Cruz, Matheus Fernandes, José Pedro Santana,
 Carlos Oliveira, Bruno Amorim and Luiz Fernando Gomes de Oliveira"""
