@@ -15,7 +15,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 
 from app.exception.internal_exceptions import ResultadoConsultaNuloError
-from app.models.dao.br_acidentes_dao import BRAcidentesDAO
+from app.dao.br_acidentes_dao import BRAcidentesDAO
 
 from datetime import datetime
 
