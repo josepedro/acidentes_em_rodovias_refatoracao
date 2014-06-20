@@ -62,6 +62,6 @@ def tipos_acidentes(request):
 def get_type_list(probability_list):
     type_list = []
     for accident in probability_list:
-            type_list.append(accident.tipo)
+        type_list.append(accident.tipo)
 
     return type_list
