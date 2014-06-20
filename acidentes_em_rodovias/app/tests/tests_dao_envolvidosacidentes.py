@@ -7,7 +7,7 @@
 # GitHub: https://github.com/josepedro/acidentes_em_rodovias_refatoracao
 #
 from app.tests.tests_basic import DAO_Tests
-from app.models.dao.envolvidos_acidentes_dao import EnvolvidosAcidentesDAO
+from app.dao.envolvidos_acidentes_dao import EnvolvidosAcidentesDAO
 
 from datetime import datetime
 
