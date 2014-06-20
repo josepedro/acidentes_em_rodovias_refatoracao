@@ -35,7 +35,7 @@ class OcorrenciaBasicaDAO(GenericoDAO):
         @param limite Limits the number of registers in the Database.
         @return Method that transforms the query results in a model object.
         """
-        if(limite != 0):
+        if limite != 0:
             limite = 'LIMIT %s' % limite
         else:
             limite = ''
@@ -68,9 +68,9 @@ class OcorrenciaBasicaDAO(GenericoDAO):
                 WHERE oco.ocomunicipio = %s
                 %s;""" % (municipio_id, limite)
 
-        occurrences_by_region_SQL = self.executa_query(query)
+        occurrences_by_region_sql = self.executa_query(query)
         list_of_ocurrences = self.transforma_dicionario_em_objetos(
-            occurrences_by_region_SQL,
+            occurrences_by_region_sql,
             "OcorrenciaBasica",
             "ocorrencia_basica"
         )
@@ -94,7 +94,7 @@ class OcorrenciaBasicaDAO(GenericoDAO):
         @param limite Limits the number of registers in the Database.
         @return List of occurences per period.
         """
-        if(limite != 0):
+        if limite != 0:
             limite = 'LIMIT %s' % limite
         else:
             limite = ''
@@ -139,9 +139,9 @@ class OcorrenciaBasicaDAO(GenericoDAO):
             limite
         )
 
-        occurrences_by_period_SQL = self.executa_query(query)
+        occurrences_by_period_sql = self.executa_query(query)
         list_of_ocurrences = self.transforma_dicionario_em_objetos(
-            occurrences_by_period_SQL,
+            occurrences_by_period_sql,
             "OcorrenciaBasica",
             "ocorrencia_basica"
         )
