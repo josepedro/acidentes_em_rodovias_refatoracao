@@ -17,7 +17,7 @@ from django.shortcuts import render_to_response
 
 from app.exception.internal_exceptions import ResultadoConsultaNuloError
 
-from app.models.dao.causas_acidentes_dao import CausasAcidentesDAO
+from app.dao.causas_acidentes_dao import CausasAcidentesDAO
 
 # Logging config
 logging.basicConfig()
